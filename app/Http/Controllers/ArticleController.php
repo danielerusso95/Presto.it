@@ -6,7 +6,12 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
-{
+{   
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['show','index']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +43,8 @@ class ArticleController extends Controller
         $article = Article::create([
             'title'=> $request->title,
             'body'=> $request->body,
-            'img'=> 'https://picsum.photos/200/300'
+            'img'=> 'https://picsum.photos/200/300',
+            'category_id'=>$request->category
         ]);
         return redirect()->back()->with('message','Complimenti, annuncio creato con successo!');
     }
