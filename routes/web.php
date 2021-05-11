@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//CRUD ARTICLES
+Route::get('/crea/annuncio', [ArticleController::class, 'create'])->name('article.create');
+Route::post('/salva/annuncio', [ArticleController::class, 'store'])->name('article.store');
