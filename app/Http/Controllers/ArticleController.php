@@ -35,7 +35,12 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $article = Article::create([
+            'title'=> $request->title,
+            'body'=> $request->body,
+            'img'=> 'https://picsum.photos/200/300'
+        ]);
+        return redirect()->back()->with('message','Complimenti, annuncio creato con successo!');
     }
 
     /**
