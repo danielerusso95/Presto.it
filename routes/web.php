@@ -26,3 +26,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //CRUD ARTICLES
 Route::get('/crea/annuncio', [ArticleController::class, 'create'])->name('article.create');
 Route::post('/salva/annuncio', [ArticleController::class, 'store'])->name('article.store');
+
+Route::get('/tutti/gli/annunci', [ArticleController::class, 'index'])->name('article.index');
+Route::get('/mostra/articolo/{article}', [ArticleController::class, 'show'])->name('article.show');
+
+

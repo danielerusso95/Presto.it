@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class ArticleController extends Controller
 {   
@@ -11,6 +13,8 @@ class ArticleController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except(['show','index']);
+        $articles = Article::all();
+        View::share('articles',$articles);
     }
     /**
      * Display a listing of the resource.
@@ -19,7 +23,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        return view ('article.index');
     }
 
     /**
@@ -43,8 +47,9 @@ class ArticleController extends Controller
         $article = Article::create([
             'title'=> $request->title,
             'body'=> $request->body,
-            'img'=> 'https://picsum.photos/200/300',
-            'category_id'=>$request->category
+            'img'=> 'https://picsum.photos/200',
+            'category_id'=>$request->category,
+            'price'=>$request->price
         ]);
         return redirect()->back()->with('message','Complimenti, annuncio creato con successo!');
     }
@@ -57,7 +62,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('article.show', compact('article'));
     }
 
     /**

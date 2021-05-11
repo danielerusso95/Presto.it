@@ -19,6 +19,10 @@
                     <input type="text" name="title" class="form-control" id="title" aria-describedby="title">
                 </div>
                 <div class="mb-3">
+                    <label for="price" class="form-label">Prezzo:</label>
+                    <input type="text" name="price" class="form-control" id="price" aria-describedby="price">
+                </div>
+                <div class="mb-3">
                     <label for="body" class="form-label">Descrizione:</label>
                     <textarea name="body" id="body" cols="30" rows="10" class="form-control"></textarea>
                 </div>
