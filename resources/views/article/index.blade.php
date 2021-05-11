@@ -16,6 +16,13 @@
             </div>
         @endforeach
     </div>
+    <div class="container mb-5">
+        @foreach ($articles as $article)
+            {{ $article->name }}
+        @endforeach
+    </div>
+
+    {{ $articles->links() }}
 </div>
 
 </x-layout>

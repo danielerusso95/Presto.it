@@ -9,16 +9,17 @@
     {{$style ?? ''}}
 </head>
 <body>
-    
+
     <x-_navbar />
 
     {{$slot}}
-
+    <div style="height: 20vh"></div>
     <x-_footer />
 
     <script src="/js/app.js"></script>
 
+
     @stack('scripts')
-    
+
 </body>
 </html>

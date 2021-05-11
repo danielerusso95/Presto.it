@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
 class ArticleController extends Controller
-{   
+{
 
     public function __construct()
     {
         $this->middleware('auth')->except(['show','index']);
-        $articles = Article::all();
+        $articles = Article::orderByDesc('created_at')->paginate(6);
         View::share('articles',$articles);
     }
     /**
