@@ -10832,3 +10832,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.masthead {
+  height: 100%;
+  min-height: 500px;
+  background-image: url("/img/bg_bggenerator_com.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
