@@ -1,9 +1,11 @@
 <x-layout>
     <h3 class="mt-5 text-center">Ecco gli ultimi 5 articoli inseriti</h3>
-    <div class="container mt-5">
+    <div class="container-fluid d-flex justify-content-center mt-5">
         <div class="row">
-            @foreach($articles_home as $article)
-                   <div class="col-12 col-md-4 mb-5">
+            <div class="col-12">
+                    @foreach($articles_home as $article)
+                   
+                    <div class="col-12 mb-5">
                     <div class="card mx-auto" style="width: 18rem;">
                         <img src="{{$article->img}}" class="card-img-top" alt="image random">
                         <div class="card-body">
@@ -13,8 +15,9 @@
                             <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">Visualizza</a>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                    </div>
+                    @endforeach
+            </div>
         </div>
     </div>
 </x-layout>

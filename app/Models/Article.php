@@ -10,6 +10,6 @@ class Article extends Model
     use HasFactory;
     protected $fillable = ['title', 'body', 'img','category_id', 'price'];
     public function categories(){
-        $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
 }

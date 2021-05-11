@@ -1,5 +1,13 @@
 <x-layout>
-<h3 class="mt-5 text-center">Indice degli annunci</h3>
+<div class="container  p-5">
+    <div class="row bg-white">
+        <div class="col-12 text-center">
+            @foreach ($categories as $category)
+                <a href="{{route('article.index')}}" class="mx-4">{{$category->name}}</a>
+            @endforeach
+        </div>
+    </div>
+</div>
 <div class="container mt-5">
     <div class="row">
         @foreach($articles as $article)
@@ -17,12 +25,16 @@
         @endforeach
     </div>
     <div class="container mb-5">
-        @foreach ($articles as $article)
-            {{ $article->name }}
-        @endforeach
+        <div class="row justify-content-center">
+            <div class="col-12">
+                @foreach ($articles as $article)
+                    {{ $article->name }}
+                @endforeach
+            </div>
+        </div>
     </div>
 
-    {{ $articles->links() }}
+
 </div>
 
 </x-layout>
