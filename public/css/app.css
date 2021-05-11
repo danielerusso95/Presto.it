@@ -10840,3 +10840,8 @@ textarea.form-control-lg {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+* {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+}

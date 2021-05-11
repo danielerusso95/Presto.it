@@ -3,8 +3,8 @@
 <div class="container mt-5">
     <div class="row">
         @foreach($articles as $article)
-            <div class="col-12 col-md-4 mb-5">
-                <div class="card" style="width: 18rem;">
+            <div class="col-12 col-md-4 mb-5 ">
+                <div class="card mx-auto" style="width: 18rem;">
                     <img src="{{$article->img}}" class="card-img-top" alt="image random">
                     <div class="card-body">
                         <h5 class="card-title">Titolo: {{$article->title}}</h5>
