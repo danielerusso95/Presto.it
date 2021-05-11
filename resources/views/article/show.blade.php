@@ -9,6 +9,7 @@
                     <h5 class="card-title">Titolo: {{$article->title}}</h5>
                     <p class="card-subtitle">Prezzo: {{$article->price}}</p>
                     <p class="card-text">Descrizione: {{$article->body}}</p>
+                    <p>Annuncio inserito il: {{$article->created_at}}</p>
                 </div>
             </div>
         </div>
