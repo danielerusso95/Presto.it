@@ -3,18 +3,20 @@
         {{session('message')}}
 
     @endif
-<div class="container">
+    <h3 class="mt-5 text-center">Compila il form e crea il tuo annuncio</h3>
+<div class="container mt-5">
     <div class="row">
         <div class="col-12">
             <form action="{{route('article.store')}}" method="POST">
                 @csrf
+                <label for="category" class="form-label">Seleziona la categoria:</label>
                 <select class="form-select" name="category" id="category" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
+                    <option selected>Categorie</option>
                     @foreach ($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
-                  </select>
-                <div class="mb-3">
+                </select>
+                <div class="mb-3 mt-3">
                     <label for="title" class="form-label">Titolo:</label>
                     <input type="text" name="title" class="form-control" id="title" aria-describedby="title">
                 </div>
