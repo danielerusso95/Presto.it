@@ -16,19 +16,15 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Annunci
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{{route('article.index')}}">Tutti gli annunci</a></li>
             <li><a class="dropdown-item" href="{{route('article.create')}}">Crea Annuncio</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+
           </ul>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-      <ul class="navbar-nav me-5 pe-2">
+
+      <ul class="navbar-nav pe-2">
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item">

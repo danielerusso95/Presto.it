@@ -1,24 +1,23 @@
 <x-layout>
-    <div class="container p-5">
-        <h2 class="my-4">Page Heading
-        </h2>
-        <div class="row">
-          <div class="col-md-8" id="wrapper">
-            <img class="img-fluid" src="{{$article->images->first()->img1}}" alt="">
+    <div class="container-fluid p-5">
+        <h2 class="my-4">Titolo: {{$article->title}}</h2>
+        <div class="row justify-content-around">
+          <div class="col-md-8 d-flex justify-content-center mb-5" id="wrapper">
+            <img class="img-fluid" src="{{$article->images->first()->img1}}500" alt="">
           </div>
           <div class="col-md-4">
-                <h3 class="my-3">Titolo: {{$article->title}}</h3>
+
                 <h3 class="my-3">Dettagli annuncio</h3>
                 <ul>
-                <li>Prezzo: {{$article->price}}</li>
+                <li>Prezzo: {{$article->price}} €</li>
                 <li>Categoria: {{$article->category->name}}</li>
                 <li>Autore: {{$article->user->name}}</li>
                 </ul>
                 <p>Descrizione: {{$article->body}}</p>
             </div>
         </div>
-        <h3 class="my-4">Related Members</h3>
-        <div id="staffWrapper" class="row">
+
+        <div id="staffWrapper" class="row justify-content-around mt-5">
         </div>
     <script>
           let article = {!! json_encode($article) !!};
@@ -27,26 +26,37 @@
         for (let i = 1; i <= 5; i++) {
             images.push(article['images'][0]['img' + i]);
         }
-        
+
           let wrapper = document.querySelector("#staffWrapper");
-        
+
           images.forEach((member) => {
             wrapper.innerHTML+=`
                 <div class="col-md-2 col-sm-6 mb-4">
                     <a href="#">
-                        <img class="member" class="img-fluid" src="${member}" alt="">
+                        <img class="member" class="img-fluid" src="${member}200" alt="">
                     </a>
                 </div>
                 `;
           });
         let members = document.querySelectorAll(".member");
-     
+        let placeholder;
+        let splitholder;
         for (let i = 0; i < members.length; i++) {
             members[i].addEventListener("click",()=>{
                 img = members[i];
+                placeholder = img.getAttribute('src');
+                splitholder=placeholder.split('/');
+
+
+
+                splitholder[3] = '';
+                placeholder = splitholder.join('/');
+                console.log(placeholder);
+
                 let wra = document.querySelector("#wrapper");
-                wra.innerHTML=img.outerHTML;
-                
+
+                wra.innerHTML= `<img class="member" class="img-fluid" src="${placeholder}500" alt="">`;
+
             });
         };
     </script>

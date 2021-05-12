@@ -58,11 +58,11 @@ class ArticleController extends Controller
 
         ]);
         $image = Image::create([
-            'img1'=> 'https://picsum.photos/200',
-            'img2'=> 'https://via.placeholder.com/200',
-            'img3'=> 'https://picsum.photos/200',
-            'img4'=> 'https://via.placeholder.com/200',
-            'img5'=> 'https://picsum.photos/200',
+            'img1'=> 'https://picsum.photos/',
+            'img2'=> 'https://via.placeholder.com/',
+            'img3'=> 'https://picsum.photos/',
+            'img4'=> 'https://via.placeholder.com/',
+            'img5'=> 'https://picsum.photos/',
             'article_id'=> $article->id
         ]);
         return redirect()->back()->with('message','Complimenti, annuncio creato con successo!');
