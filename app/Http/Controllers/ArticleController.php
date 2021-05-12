@@ -59,9 +59,9 @@ class ArticleController extends Controller
         ]);
         $image = Image::create([
             'img1'=> 'https://picsum.photos/200',
-            'img2'=> 'https://picsum.photos/200',
+            'img2'=> 'https://via.placeholder.com/200',
             'img3'=> 'https://picsum.photos/200',
-            'img4'=> 'https://picsum.photos/200',
+            'img4'=> 'https://via.placeholder.com/200',
             'img5'=> 'https://picsum.photos/200',
             'article_id'=> $article->id
         ]);

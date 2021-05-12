@@ -2,11 +2,10 @@
     <div class="container p-5">
         <h2 class="my-4">Page Heading
         </h2>
-        <div class="row" id="wrapper">
-          <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-8" id="wrapper">
             <img class="img-fluid" src="{{$article->images->first()->img1}}" alt="">
           </div>
-
           <div class="col-md-4">
                 <h3 class="my-3">Titolo: {{$article->title}}</h3>
                 <h3 class="my-3">Dettagli annuncio</h3>
@@ -25,49 +24,29 @@
           let article = {!! json_encode($article) !!};
           let images = [];
 
-           for (let i = 1; i <= 5; i++) {
-
-              images.push(article['images'][0]['img' + i]);
-
-          }
-          console.log(images);
+        for (let i = 1; i <= 5; i++) {
+            images.push(article['images'][0]['img' + i]);
+        }
+        
           let wrapper = document.querySelector("#staffWrapper");
-          console.log(article['images']);
+        
           images.forEach((member) => {
             wrapper.innerHTML+=`
                 <div class="col-md-2 col-sm-6 mb-4">
-                    <a class="member" href="#">
-                        <img class="img-fluid" src="${member}" alt="">
+                    <a href="#">
+                        <img class="member" class="img-fluid" src="${member}" alt="">
                     </a>
-
-
                 </div>
                 `;
           });
         let members = document.querySelectorAll(".member");
-
+     
         for (let i = 0; i < members.length; i++) {
-
             members[i].addEventListener("click",()=>{
+                img = members[i];
                 let wra = document.querySelector("#wrapper");
-                let img = document.querySelectorAll(".name");
-                images.forEach(member=>{
-                    if(member["fullname"] == name[i].innerHTML){
-                        wra.innerHTML=`<div class="col-md-8">
-                        <img class="img-fluid" src="${member["photo"]}/500" alt="">
-                        </div>
-                        <div class="col-md-4">
-                            <h3 class="my-3">Member Description</h3>
-                            <p>${member["bio"]}</p>
-                            <h3 class="my-3">Member Details</h3>
-                            <ul>
-                            <li>${member["fullname"]}</li>
-                            <li>${member["level"]}</li>
-                            <li>${member["tasks"]}</li>
-                            </ul>
-                        </div>`
-                    }
-                });
+                wra.innerHTML=img.outerHTML;
+                
             });
         };
     </script>
