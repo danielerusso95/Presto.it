@@ -3,7 +3,7 @@
     <div class="row bg-white">
         <div class="col-12 text-center">
             @foreach ($categories as $category)
-                <a href="{{route('article.index')}}" class="mx-4">{{$category->name}}</a>
+                <a href="{{route('article.index', compact('category'))}}" class="mx-4">{{$category->name}}</a>
             @endforeach
         </div>
     </div>

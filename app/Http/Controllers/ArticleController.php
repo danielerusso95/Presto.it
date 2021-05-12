@@ -22,9 +22,9 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     { 
-        return view ('article.index');
+        return view ('article.index', compact('category'));
     }
 
     /**
