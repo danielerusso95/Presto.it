@@ -2,16 +2,16 @@
 <div class="container  p-5">
     <div class="row bg-white">
         <div class="col-12 text-center">
-            @foreach ($categories as $category)
-                <a href="{{route('article.index', compact('category', 'articles_category'))}}" class="mx-4">{{$category->name}}</a>
+            @foreach ($categories as $cate)
+                <a href="{{route('article.index', compact('cate', 'articles_category'))}}" class="mx-4">{{$cate->name}}</a>
             @endforeach
         </div>
     </div>
 </div>
 <div class="container mt-5">
     <div class="row">
-
-        @if($category->articles->isNotEmpty())
+        @if($category->id)
+        <div class="col-12"><h3 class="text-center mb-5">Ecco gli articoli della categoria {{$category->name}}</h3></div>
         @foreach($articles_category as $article)
         <div class="col-12 col-md-4 mb-5 ">
             <div class="card mx-auto" style="width: 18rem;">
@@ -26,6 +26,7 @@
         </div>
         @endforeach
         @else
+        <div class="col-12"><h3 class="text-center mb-5">Ecco tutti gli articoli</h3></div>
             @foreach($articles as $article)
                 <div class="col-12 col-md-4 mb-5 ">
                     <div class="card mx-auto" style="width: 18rem;">

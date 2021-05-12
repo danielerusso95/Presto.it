@@ -27,7 +27,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/crea/annuncio', [ArticleController::class, 'create'])->name('article.create');
 Route::post('/salva/annuncio', [ArticleController::class, 'store'])->name('article.store');
 
-Route::get('/tutti/gli/articoli/{category?}/{articles_category?}', [ArticleController::class, 'index'])->name('article.index');
+Route::get('/tutti/gli/articoli/{cate?}/{articles_category?}', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/mostra/articolo/{article}', [ArticleController::class, 'show'])->name('article.show');
 
 

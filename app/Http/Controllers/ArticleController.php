@@ -22,9 +22,10 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Category $category)
+    public function index(Category $cate)
     { 
-        $articles_category = $category->articles()->paginate(6);
+        $articles_category = $cate->articles()->paginate(6);
+        $category = $cate;
         return view ('article.index', compact('category','articles_category'));
     }
 
