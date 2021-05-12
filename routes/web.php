@@ -30,4 +30,6 @@ Route::post('/salva/annuncio', [ArticleController::class, 'store'])->name('artic
 Route::get('/tutti/gli/articoli/{cate?}/{articles_category?}', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/mostra/articolo/{article}', [ArticleController::class, 'show'])->name('article.show');
 
+Route::get('/test/annunci/{article}', [ArticleController::class, 'test'])->name('article.test');
+
 

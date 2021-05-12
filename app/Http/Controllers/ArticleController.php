@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class ArticleController extends Controller
@@ -13,7 +15,7 @@ class ArticleController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except(['show','index']);
-       
+
         $articles = Article::orderByDesc('created_at')->paginate(6);
         View::share('articles',$articles);
     }
@@ -23,7 +25,7 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Category $cate)
-    { 
+    {
         $articles_category = $cate->articles()->paginate(6);
         $category = $cate;
         return view ('article.index', compact('category','articles_category'));
@@ -50,9 +52,18 @@ class ArticleController extends Controller
         $article = Article::create([
             'title'=> $request->title,
             'body'=> $request->body,
-            'img'=> 'https://picsum.photos/200',
             'category_id'=>$request->category,
-            'price'=>$request->price
+            'price'=>$request->price,
+            'user_id'=>Auth::id()
+
+        ]);
+        $image = Image::create([
+            'img1'=> 'https://picsum.photos/200',
+            'img2'=> 'https://picsum.photos/200',
+            'img3'=> 'https://picsum.photos/200',
+            'img4'=> 'https://picsum.photos/200',
+            'img5'=> 'https://picsum.photos/200',
+            'article_id'=> $article->id
         ]);
         return redirect()->back()->with('message','Complimenti, annuncio creato con successo!');
     }
@@ -100,5 +111,9 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         //
+    }
+    public function test(Article $article)
+    {
+        return view('article.test', compact('article'));
     }
 }
