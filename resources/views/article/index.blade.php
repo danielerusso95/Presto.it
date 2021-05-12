@@ -3,14 +3,15 @@
     <div class="row bg-white">
         <div class="col-12 text-center">
             @foreach ($categories as $category)
-                <a href="{{route('article.index', compact('category'))}}" class="mx-4">{{$category->name}}</a>
+                <a href="{{route('article.index', compact('category', 'articles_category'))}}" class="mx-4">{{$category->name}}</a>
             @endforeach
         </div>
     </div>
 </div>
 <div class="container mt-5">
     <div class="row">
-        @if($articles_category)
+    @dd($category->articles->first())
+        @if($category->articles->isNotEmpty())
         @foreach($articles_category as $article)
         <div class="col-12 col-md-4 mb-5 ">
             <div class="card mx-auto" style="width: 18rem;">
@@ -23,7 +24,7 @@
                 </div>
             </div>
         </div>
-    @endforeach
+        @endforeach
         @else
             @foreach($articles as $article)
                 <div class="col-12 col-md-4 mb-5 ">
