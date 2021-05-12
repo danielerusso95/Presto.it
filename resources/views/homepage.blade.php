@@ -1,4 +1,12 @@
 <x-layout>
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-12 text-center">
+            <h1 class="my-3">Benvenuti su Presto!</h1>
+            <h4>Qui puoi mettere in vendita ciò che non usi più e cercare i tuoi acquisti tra migliaia di annunci</h4>
+            </div>
+        </div>
+    </div>
     <x-_above />
     <h3 class="mt-5 text-center">Ecco gli ultimi 5 articoli inseriti</h3>
     <div class="container-fluid mt-5">

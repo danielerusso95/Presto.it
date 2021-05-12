@@ -10,3 +10,15 @@
     font-family: "Open Sans", sans-serif;
     font-family: "Roboto", sans-serif;
 }
+
+.articlesForm{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+ .bg-custom{
+     background-color: transparent;
+ }
+ @media (min-width: 991px){
+     .bg-custom{
+         background-color: white;
+        }
+    }

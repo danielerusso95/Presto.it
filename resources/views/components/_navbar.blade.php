@@ -16,7 +16,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Annunci
           </a>
-          <ul class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
+          <ul class="dropdown-menu bg-custom border-0" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{{route('article.index')}}">Tutti gli annunci</a></li>
             <li><a class="dropdown-item" href="{{route('article.create')}}">Crea Annuncio</a></li>
 
@@ -43,7 +43,7 @@
                         {{ Auth::user()->name }}
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right border-0 bg-custom" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">

@@ -9,7 +9,7 @@
     <h3 class="mt-5 text-center">Compila il form e crea il tuo annuncio</h3>
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-12 col-md-8 p-3" style="background-color: rgba(255, 255, 255, 0.5)">
+        <div class="col-12 col-md-8 p-3 articlesForm">
             <form action="{{route('article.store')}}" method="POST">
                 @csrf
                 <label for="category" class="form-label">Seleziona la categoria:</label>
