@@ -13,7 +13,7 @@ class ArticleController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except(['show','index']);
-
+       
         $articles = Article::orderByDesc('created_at')->paginate(6);
         View::share('articles',$articles);
     }
@@ -23,7 +23,7 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
         return view ('article.index');
     }
 

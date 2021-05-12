@@ -4,7 +4,6 @@
         <div class="row">
             <div class="col-12">
                     @foreach($articles_home as $article)
-                   
                     <div class="col-12 mb-5">
                     <div class="card mx-auto" style="width: 18rem;">
                         <img src="{{$article->img}}" class="card-img-top" alt="image random">
