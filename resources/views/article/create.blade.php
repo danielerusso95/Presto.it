@@ -1,6 +1,9 @@
 <x-layout>
     @if (session('message'))
-        {{session('message')}}
+        <div class="bg-primary py-3 text-center">
+            {{session('message')}}
+        </div>
+
 
     @endif
     <h3 class="mt-5 text-center">Compila il form e crea il tuo annuncio</h3>

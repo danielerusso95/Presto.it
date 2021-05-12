@@ -10,7 +10,7 @@
 </div>
 <div class="container mt-5">
     <div class="row">
-    @dd($category->articles->first())
+
         @if($category->articles->isNotEmpty())
         @foreach($articles_category as $article)
         <div class="col-12 col-md-4 mb-5 ">
