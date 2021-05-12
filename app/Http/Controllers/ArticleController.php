@@ -24,7 +24,8 @@ class ArticleController extends Controller
      */
     public function index(Category $category)
     { 
-        return view ('article.index', compact('category'));
+        $articles_category = $category->articles()->paginate(6);
+        return view ('article.index', compact('category','articles_category'));
     }
 
     /**
