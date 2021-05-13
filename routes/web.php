@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\RevisorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,5 @@ Route::get('/show/annunci/{article}', [ArticleController::class, 'show'])->name(
 Route::get('/candidati', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/invia/candidatura', [ContactController::class, 'store'])->name('contact.store');
 
+//revisor only
+Route::get('/revisor', [RevisorController::class, 'index'])->name('revisor.index');

@@ -4,9 +4,9 @@
 
 # Creare comando artisan custom che data una mail renda un dato utente revisore -> artisan command make user revisor FATTOOOOOOOO
 
-# Creare middleware custom per proteggere alcune rotte da chi non è revisore -> php artisan make:middleware RevisorMiddleware
+# Creare middleware custom per proteggere alcune rotte da chi non è revisore -> php artisan make:middleware RevisorMiddleware FATTOOOOOOOO
 
-# Creare un controller per tutte le funzioni del revisore -> nel construct avrà un $this->middleware('auth.revisor') 
+# Creare un controller per tutte le funzioni del revisore -> nel construct avrà un $this->middleware('auth.revisor') FATTOOOOOOOO
 
 # Aggiungiamo un flag "accepted" che il revisore può spuntare 
 
