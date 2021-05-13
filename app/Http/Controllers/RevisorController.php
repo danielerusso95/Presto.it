@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class RevisorController extends Controller
@@ -13,6 +15,9 @@ class RevisorController extends Controller
 
     public function index()
     {
-        return view('revisor.index');
+        $article = Article::where('is_accepted', null)->orderBy('created_at', 'asc')->first();
+
+        return view('revisor.index', compact('article'));
     }
+
 }

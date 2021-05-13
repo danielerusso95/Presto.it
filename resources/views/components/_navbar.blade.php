@@ -18,10 +18,18 @@
             <li><a class="dropdown-item" href="{{route('article.create')}}">Crea Annuncio</a></li>
           </ul>
         </li>
+        @if (Auth::user() && !Auth::user()->revisor_flag)
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{route('contact.index')}}">Lavora con noi</a>
         </li>
+        @elseif (Auth::user() && Auth::user()->revisor_flag)
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route('revisor.index')}}">Home Revisor <span class="rounded-circle bg-danger  p-2">{{App\Models\Article::notifyArticlesForRevisor()}}</span></a>
+        </li>
+        @endif
+
       </ul>
+
 
       <ul class="navbar-nav pe-2">
             @guest

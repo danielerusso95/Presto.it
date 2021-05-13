@@ -32,7 +32,7 @@
           images.forEach((member) => {
             wrapper.innerHTML+=`
                 <div class="col-md-2 col-sm-6 mb-4">
-                    <a href="#">
+                    <a>
                         <img class="member" class="img-fluid" src="${member}200" alt="">
                     </a>
                 </div>

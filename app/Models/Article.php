@@ -19,4 +19,9 @@ class Article extends Model
     public function images(){
         return $this->hasMany(Image::class);
     }
+    static public function notifyArticlesForRevisor(){
+        return Article::where('is_accepted', null)->count();
+
+
+    }
 }
