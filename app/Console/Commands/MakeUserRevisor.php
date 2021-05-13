@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\User;
 use Illuminate\Console\Command;
 
 class MakeUserRevisor extends Command
@@ -11,14 +12,14 @@ class MakeUserRevisor extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'presto:makeUserRevisor';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Rendi un utente revisore';
 
     /**
      * Create a new command instance.
@@ -37,6 +38,16 @@ class MakeUserRevisor extends Command
      */
     public function handle()
     {
-        return 0;
+        $email = $this->ask("inserisci l'email dell'utente che vuoi rendere revisore");
+        $user = User::where('email', $email)->first();
+
+        if (!$user) {
+            $this->error("Utente non trovato");
+            return;
+        }
+        
+        $user-> revisor_flag = true;
+        $user->save();
+        $this->info("L'utente {$user->name} è ora un revisore");
     }
 }
