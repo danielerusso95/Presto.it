@@ -20,7 +20,7 @@
             <form action="{{route('article.store')}}" method="POST">
                 @csrf
                 <label for="category" class="form-label">Seleziona la categoria:</label>
-                <select class="form-select" name="category" value="{{old('category')}}" id="category" aria-label="Default select example">
+                <select class="form-select" name="category" id="category" aria-label="Default select example">
                     <option selected>Categorie</option>
                     @foreach ($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
