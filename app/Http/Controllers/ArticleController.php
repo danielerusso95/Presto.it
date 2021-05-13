@@ -113,8 +113,5 @@ class ArticleController extends Controller
     {
         //
     }
-    public function test(Article $article)
-    {
-        return view('article.test', compact('article'));
-    }
+    
 }

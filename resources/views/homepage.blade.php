@@ -1,4 +1,11 @@
 <x-layout>
+
+    @if(session('access.denied.revisor.only'))
+        <div class="alert alert-danger">
+           Accesso negato. Solo per revisori.
+        </div>
+    @endif
+
     <div class="container">
         <div class="row my-5">
             <div class="col-12 text-center">
@@ -20,7 +27,7 @@
                             <h5 class="card-title">Titolo: {{$article->title}}</h5>
                             <p class="card-subtitle">Prezzo: {{$article->price}} €</p>
                             <p class="card-text">Descrizione: {{$article->body}}</p>
-                            <a href="{{route('article.test', compact('article'))}}" class="btn btn-primary">Visualizza</a>
+                            <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">Visualizza</a>
                         </div>
                     </div>
                     </div>
