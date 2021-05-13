@@ -53,7 +53,7 @@
             </div>
         </div>
     </div>
-    {{-- {{ $articles->links() }} --}}
+    {{ $articles->links() }}
 
 </div>
 
