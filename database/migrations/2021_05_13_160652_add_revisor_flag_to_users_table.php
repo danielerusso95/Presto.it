@@ -13,7 +13,7 @@ class AddRevisorFlagToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('contacts', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->boolean('revisor_flag')->default(false);
         });
     }
@@ -25,7 +25,7 @@ class AddRevisorFlagToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('contacts', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('revisor_flag');
         });
     }
