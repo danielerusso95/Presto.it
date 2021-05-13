@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,8 +29,9 @@ Route::get('/crea/annuncio', [ArticleController::class, 'create'])->name('articl
 Route::post('/salva/annuncio', [ArticleController::class, 'store'])->name('article.store');
 
 Route::get('/tutti/gli/articoli/{cate?}/{articles_category?}', [ArticleController::class, 'index'])->name('article.index');
-Route::get('/mostra/articolo/{article}', [ArticleController::class, 'show'])->name('article.show');
+Route::get('/show/annunci/{article}', [ArticleController::class, 'show'])->name('article.show');
 
-Route::get('/test/annunci/{article}', [ArticleController::class, 'test'])->name('article.test');
-
+//contacts work with us
+Route::get('/candidati', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/invia/candidatura', [ContactController::class, 'store'])->name('contact.store');
 

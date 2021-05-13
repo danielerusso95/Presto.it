@@ -37,7 +37,7 @@
                             <p class="card-subtitle">Prezzo: {{$article->price}} €</p>
                             <p class="card-text">Descrizione: {{$article->body}}</p>
                             <p class="card-text">Autore: {{$article->user->name ?? ''}}</p>
-                            <a href="{{route('article.test', compact('article'))}}" class="btn btn-primary">Visualizza</a>
+                            <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">Visualizza</a>
                         </div>
                     </div>
                 </div>

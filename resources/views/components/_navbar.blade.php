@@ -9,9 +9,6 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        {{-- <li class="nav-item">
-          <a class="nav-link" href="{{route('article.create')}}">Crea Annuncio</a>
-        </li> --}}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Annunci
@@ -19,8 +16,10 @@
           <ul class="dropdown-menu bg-custom border-0" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{{route('article.index')}}">Tutti gli annunci</a></li>
             <li><a class="dropdown-item" href="{{route('article.create')}}">Crea Annuncio</a></li>
-
           </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{route('contact.index')}}">Lavora con noi</a>
         </li>
       </ul>
 
