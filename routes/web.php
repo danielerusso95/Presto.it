@@ -38,3 +38,6 @@ Route::post('/invia/candidatura', [ContactController::class, 'store'])->name('co
 
 //revisor only
 Route::get('/revisor', [RevisorController::class, 'index'])->name('revisor.index');
+Route::post('/accetta/articolo', [RevisorController::class, 'accepted'])->name('revisor.accepted');
+Route::post('/rifiuta/articolo', [RevisorController::class, 'rejected'])->name('revisor.rejected');
+Route::put('/ripristina/articolo', [RevisorController::class, 'undo'])->name('revisor.undo');

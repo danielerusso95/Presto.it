@@ -20,4 +20,28 @@ class RevisorController extends Controller
         return view('revisor.index', compact('article'));
     }
 
+    private function setAccepted($article, $value)
+    {
+        $article_id = $article->id;
+        $article = Article::find($article_id);
+        $article -> is_accepted = $value;
+        $article ->save();
+        return redirect(route('revisor.index'));
+    }
+
+    public function accepted(Article $article)
+    {
+        return $this->setAccepted($article, true);
+    }
+
+    public function rejected(Article $article)
+    {
+        return $this->setAccepted($article, false);
+    }
+
+    public function undo(Article $article)
+    {
+        return $this->setAccepted($article, null);
+    }
+
 }

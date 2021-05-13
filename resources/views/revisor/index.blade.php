@@ -18,37 +18,57 @@
             </div>
         </div>
 
-        <div id="staffWrapper" class="row justify-content-around mt-5">
+        <div id="staffWrapper" class="row justify-content-around mt-5"></div>
+
+        <div class="row">
+            <div class="col-6">
+                <form action="{{route('revisor.rejected', compact('article'))}}" method="POST">
+                @csrf
+                    <button class="btn btn-danger" type="submit">Elimina</button>
+                </form>
+            </div>
+
+            <div class="col-6">
+            <form action="{{route('revisor.accepted', compact('article'))}}" method="POST">
+                @csrf
+                    <button class="btn btn-success" type="submit">Accetta</button>
+                </form>
+            </div>
+
         </div>
+
+    </div>
+
+
         <script>
 
         let article = {!! json_encode($article) !!};
         console.log(article);
         let images = [];
 
-    for (let i = 1; i <= 5; i++) {
-      images.push(article['images'][0]['img' + i]);
-    }
+        for (let i = 1; i <= 5; i++) {
+        images.push(article['images'][0]['img' + i]);
+        }
 
-    let wrapper = document.querySelector("#staffWrapper");
+        let wrapper = document.querySelector("#staffWrapper");
 
-    images.forEach((member) => {
-      wrapper.innerHTML+=`
-          <div class="col-md-2 col-sm-6 mb-4">
-              <a>
-                  <img class="member" class="img-fluid" src="${member}200" alt="">
-              </a>
-          </div>
-          `;
-    });
-    let members = document.querySelectorAll(".member");
-    let placeholder;
-    let splitholder;
-    for (let i = 0; i < members.length; i++) {
-      members[i].addEventListener("click",()=>{
-          img = members[i];
-          placeholder = img.getAttribute('src');
-          splitholder=placeholder.split('/');
+        images.forEach((member) => {
+        wrapper.innerHTML+=`
+            <div class="col-md-2 col-sm-6 mb-4">
+                <a>
+                    <img class="member" class="img-fluid" src="${member}200" alt="">
+                </a>
+            </div>
+            `;
+        });
+        let members = document.querySelectorAll(".member");
+        let placeholder;
+        let splitholder;
+        for (let i = 0; i < members.length; i++) {
+        members[i].addEventListener("click",()=>{
+            img = members[i];
+            placeholder = img.getAttribute('src');
+            splitholder=placeholder.split('/');
 
 
 
@@ -62,8 +82,6 @@
 
       });
     };
-
-
         </script>
 
 </x-layout>
