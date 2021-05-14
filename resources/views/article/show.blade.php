@@ -37,22 +37,17 @@
         let placeholder;
         let splitholder;
         for (let i = 0; i < members.length; i++) {
-        members[i].addEventListener("click",()=>{
+            members[i].addEventListener("click",()=>{
             img = members[i];
             placeholder = img.getAttribute('src');
             splitholder=placeholder.split('/');
-
-
-
-          splitholder[3] = '';
-          placeholder = splitholder.join('/');
-          console.log(placeholder);
-
-          let wra = document.querySelector("#wrapper");
-
-          wra.innerHTML= `<img class="member" class="img-fluid" src="${placeholder}500" alt="">`;
-
-      });
+            splitholder[3] = '';
+            placeholder = splitholder.join('/');
+            console.log(placeholder);
+            let wra = document.querySelector("#wrapper");
+            wra.innerHTML = "";
+            wra.innerHTML = `<img class="member" class="img-fluid" src="${placeholder}500" alt="">`;
+        });
     };
     </script>
 </x-layout>
