@@ -17,7 +17,7 @@ class ArticleController extends Controller
     {
         $this->middleware('auth')->except(['show','index']);
 
-        $articles = Article::orderByDesc('created_at')->paginate(6);
+        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->paginate(6);
         View::share('articles',$articles);
     }
     /**
@@ -27,7 +27,7 @@ class ArticleController extends Controller
      */
     public function index(Category $cate)
     {
-        $articles_category = $cate->articles()->paginate(6);
+        $articles_category =Article::where('is_accepted', true)->where('category_id',$cate->id)->orderBy('created_at', 'desc')->paginate(6);
         $category = $cate;
         return view ('article.index', compact('category','articles_category'));
     }

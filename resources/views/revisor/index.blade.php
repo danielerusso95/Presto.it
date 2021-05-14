@@ -1,5 +1,8 @@
 <x-layout>
 
+    @if ($article)
+        
+
     <div class="container-fluid p-5">
         <h2 class="my-4">Titolo: {{$article->title}}</h2>
         <div class="row justify-content-around">
@@ -38,6 +41,9 @@
         </div>
 
     </div>
+    @else
+    <h1>non hai niente da fare oggi</h1>
+    @endif
 
 
         <script>

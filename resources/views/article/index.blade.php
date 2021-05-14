@@ -3,7 +3,7 @@
     <div class="row bg-white">
         <div class="col-12 text-center">
             @foreach ($categories as $cate)
-                <a href="{{route('article.index', compact('cate', 'articles_category'))}}" class="mx-4">{{$cate->name}}</a>
+                <a href="{{route('article.index', compact('cate'))}}" class="mx-4">{{$cate->name}}</a>
             @endforeach
         </div>
     </div>
@@ -26,6 +26,16 @@
             </div>
         </div>
         @endforeach
+        <div class="container mb-5">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    @foreach ($articles_category as $article)
+                        {{ $article->name }}
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        {{ $articles_category->links() }}
         @else
         <div class="col-12"><h3 class="text-center mb-5">Ecco tutti gli articoli</h3></div>
             @foreach($articles as $article)
@@ -41,19 +51,21 @@
                         </div>
                     </div>
                 </div>
+       
             @endforeach
+            <div class="container mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        @foreach ($articles as $article)
+                            {{ $article->name }}
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            {{ $articles->links() }}
         @endif
     </div>
-    <div class="container mb-5">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                @foreach ($articles as $article)
-                    {{ $article->name }}
-                @endforeach
-            </div>
-        </div>
-    </div>
-    {{ $articles->links() }}
+    
 
 </div>
 
