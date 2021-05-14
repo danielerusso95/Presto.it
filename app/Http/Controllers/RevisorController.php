@@ -15,9 +15,11 @@ class RevisorController extends Controller
 
     public function index()
     {
+        $images = $this->getImages();
+
         $article = Article::where('is_accepted', null)->orderBy('created_at', 'asc')->first();
 
-        return view('revisor.index', compact('article'));
+        return view('revisor.index', compact('article', 'images'));
     }
 
     private function setAccepted($article, $value)
@@ -42,6 +44,21 @@ class RevisorController extends Controller
     public function undo(Article $article)
     {
         return $this->setAccepted($article, null);
+    }
+
+    public function bin()
+    {
+        $images = $this->getImages(); 
+        $articles = Article::where('is_accepted', false)->orderBy('created_at', 'asc')->get();
+
+         return view('revisor.bin', compact('articles', 'images'));
+     
+    }
+
+    public function delete(Article $article)
+    {
+       $article->delete();
+       return redirect(route('revisor.bin'))->with('message', 'Articolo eliminato con successo');
     }
 
 }

@@ -7,7 +7,7 @@
         <h2 class="my-4">Titolo: {{$article->title}}</h2>
         <div class="row justify-content-around">
           <div class="col-md-8 d-flex justify-content-center mb-5" id="wrapper">
-            <img class="img-fluid" src="{{$article->images->first()->img1}}500" alt="">
+            <img class="img-fluid" src="{{$images[0]}}id/237/500" alt="">
           </div>
           <div class="col-md-4">
 
@@ -48,15 +48,8 @@
 
         <script>
 
-        let article = {!! json_encode($article) !!};
-        console.log(article);
-        let images = [];
-
-        for (let i = 1; i <= 5; i++) {
-        images.push(article['images'][0]['img' + i]);
-        }
-
         let wrapper = document.querySelector("#staffWrapper");
+        let images = {!!json_encode($images)!!};
 
         images.forEach((member) => {
         wrapper.innerHTML+=`

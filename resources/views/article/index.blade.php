@@ -15,7 +15,7 @@
         @foreach($articles_category as $article)
         <div class="col-12 col-md-4 mb-5 ">
             <div class="card mx-auto" style="width: 18rem;">
-                <img src="{{$article->images->first()->img1}}/200" class="card-img-top" alt="image random">
+                <img src="{{$images[0]}}200" class="card-img-top" alt="image random">
                 <div class="card-body">
                     <h5 class="card-title">Titolo: {{$article->title}}</h5>
                     <p class="card-subtitle">Prezzo: {{$article->price}} €</p>
@@ -41,7 +41,7 @@
             @foreach($articles as $article)
                 <div class="col-12 col-md-4 mb-5 ">
                     <div class="card mx-auto" style="width: 18rem;">
-                        <img src="{{$article->images->first()->img1}}/200" class="card-img-top" alt="image random">
+                        <img src="{{$images[0]}}200" class="card-img-top" alt="image random">
                         <div class="card-body">
                             <h5 class="card-title">Titolo: {{$article->title}}</h5>
                             <p class="card-subtitle">Prezzo: {{$article->price}} €</p>

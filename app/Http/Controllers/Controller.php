@@ -10,4 +10,12 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    
+    public function getImages()
+    {
+        $images = ['https://picsum.photos/', 'https://picsum.photos/', 'https://picsum.photos/', 'https://picsum.photos/', 'https://picsum.photos/'];
+        return $images;
+    }
 }
+
+

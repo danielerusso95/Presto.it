@@ -41,3 +41,5 @@ Route::get('/revisor', [RevisorController::class, 'index'])->name('revisor.index
 Route::post('/accetta/articolo/{article}', [RevisorController::class, 'accepted'])->name('revisor.accepted');
 Route::post('/rifiuta/articolo/{article}', [RevisorController::class, 'rejected'])->name('revisor.rejected');
 Route::put('/ripristina/articolo/{article}', [RevisorController::class, 'undo'])->name('revisor.undo');
+Route::get('/articoli/rifiutati', [RevisorController::class, 'bin'])->name('revisor.bin');
+Route::delete('/articolo/eliminato/{article}', [RevisorController::class, 'delete'])->name('revisor.delete');

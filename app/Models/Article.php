@@ -16,9 +16,7 @@ class Article extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-    public function images(){
-        return $this->hasMany(Image::class);
-    }
+   
     static public function notifyArticlesForRevisor(){
         return Article::where('is_accepted', null)->count();
 

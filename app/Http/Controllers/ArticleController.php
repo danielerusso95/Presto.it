@@ -27,9 +27,10 @@ class ArticleController extends Controller
      */
     public function index(Category $cate)
     {
+        $images = $this->getImages();
         $articles_category =Article::where('is_accepted', true)->where('category_id',$cate->id)->orderBy('created_at', 'desc')->paginate(6);
         $category = $cate;
-        return view ('article.index', compact('category','articles_category'));
+        return view ('article.index', compact('category','articles_category', 'images'));
     }
 
     /**
@@ -58,14 +59,7 @@ class ArticleController extends Controller
             'user_id'=>Auth::id()
 
         ]);
-        $image = Image::create([
-            'img1'=> 'https://picsum.photos/',
-            'img2'=> 'https://via.placeholder.com/',
-            'img3'=> 'https://picsum.photos/',
-            'img4'=> 'https://via.placeholder.com/',
-            'img5'=> 'https://picsum.photos/',
-            'article_id'=> $article->id
-        ]);
+        
         return redirect()->back()->with('message','Complimenti, annuncio creato con successo!');
     }
 
@@ -77,7 +71,8 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('article.show', compact('article'));
+        $images = $this->getImages();
+        return view('article.show', compact('article', 'images'));
     }
 
     /**
