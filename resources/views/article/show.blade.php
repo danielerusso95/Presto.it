@@ -45,7 +45,6 @@
             placeholder = splitholder.join('/');
             console.log(placeholder);
             let wra = document.querySelector("#wrapper");
-            wra.innerHTML = "";
             wra.innerHTML = `<img class="member" class="img-fluid" src="${placeholder}500" alt="">`;
         });
     };
