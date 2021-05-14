@@ -28,9 +28,9 @@
                 </div>
             </div>
         </div>
-        {{ $articles->links() }}
+        
             <div class="col-12">
-
+                {{ $articles->links() }}
             </div>
         </div>
     </div>
