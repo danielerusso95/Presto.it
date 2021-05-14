@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('SCOUT_DRIVER', 'algolia'),
+    'driver' => env('SCOUT_DRIVER', 'tntsearch'),
 
     /*
     |--------------------------------------------------------------------------
@@ -133,5 +133,24 @@ return [
         'host' => env('MEILISEARCH_HOST', 'http://localhost:7700'),
         'key' => env('MEILISEARCH_KEY', null),
     ],
+
+    'algolia'=> [
+        'id'=> env('ALGOLIA_APP_ID', ''),
+        'secret'=> env('ALGOLIA_SECRET', ''),
+    ],
+
+    'tntsearch' => [
+        'storage'  => storage_path(), //place where the index files will be stored
+        'fuzziness' => true,
+        'fuzzy' => [
+            'prefix_length' => 1,
+            'max_expansions' => 50,
+            'distance' => 5
+        ],
+        'asYouType' => false,
+        'searchBoolean' => true,
+        'maxDocs' => env('TNTSEARCH_MAX_DOCS', 500),
+],
+
 
 ];

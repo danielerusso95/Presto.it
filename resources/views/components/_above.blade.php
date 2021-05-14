@@ -4,9 +4,9 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Cerca l'annuncio che fa per te</h5>
-            <form class="form-signin">
+            <form class="form-signin" action="{{route('search_results')}}" method="GET">
               <div class="form-label-group">
-                <input type="search" id="search" class="form-control" placeholder="Search" required autofocus>
+                <input type="search" id="search" class="form-control" name="q" placeholder="Search" required autofocus>
                 <label for="search">Cerca</label>
                 <div class="d-flex justify-content-end">
                 <button class="btn btn-primary mt-5 px-5" type="submit">Cerca</button>

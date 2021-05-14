@@ -15,7 +15,7 @@ class ArticleController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except(['show','index']);
+        $this->middleware('auth')->except(['show','index','search_results']);
 
         $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->paginate(6);
         View::share('articles',$articles);
@@ -59,7 +59,7 @@ class ArticleController extends Controller
             'user_id'=>Auth::id()
 
         ]);
-        
+
         return redirect()->back()->with('message','Complimenti, annuncio creato con successo!');
     }
 
@@ -108,5 +108,12 @@ class ArticleController extends Controller
     {
         //
     }
-    
+    public function search(Request $request){
+        $q = $request->input('q');
+        $articles = Article::search($q)->where('is_accepted', true)->paginate(6);
+        $images = $this->getImages();
+
+        return view('search.search_results', compact('q', 'articles', 'images'));
+    }
+
 }
