@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -10,4 +11,5 @@ class PublicController extends Controller
         $images = $this->getImages();
         return view('homepage',compact('images'));
     }
+
 }

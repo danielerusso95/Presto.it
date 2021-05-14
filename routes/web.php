@@ -43,3 +43,6 @@ Route::post('/rifiuta/articolo/{article}', [RevisorController::class, 'rejected'
 Route::put('/ripristina/articolo/{article}', [RevisorController::class, 'undo'])->name('revisor.undo');
 Route::get('/articoli/rifiutati', [RevisorController::class, 'bin'])->name('revisor.bin');
 Route::delete('/articolo/eliminato/{article}', [RevisorController::class, 'delete'])->name('revisor.delete');
+
+//search
+Route::get('/search', [ArticleController::class, 'search'])->name('search_results');
