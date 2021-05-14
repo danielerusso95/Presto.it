@@ -20,7 +20,6 @@ class Category extends Model
         $array = [
             'id'=> $this->id,
             'name'=> $this->name,
-
         ];
 
         // Customize the data array...

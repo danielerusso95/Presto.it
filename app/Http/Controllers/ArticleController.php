@@ -111,9 +111,16 @@ class ArticleController extends Controller
     public function search(Request $request){
         $q = $request->input('q');
         $articles = Article::search($q)->where('is_accepted', true)->paginate(6);
-        $images = $this->getImages();
-
-        return view('search.search_results', compact('q', 'articles', 'images'));
+        $category = Category::search($q)->first();
+     
+        if($category){
+            $images = $this->getImages();
+            $articles = Article::where('category_id',$category->id)->where('is_accepted', true)->paginate(6);
+            return view('search.search_results', compact('q','images','articles'));
+        }else{
+            $images = $this->getImages();
+            return view('search.search_results', compact('q', 'articles', 'images'));
+        }
     }
 
 }
