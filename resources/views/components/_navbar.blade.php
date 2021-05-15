@@ -25,11 +25,11 @@
         @elseif (Auth::user() && Auth::user()->revisor_flag)
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Revisor
+            Revisor <span class="rounded-circle bg-danger  p-2">{{App\Models\Article::notifyArticlesForRevisor()}}</span>
           </a>
           <ul class="dropdown-menu bg-custom border-0" aria-labelledby="navbarDropdown">
             <li>
-             <a class="nav-link active" aria-current="page" href="{{route('revisor.index')}}">Da Revisionare<span class="rounded-circle bg-danger  p-2">{{App\Models\Article::notifyArticlesForRevisor()}}</span></a>
+             <a class="nav-link active" aria-current="page" href="{{route('revisor.index')}}">Da Revisionare</a>
             </li>
             <li>
                <a class="dropdown-item" href="{{route('revisor.bin')}}">Cestino</a>

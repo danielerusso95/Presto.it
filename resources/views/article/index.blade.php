@@ -1,9 +1,13 @@
 <x-layout>
 <div class="container  p-5">
-    <div class="row bg-white">
+    <div class="row">
         <div class="col-12 text-center">
+            <h3 class="text-center mb-3">Seleziona la categoria che desideri</h3>
             @foreach ($categories as $cate)
-                <a href="{{route('article.index', compact('cate'))}}" class="mx-4">{{$cate->name}}</a>
+            <button class="p-0 rounded my-2 border-0 shadow ">
+                <a href="{{route('article.index', compact('cate'))}}" class="mx-4 text-decoration-none">{{$cate->name}}</a>
+            </button>
+
             @endforeach
         </div>
     </div>
@@ -51,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-       
+
             @endforeach
             <div class="container mb-5">
                 <div class="row justify-content-center">
@@ -65,7 +69,7 @@
             {{ $articles->links() }}
         @endif
     </div>
-    
+
 
 </div>
 

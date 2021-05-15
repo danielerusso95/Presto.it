@@ -1,7 +1,7 @@
 <x-layout>
 
     @if ($article)
-        
+
 
     <div class="container-fluid p-5">
         <h2 class="my-4">Titolo: {{$article->title}}</h2>
@@ -23,18 +23,18 @@
 
         <div id="staffWrapper" class="row justify-content-around mt-5"></div>
 
-        <div class="row">
-            <div class="col-6">
+        <div class="row mt-5">
+            <div class="col-6 d-flex justify-content-center">
                 <form action="{{route('revisor.rejected', compact('article'))}}" method="POST">
                 @csrf
-                    <button class="btn btn-danger" type="submit">Elimina</button>
+                    <button class="btn btn-danger border-dark border-3" type="submit">Elimina</button>
                 </form>
             </div>
 
-            <div class="col-6">
+            <div class="col-6 d-flex justify-content-center">
             <form action="{{route('revisor.accepted', compact('article'))}}" method="POST">
                 @csrf
-                    <button class="btn btn-success" type="submit">Accetta</button>
+                    <button class="btn btn-success border-dark border-3" type="submit">Accetta</button>
                 </form>
             </div>
 
@@ -42,7 +42,7 @@
 
     </div>
     @else
-    <h1>non hai niente da fare oggi</h1>
+    <h1 class="bg-success text-center">Nessun annuncio da revisionare</h1>
     @endif
 
 
