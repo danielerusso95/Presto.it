@@ -32,7 +32,6 @@ class Article extends Model
             'id'=> $this->id,
             'title'=> $this->title,
             'body'=> $this->body,
-            'altro' => 'pippo',
             'articoli'=> $articles
         ];
 
