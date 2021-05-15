@@ -22,9 +22,11 @@
                 <img src="{{$images[0]}}200" class="card-img-top" alt="image random">
                 <div class="card-body">
                     <h5 class="card-title">Titolo: {{$article->title}}</h5>
-                    <p class="card-subtitle">Prezzo: {{$article->price}} €</p>
+                    <h5 class="card-subtitle mb-5">Prezzo: {{$article->price}} €</h5>
                     <p class="card-text">Descrizione: {{$article->body}}</p>
                     <p class="card-text">Autore: {{$article->user->name}}</p>
+                    <p class="card-text">Categoria: {{$article->category->name}}</p>
+                    <p class="card-text">Creato il: {{$article->created_at}}</p>
                     <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">Visualizza</a>
                 </div>
             </div>
@@ -48,9 +50,11 @@
                         <img src="{{$images[0]}}200" class="card-img-top" alt="image random">
                         <div class="card-body">
                             <h5 class="card-title">Titolo: {{$article->title}}</h5>
-                            <p class="card-subtitle">Prezzo: {{$article->price}} €</p>
+                            <h5 class="card-subtitle mb-5">Prezzo: {{$article->price}} €</h5>
                             <p class="card-text">Descrizione: {{$article->body}}</p>
                             <p class="card-text">Autore: {{$article->user->name ?? ''}}</p>
+                            <p class="card-text">Categoria: {{$article->category->name}}</p>
+                            <p class="card-text">Creato il: {{$article->created_at}}</p>
                             <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">Visualizza</a>
                         </div>
                     </div>

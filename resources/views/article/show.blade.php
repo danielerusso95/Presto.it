@@ -16,10 +16,10 @@
                 <p>Descrizione: {{$article->body}}</p>
             </div>
         </div>
-
+        <h3 class="text-center">Immagini correlate</h3>
         <div id="staffWrapper" class="row justify-content-around mt-5">
         </div>
-    
+
     <script>
           let wrapper = document.querySelector("#staffWrapper");
         let images = {!!json_encode($images)!!};
