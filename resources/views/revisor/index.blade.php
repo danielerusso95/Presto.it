@@ -57,9 +57,9 @@
 
         images.forEach((member) => {
         wrapper.innerHTML+=`
-            <div class="col-md-2 col-sm-6 mb-4">
+            <div class="col-md-2 col-sm-6 mb-4 d-flex justify-content-center">
                 <a>
-                    <img class="member" class="img-fluid" src="${member}200" alt="">
+                    <img class="member img-fluid" src="${member}200" alt="">
                 </a>
             </div>
             `;
