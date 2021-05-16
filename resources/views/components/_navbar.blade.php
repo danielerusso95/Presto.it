@@ -58,15 +58,14 @@
                     </li>
                 @endif
             @else
-                <li class="nav-item dropdown">
-
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <li class="nav-item dropstart d-flex justify-content-center align-items-center">
+                     <a id="navbarDropdown" class="btn dropdown-lg-toggle nav-link d-flex justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}   
-                        <i class="fas fa-user mx-2"></i>
+                        <i class="fas fa-user ms-2"></i>
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right border-0 bg-custom text-center" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                    <ul class="dropdown-menu me-2 bg-custom border-0">
+                      <a class="dropdown-item p-0 ps-2" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -75,7 +74,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                    </div>
+                    </ul>
                 </li>
             @endguest
         </ul>

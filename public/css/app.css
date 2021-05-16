@@ -10860,12 +10860,12 @@ textarea.form-control-lg {
   }
 
   .logo-custom {
-    width: 7%;
+    width: 10%;
   }
 }
 @media (max-width: 990px) {
   .logo-custom {
-    width: 30%;
+    width: 20%;
   }
 }
 @media (max-width: 450px) {
@@ -10875,12 +10875,12 @@ textarea.form-control-lg {
 }
 :root {
   --input-padding-x: 1.5rem;
-  --input-padding-y: .75rem;
+  --input-padding-y: 0.75rem;
 }
 
 body {
   background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
+  background: linear-gradient(to right, #0062e6, #33aeff);
 }
 
 .card-signin {
@@ -10963,17 +10963,17 @@ body {
 }
 
 .form-label-group input:not(:-moz-placeholder-shown) {
-  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-top: calc( var(--input-padding-y) + var(--input-padding-y) * (2 / 3) );
   padding-bottom: calc(var(--input-padding-y) / 3);
 }
 
 .form-label-group input:not(:-ms-input-placeholder) {
-  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-top: calc( var(--input-padding-y) + var(--input-padding-y) * (2 / 3) );
   padding-bottom: calc(var(--input-padding-y) / 3);
 }
 
 .form-label-group input:not(:placeholder-shown) {
-  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-top: calc( var(--input-padding-y) + var(--input-padding-y) * (2 / 3) );
   padding-bottom: calc(var(--input-padding-y) / 3);
 }
 
@@ -11078,17 +11078,17 @@ body {
 }
 
 .form-label-group input:not(:-moz-placeholder-shown) {
-  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-top: calc( var(--input-padding-y) + var(--input-padding-y) * (2 / 3) );
   padding-bottom: calc(var(--input-padding-y) / 3);
 }
 
 .form-label-group input:not(:-ms-input-placeholder) {
-  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-top: calc( var(--input-padding-y) + var(--input-padding-y) * (2 / 3) );
   padding-bottom: calc(var(--input-padding-y) / 3);
 }
 
 .form-label-group input:not(:placeholder-shown) {
-  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-top: calc( var(--input-padding-y) + var(--input-padding-y) * (2 / 3) );
   padding-bottom: calc(var(--input-padding-y) / 3);
 }
 
@@ -11114,7 +11114,7 @@ body {
 }
 
 /* Fallback for Edge
--------------------------------------------------- */
+      -------------------------------------------------- */
 @supports (-ms-ime-align: auto) {
   .form-label-group > label {
     display: none;
@@ -11125,7 +11125,7 @@ body {
   }
 }
 /* Fallback for IE
--------------------------------------------------- */
+      -------------------------------------------------- */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .form-label-group > label {
     display: none;
