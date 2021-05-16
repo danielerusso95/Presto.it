@@ -15,7 +15,7 @@
     <header class="masthead">
         <x-_navbar />
 
-        {{$slot}}
+            {{$slot}}
         <div style="height: 20vh"></div>
         <x-_footer />
     </header>
