@@ -24,7 +24,15 @@ class Article extends Model
         return Article::where('is_accepted', null)->count();
     }
 
-
+    public function customTitle(Article $article, $num){
+        if(strlen($article->title)>$num){
+            $article->title = substr($article->title, 0, -(strlen($article->title)-$num))."...";
+        }
+         
+        return $article->title;
+        
+    }
+    
     public function toSearchableArray()
     {
         $array = [

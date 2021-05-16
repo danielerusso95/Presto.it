@@ -22,7 +22,7 @@
             <div class="card mx-auto" style="width: 100%;">
                 <img src="{{$images[0]}}200" class="card-img-top" alt="image random">
                 <div class="card-body">
-                    <h5 class="card-title">@if(strlen($article->title)>20){{Str::substr($article->title, 0, -(strlen($article->title)-20))."..."}}@else{{$article->title}}@endif</h5>
+                    <h5 class="card-title">{{$article->customTitle($article,20)}}</h5>
                     <h5 class="card-subtitle my-3">Prezzo: {{$article->price}} €</h5>
                     <p class="card-text">Descrizione: {{$article->body}}</p>
                     <p class="card-text">Autore: {{$article->user->name}}</p>
@@ -54,7 +54,7 @@
                     <div class="card mx-auto" style="width: 18rem;">
                         <img src="{{$images[0]}}200" class="card-img-top" alt="image random">
                         <div class="card-body">
-                            <h5 class="card-title">@if(strlen($article->title)>20){{Str::substr($article->title, 0, -(strlen($article->title)-20))."..."}}@else{{$article->title}}@endif</h5>
+                            <h5 class="card-title">{{$article->customTitle($article,20)}}</h5>
                             <h5 class="card-subtitle my-3">Prezzo: {{$article->price}} €</h5>
                             <p class="card-text">Descrizione: {{$article->body}}</p>
                             <p class="card-text">Autore: {{$article->user->name ?? ''}}</p>

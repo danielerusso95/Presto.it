@@ -16,7 +16,7 @@
                 <div class="col-12 mx-auto mx-md-0 mb-4">
                     <div class="rounded-2 pb-5 articlesForm justify-content-around align-items-center row mb-5">
                         <div class="col-12 text-center my-3"> 
-                            <h3 class="mb-2">@if(strlen($article->title)>50){{Str::substr($article->title, 0, -(strlen($article->title)-50))."..."}}@else{{$article->title}}@endif</h5>
+                            <h3 class="mb-2">{{$article->customTitle($article,50)}}</h5>
                         </div>
                         <div class="col-12 col-md-4 ps-5">
                             <img src="{{$images[0]}}/200" class="img-fluid rounded-2" alt="image random">
