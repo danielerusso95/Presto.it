@@ -46,3 +46,7 @@ Route::delete('/articolo/eliminato/{article}', [RevisorController::class, 'delet
 
 //search
 Route::get('/search', [ArticleController::class, 'search'])->name('search_results');
+
+//user
+Route::get('/pagina/utente', [HomeController::class, 'panel'])->name('user.panel');
+Route::get('/i/tuoi/annunci', [HomeController::class, 'userArticles'])->name('user.index');

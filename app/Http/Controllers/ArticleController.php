@@ -27,7 +27,7 @@ class ArticleController extends Controller
      */
     public function index(Category $cate)
     {
-       
+
         $images = $this->getImages();
         $articles_category =Article::where('is_accepted', true)->where('category_id',$cate->id)->orderBy('created_at', 'desc')->paginate(6);
         $category = $cate;
@@ -92,7 +92,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('user.article_edit', compact('article'));
     }
 
     /**
@@ -104,7 +104,12 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $article->update([
+            'title'=> $request->title,
+            'body'=> $request->body,
+            'price'=> $request->price
+        ]);
+        return redirect()->back()->with('message', 'Annuncio modificato!');
     }
 
     /**
@@ -115,15 +120,16 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect(route('article.index'))->with('message', 'Annuncio eliminato!');
     }
     public function search(Request $request){
         $q = $request->input('q');
         $articles = Article::search($q)->where('is_accepted', true)->paginate(6);
-    
+
             $images = $this->getImages();
             return view('search.search_results', compact('q', 'articles', 'images'));
-        
+
     }
 
 }

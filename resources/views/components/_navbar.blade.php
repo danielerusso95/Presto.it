@@ -2,7 +2,7 @@
   <div class="container-fluid">
 
       <img src="/img/Immagine-removebg-preview.png" class="logo-custom" alt="logo">
-  
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,7 +27,7 @@
         @elseif (Auth::user() && Auth::user()->revisor_flag)
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Revisor 
+            Revisor
             @if(App\Models\Article::notifyArticlesForRevisor() > 0)
             <button class="rounded-circle bg-danger p-1 ms-2 border-0"></button>
             @endif
@@ -62,20 +62,26 @@
             @else
             <li class="nav-item dropdown dropstart">
               <a id="navbarDropdown" class="btn dropdown-lg-toggle nav-link d-flex justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Auth::user()->name }}   
+                {{ Auth::user()->name }}
                 <i class="fas fa-user ms-2"></i>
               </a>
               <ul class="dropdown-menu me-lg-3 bg-custom border-0">
-                <a class="dropdown-item text-center p-0 ps-2" href="{{ route('logout') }}"
+                  <li class="dropdown-item">
+                    <a class="text-center p-0 ps-2 text-decoration-none text-dark" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">
                       {{ __('Logout') }}
-                </a>
+                    </a>
 
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                       @csrf
                   </form>
-                  
+                  </li>
+                  <li class="dropdown-item">
+                      <a class="text-center p-0 ps-2 text-decoration-none text-dark" href="{{route('user.panel')}}">Profilo</a>
+                  </li>
+
+
               </ul>
             </li>
             @endguest
