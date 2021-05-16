@@ -58,24 +58,24 @@
                     </li>
                 @endif
             @else
-                <li class="nav-item dropstart d-flex justify-content-center align-items-center">
-                     <a id="navbarDropdown" class="btn dropdown-lg-toggle nav-link d-flex justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}   
-                        <i class="fas fa-user ms-2"></i>
-                    </a>
+            <li class="nav-item dropdown dropstart">
+              <a id="navbarDropdown" class="btn dropdown-lg-toggle nav-link d-flex justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}   
+                <i class="fas fa-user ms-2"></i>
+              </a>
+              <ul class="dropdown-menu me-lg-3 bg-custom border-0">
+                <a class="dropdown-item text-center p-0 ps-2" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                </a>
 
-                    <ul class="dropdown-menu me-2 bg-custom border-0">
-                      <a class="dropdown-item p-0 ps-2" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </ul>
-                </li>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+                  
+              </ul>
+            </li>
             @endguest
         </ul>
     </div>
