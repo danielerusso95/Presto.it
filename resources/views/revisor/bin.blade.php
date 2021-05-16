@@ -38,12 +38,12 @@
                         <div class="modal-body">
                             Sei sicuro di voler eliminare questo articolo definitivamente?
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer ">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <form action="{{route('revisor.delete', compact('article'))}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" data-bs-toggle="modal" data-bs-target="#deleteArticle" class="btn btn-danger mt-3">Elimina definitivamente</button>
+                                <button type="submit" data-bs-toggle="modal" data-bs-target="#deleteArticle" class="btn btn-danger">Elimina definitivamente</button>
                             </form>
                         </div>
                     </div>
