@@ -1,7 +1,7 @@
 <x-layout>
     <div class="container-fluid p-5">
-        <div class="row justify-content-center mb-5">
-            <div class="col-12 d-flex justify-content-center d-lg-block col-lg-6 mb-5" id="wrapper">
+        <div class="row justify-content-around align-items-center mb-5">
+            <div class="col-12 mt-1 d-flex justify-content-center d-lg-block col-lg-6 mb-5" id="wrapper">
                 <img class="img-fluid" src="{{$images[0]}}id/278/500" alt="">
             </div>
             <div class="col-12 col-lg-4 articlesForm rounded-3 mb-5">
