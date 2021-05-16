@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <img src="/img/Immagine-removebg-preview.png" width="7%" alt="">
+    <img src="/img/Immagine-removebg-preview.png" class="logo-custom" alt="logo" >
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,15 +24,18 @@
         </li>
         @elseif (Auth::user() && Auth::user()->revisor_flag)
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Revisor <span class="rounded-circle bg-danger  p-2">{{App\Models\Article::notifyArticlesForRevisor()}}</span>
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Revisor 
+            @if(App\Models\Article::notifyArticlesForRevisor() > 0)
+            <button class="rounded-circle bg-danger p-1 ms-2 border-0"></button>
+            @endif
           </a>
           <ul class="dropdown-menu bg-custom border-0" aria-labelledby="navbarDropdown">
             <li>
-             <a class="nav-link active" aria-current="page" href="{{route('revisor.index')}}">Da Revisionare</a>
+             <a class="dropdown-item" aria-current="page" href="{{route('revisor.index')}}">Da Revisionare <button class="bg-danger p-1 border-0">{{App\Models\Article::notifyArticlesForRevisor()}}</button></a>
             </li>
             <li>
-               <a class="dropdown-item" href="{{route('revisor.bin')}}">Cestino</a>
+              <a class="dropdown-item" href="{{route('revisor.bin')}}">Cestino</a>
             </li>
           </ul>
         </li>
@@ -41,27 +44,28 @@
       </ul>
 
 
-      <ul class="navbar-nav pe-2">
+      <ul class="navbar-nav">
             @guest
                 @if (Route::has('login'))
-                    <li class="nav-item">
+                    <li class="nav-item d-flex justify-content-center">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                 @endif
 
                 @if (Route::has('register'))
-                    <li class="nav-item">
+                    <li class="nav-item d-flex justify-content-center">
                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                 @endif
             @else
                 <li class="nav-item dropdown">
 
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}   <i class="fas fa-user"></i>
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}   
+                        <i class="fas fa-user mx-2"></i>
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right border-0 bg-custom" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right border-0 bg-custom text-center" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">

@@ -14,8 +14,8 @@
             <x-_above />
             </div>
 
-            <div class="col-12 col-md-6 d-flex justify-content-center">
-                <img clas="img-fluid" src="/img/205-2057055_compras-por-internet-icono-png-e-commerce-development-removebg-preview.png" alt="">
+            <div class="col-10 col-md-6 d-flex justify-content-center">
+                <img class="img-fluid mx-auto" src="/img/205-2057055_compras-por-internet-icono-png-e-commerce-development-removebg-preview.png" alt="">
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
             @foreach($articles_home as $article)
             <div class="col-12 col-md-4">
                     <div class="mb-5">
-                    <div class="card mx-auto" style="width: 18rem;">
+                    <div class="card mx-auto" style="">
                         <img src="{{$images[0]}}/200" class="card-img-top" alt="image random">
                         <div class="card-body">
                             <h5 class="card-title mb-1">Titolo: {{$article->title}}</h5>

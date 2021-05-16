@@ -1,3 +1,6 @@
+
+
+
 <div class="container aboveContainer">
     <div class="row h-100">
       <div class="col-sm-9 col-md-12 mx-auto">
@@ -8,8 +11,8 @@
               <div class="form-label-group">
                 <input type="search" id="search" class="form-control" name="q" placeholder="Search" required autofocus>
                 <label for="search">Cerca</label>
-                <div class="d-flex justify-content-end">
-                <button class="btn btn-primary mt-5 px-5" type="submit">Cerca</button>
+                <div class="d-flex justify-content-center justify-content-md-end">
+                <button class="btn btn-primary mt-5 px-md-5" type="submit">Cerca</button>
                 </div>
               </div>
             </form>

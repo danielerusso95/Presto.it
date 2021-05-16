@@ -10858,6 +10858,20 @@ textarea.form-control-lg {
   .bg-custom {
     background-color: white;
   }
+
+  .logo-custom {
+    width: 7%;
+  }
+}
+@media (max-width: 990px) {
+  .logo-custom {
+    width: 30%;
+  }
+}
+@media (max-width: 450px) {
+  .logo-custom {
+    width: 30%;
+  }
 }
 :root {
   --input-padding-x: 1.5rem;
