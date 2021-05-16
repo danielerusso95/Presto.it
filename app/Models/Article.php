@@ -10,7 +10,7 @@ class Article extends Model
 {
     use Searchable;
     use HasFactory;
-    protected $fillable = ['title', 'body','category_id', 'price', 'user_id'];
+    protected $fillable = ['title', 'body','category_id', 'price', 'user_id','category_name'];
 
     public function category(){
         return $this->belongsTo(Category::class);
@@ -27,12 +27,12 @@ class Article extends Model
 
     public function toSearchableArray()
     {
-        $articles = "";
         $array = [
             'id'=> $this->id,
             'title'=> $this->title,
             'body'=> $this->body,
-            'articoli'=> $articles
+            'category_name'=> $this->category_name,
+            'altro' => 'pippo',
         ];
 
         // Customize the data array...

@@ -52,10 +52,18 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
+        $categories = Category::all();
+        $category_name="";
+        foreach ($categories as $category) {
+            if($category->id == $request->category){
+                $category_name = $category->name;
+            }
+        }
         $article = Article::create([
             'title'=> $request->title,
             'body'=> $request->body,
             'category_id'=>$request->category,
+            'category_name'=>$category_name,
             'price'=>$request->price,
             'user_id'=>Auth::id()
 
@@ -112,16 +120,10 @@ class ArticleController extends Controller
     public function search(Request $request){
         $q = $request->input('q');
         $articles = Article::search($q)->where('is_accepted', true)->paginate(6);
-        $category = Category::search($q)->first();
-     
-        if($category){
-            $images = $this->getImages();
-            $articles = Article::where('category_id',$category->id)->where('is_accepted', true)->paginate(6);
-            return view('search.search_results', compact('q','images','articles'));
-        }else{
+    
             $images = $this->getImages();
             return view('search.search_results', compact('q', 'articles', 'images'));
-        }
+        
     }
 
 }
