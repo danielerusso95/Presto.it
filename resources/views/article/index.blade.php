@@ -3,12 +3,15 @@
     <div class="row">
         <div class="col-12 text-center">
             <h3 class="text-center mb-3">Seleziona la categoria che desideri</h3>
-            @foreach ($categories as $cate)
-            <button class="p-0 rounded my-2 border-0 shadow ">
-                <a href="{{route('article.index', compact('cate'))}}" class="mx-4 text-decoration-none">{{$cate->name}}</a>
-            </button>
-
-            @endforeach
+            <div class="articlesForm row">
+                @foreach ($categories as $cate)
+                    <div class="col-2">
+                        <button class="p-0 rounded my-2 border-0 shadow ">
+                            <a href="{{route('article.index', compact('cate'))}}" class="mx-4 text-dark text-decoration-none">{{$cate->name}}</a>
+                        </button>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 </div>
@@ -21,7 +24,7 @@
             <div class="card mx-auto" style="width: 18rem;">
                 <img src="{{$images[0]}}200" class="card-img-top" alt="image random">
                 <div class="card-body">
-                    <h5 class="card-title">Titolo: {{$article->title}}</h5>
+                    <h5 class="card-title">@if(strlen($article->title)>15){{Str::substr($article->title, 0, -(strlen($article->title)-15))."..."}}@else{{$article->title}}@endif</h5>
                     <h5 class="card-subtitle mb-5">Prezzo: {{$article->price}} €</h5>
                     <p class="card-text">Descrizione: {{$article->body}}</p>
                     <p class="card-text">Autore: {{$article->user->name}}</p>
@@ -53,7 +56,7 @@
                     <div class="card mx-auto" style="width: 18rem;">
                         <img src="{{$images[0]}}200" class="card-img-top" alt="image random">
                         <div class="card-body">
-                            <h5 class="card-title">Titolo: {{$article->title}}</h5>
+                            <h5 class="card-title">@if(strlen($article->title)>15){{Str::substr($article->title, 0, -(strlen($article->title)-15))."..."}}@else{{$article->title}}@endif</h5>
                             <h5 class="card-subtitle mb-5">Prezzo: {{$article->price}} €</h5>
                             <p class="card-text">Descrizione: {{$article->body}}</p>
                             <p class="card-text">Autore: {{$article->user->name ?? ''}}</p>
