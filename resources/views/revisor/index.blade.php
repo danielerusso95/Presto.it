@@ -14,7 +14,11 @@
                 <h3 class="my-3">Dettagli annuncio</h3>
                 <ul>
                 <li>Prezzo: {{$article->price}} €</li>
-                <li>Categoria: {{$article->category->name}}</li>
+                @foreach ($categories as $cate)
+                    @if ($cate->id == $article->category_id)
+                        <li class="card-text">Categoria: <a href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></li>
+                    @endif
+                @endforeach
                 <li>Autore: {{$article->user->name}}</li>
                 </ul>
                 <p>Descrizione: {{$article->body}}</p>

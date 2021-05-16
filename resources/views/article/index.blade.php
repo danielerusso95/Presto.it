@@ -25,7 +25,11 @@
                     <h5 class="card-subtitle mb-5">Prezzo: {{$article->price}} €</h5>
                     <p class="card-text">Descrizione: {{$article->body}}</p>
                     <p class="card-text">Autore: {{$article->user->name}}</p>
-                    <p class="card-text">Categoria: {{$article->category->name}}</p>
+                    @foreach ($categories as $cate)
+                        @if ($cate->id == $article->category_id)
+                            <p class="card-text">Categoria: <a href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></p>
+                        @endif
+                    @endforeach
                     <p class="card-text">Creato il: {{$article->created_at}}</p>
                     <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">Visualizza</a>
                 </div>
@@ -53,7 +57,11 @@
                             <h5 class="card-subtitle mb-5">Prezzo: {{$article->price}} €</h5>
                             <p class="card-text">Descrizione: {{$article->body}}</p>
                             <p class="card-text">Autore: {{$article->user->name ?? ''}}</p>
-                            <p class="card-text">Categoria: {{$article->category->name}}</p>
+                            @foreach ($categories as $cate)
+                                @if ($cate->id == $article->category_id)
+                                    <p class="card-text">Categoria: <a href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></p>
+                                @endif
+                            @endforeach
                             <p class="card-text">Creato il: {{$article->created_at}}</p>
                             <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">Visualizza</a>
                         </div>

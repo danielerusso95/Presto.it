@@ -27,6 +27,7 @@ class ArticleController extends Controller
      */
     public function index(Category $cate)
     {
+       
         $images = $this->getImages();
         $articles_category =Article::where('is_accepted', true)->where('category_id',$cate->id)->orderBy('created_at', 'desc')->paginate(6);
         $category = $cate;
