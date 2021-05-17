@@ -5,15 +5,29 @@
         </div>
     @endif
     @if ($errors->any())
-              <div class="alert alert-danger col-12 mt-2">
-                <ul>
-                  @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                  @endforeach
-                </ul>
-              </div>
-        @endif
+        <div class="alert alert-danger col-12 mt-2">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        </div>
+    @endif
     <h3 class="mt-5 text-center">Compila il form e crea il tuo annuncio</h3>
+
+    <div class="card-body">
+        <h3>DEBUG:: SECRET {{$uniqueSecret}}</h3>
+        <form action="{{route('article.create')}}" method="POST">
+        @csrf 
+
+        <input 
+            type="hidden" 
+            name="uniqueSecret" 
+            value="{{$uniqueSecret}}">
+        
+        </form>
+    </div>
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 p-3 articlesForm">
@@ -37,7 +51,25 @@
                     <label for="body" class="form-label">Descrizione:</label>
                     <textarea name="body" id="body" cols="30" rows="10" class="form-control">{{old('body')}}</textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Posta Annuncio</button>
+
+                <div class="form-group row">
+                    <label for="images" class="col-md-12 col-form-label">Immagini</label>
+                    <div class="col-md-12 ">
+
+                        <div class="dropzone border-0" id="drophere"></div>
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger col-12 mt-2">
+                                <ul>
+                                    <li>{{ $error }}</li>
+                                </ul>
+                            </div>
+                        @endif
+                    
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary mt-4">Posta Annuncio</button>
             </form>
         </div>
     </div>

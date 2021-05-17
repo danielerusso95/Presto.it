@@ -41,7 +41,21 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view ('article.create');
+        $uniqueSecret = base_convert(sha1(uniqid(mt_rand())), 16, 36);
+       
+        return view ('article.create',compact('uniqueSecret'));
+    }
+
+    public function uploadImage(Request $request)
+    {
+        $uniqueSecret = $request->input('uniqueSecret');
+
+        $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
+
+        session()->push("images.{$uniqueSecret}, $fileName");
+
+        return redirect(route('article.create'));
+
     }
 
     /**

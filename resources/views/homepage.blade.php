@@ -21,7 +21,7 @@
                         <div class="col-12 col-md-4 ps-5">
                             <img src="{{$images[0]}}/200" class="img-fluid rounded-2" alt="image random">
                         </div>
-                        <div class="col-12 col-md-6" style="">
+                        <div class="col-12 col-md-6">
                            <div class="ms-3 ms-md-0 card-body">
                                <h5 class="card-subtitle mb-3">Prezzo: {{$article->price}} €</h5>
                                 <p class="card-text">Descrizione: {{$article->body}}</p>
