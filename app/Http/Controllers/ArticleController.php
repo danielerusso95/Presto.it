@@ -48,6 +48,7 @@ class ArticleController extends Controller
 
     public function uploadImage(Request $request)
     {
+        dd($request->all());
         $uniqueSecret = $request->input('uniqueSecret');
 
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
@@ -82,7 +83,9 @@ class ArticleController extends Controller
             'user_id'=>Auth::id()
 
         ]);
-
+        
+        $uniqueSecret = $request->input('uniqueSecret');
+        dd($uniqueSecret);
         return redirect()->back()->with('message','Complimenti, annuncio creato con successo!');
     }
 

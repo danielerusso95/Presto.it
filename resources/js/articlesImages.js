@@ -6,7 +6,7 @@ $(function(){
         let uniqueSecret = $('input[name="uniqueSecret"]').attr('value');
 
         let myDropzone = new Dropzone('#drophere', {
-            url: '/articles/images/upload',
+            url: '/articoli/caricamento/immagini',
 
             params: {
                 _token: csrfToken,

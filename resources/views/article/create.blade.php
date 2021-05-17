@@ -17,15 +17,6 @@
 
     <div class="card-body">
         <h3>DEBUG:: SECRET {{$uniqueSecret}}</h3>
-        <form action="{{route('article.create')}}" method="POST">
-        @csrf 
-
-        <input 
-            type="hidden" 
-            name="uniqueSecret" 
-            value="{{$uniqueSecret}}">
-        
-        </form>
     </div>
 
 <div class="container mt-5">
@@ -33,6 +24,11 @@
         <div class="col-12 col-md-8 p-3 articlesForm">
             <form action="{{route('article.store')}}" method="POST">
                 @csrf
+                <input 
+                type="hidden" 
+                name="uniqueSecret" 
+                value="{{$uniqueSecret}}">
+        
                 <label for="category" class="form-label">Seleziona la categoria:</label>
                 <select class="form-select" name="category" id="category" aria-label="Default select example">
                     @foreach ($categories as $category)
@@ -53,10 +49,10 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="images" class="col-md-12 col-form-label">Immagini</label>
-                    <div class="col-md-12 ">
+                    <label for="images" class="col-md-12 col-form-label text-md-right">Immagini</label>
+                    <div class="col-md-12">
 
-                        <div class="dropzone border-0" id="drophere"></div>
+                        <div class="dropzone" id="drophere"></div>
 
                         @if ($errors->any())
                             <div class="alert alert-danger col-12 mt-2">
@@ -65,11 +61,10 @@
                                 </ul>
                             </div>
                         @endif
-                    
+
                     </div>
                 </div>
-                
-                <button type="submit" class="btn btn-primary mt-4">Posta Annuncio</button>
+                <button type="submit" class="btn btn-primary">Posta Annuncio</button>
             </form>
         </div>
     </div>
