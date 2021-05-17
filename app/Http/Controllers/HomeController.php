@@ -39,5 +39,24 @@ class HomeController extends Controller
         return view('user.index', compact('articles', 'images', 'revisedArticles'));
     }
 
+    public function edit(Article $article)
+    {
+        return view('user.article_edit', compact('article'));
+    }
 
+    public function update(Request $request, Article $article)
+    {
+        $article->update([
+            'title'=> $request->title,
+            'body'=> $request->body,
+            'price'=> $request->price
+        ]);
+        return redirect()->back()->with('message', 'Annuncio modificato!');
+    }
+
+    public function delete(Article $article)
+    {
+        $article->delete();
+        return redirect(route('user.index'))->with('message', 'Annuncio eliminato!');
+    }
 }

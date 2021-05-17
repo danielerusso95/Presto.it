@@ -14,6 +14,11 @@
                             <p class="card-subtitle">Prezzo: {{$article->price}} €</p>
                             <p class="card-text">Descrizione: {{$article->body}}</p>
                             <p class="card-text">Autore: {{$article->user->name ?? ''}}</p>
+                            @foreach ($categories as $cate)
+                                @if ($cate->id == $article->category_id)
+                                    <p class="card-text">Categoria: <a href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></p>
+                                @endif
+                            @endforeach
                             <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">Visualizza</a>
                         </div>
                     </div>

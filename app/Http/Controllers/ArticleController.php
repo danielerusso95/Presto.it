@@ -90,10 +90,7 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
-    {
-        return view('user.article_edit', compact('article'));
-    }
+  
 
     /**
      * Update the specified resource in storage.
@@ -102,15 +99,7 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
-    {
-        $article->update([
-            'title'=> $request->title,
-            'body'=> $request->body,
-            'price'=> $request->price
-        ]);
-        return redirect()->back()->with('message', 'Annuncio modificato!');
-    }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -118,11 +107,7 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
-    {
-        $article->delete();
-        return redirect(route('article.index'))->with('message', 'Annuncio eliminato!');
-    }
+   
     public function search(Request $request){
         $q = $request->input('q');
         $articles = Article::search($q)->where('is_accepted', true)->paginate(6);

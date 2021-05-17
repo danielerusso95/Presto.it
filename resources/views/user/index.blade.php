@@ -1,4 +1,9 @@
 <x-layout>
+    @if (session('message'))
+        <div class="alert alert-danger">
+            {{session('message')}}
+        </div>
+    @endif
     <div class="container  p-5">
         <div class="row">
             <div class="col-12 text-center">
@@ -12,7 +17,7 @@
         <div class="row">
             @foreach($revisedArticles as $article)
             <div class="col-12 col-lg-4 mb-5 ">
-                <div class="card mx-auto" style="width: 100%;">
+                <div class="card mx-auto" style="width: 18rem;">
                     <img src="{{$images[0]}}200" class="card-img-top" alt="image random">
                     <div class="card-body">
                         <h5 class="card-title">{{$article->customTitle($article,20)}}</h5>
@@ -25,13 +30,42 @@
                             @endif
                         @endforeach
                         <p class="card-text">Creato il: {{$article->created_at}}</p>
-                        <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">Visualizza</a>
-                        <form action="" method="post"></form>
-                        <form action="" method="post"></form>
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="{{route('article.show', compact('article'))}}" class="btn btn-success">Visualizza</a>
+                            </div>
+                            <div class="col-4">
+                                <a href="{{route('user.article_edit',compact('article'))}}" class="btn btn-primary">Modifica</a>
+                            </div>
+                            <div class="col-4">
+                                <button data-bs-toggle="modal" data-bs-target="#deleteArticle" class="btn btn-danger">Elimina</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
+            <!--delete modal-->
+            <div class="modal fade" id="deleteArticle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Elimina</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Sei sicuro di voler eliminare questo articolo definitivamente?
+                        </div>
+                        <div class="modal-footer ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <form action="{{route('user.delete',compact('article'))}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Cancella</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             @endforeach
             <div class="container mb-5">
                 <div class="row justify-content-center">

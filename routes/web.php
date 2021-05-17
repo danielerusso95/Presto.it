@@ -26,11 +26,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //CRUD ARTICLES
-Route::get('/crea/annuncio', [ArticleController::class, 'create'])->name('article.create');
-Route::post('/salva/annuncio', [ArticleController::class, 'store'])->name('article.store');
+Route::get('/crea/articolo', [ArticleController::class, 'create'])->name('article.create');
+Route::post('/salva/articolo', [ArticleController::class, 'store'])->name('article.store');
 
 Route::get('/tutti/gli/articoli/{cate?}/{articles_category?}', [ArticleController::class, 'index'])->name('article.index');
-Route::get('/show/annunci/{article}', [ArticleController::class, 'show'])->name('article.show');
+Route::get('/show/articoli/{article}', [ArticleController::class, 'show'])->name('article.show');
 
 //contacts work with us
 Route::get('/candidati', [ContactController::class, 'index'])->name('contact.index');
@@ -49,4 +49,7 @@ Route::get('/search', [ArticleController::class, 'search'])->name('search_result
 
 //user
 Route::get('/pagina/utente', [HomeController::class, 'panel'])->name('user.panel');
-Route::get('/i/tuoi/annunci', [HomeController::class, 'userArticles'])->name('user.index');
+Route::get('/i/tuoi/articoli', [HomeController::class, 'userArticles'])->name('user.index');
+Route::get('/modifica/articolo/{article}', [HomeController::class, 'edit'])->name('user.article_edit');
+Route::put('salva/modifiche/articolo/{article}', [HomeController::class, 'update'])->name('user.update');
+Route::delete('cancella/articolo/{article}', [HomeController::class, 'delete'])->name('user.delete');

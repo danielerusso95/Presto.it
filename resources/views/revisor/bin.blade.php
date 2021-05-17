@@ -28,6 +28,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal -->
             <div class="modal fade" id="deleteArticle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -51,6 +52,6 @@
             </div>
         @endforeach
     @endif
-    <!-- Modal -->
+
   
 </x-layout>

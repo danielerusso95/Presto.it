@@ -14,16 +14,5 @@ class Category extends Model
     public function articles(){
         return $this->hasMany(Article::class);
     }
-    use Searchable;
-    public function toSearchableArray()
-    {
-        $array = [
-            'id'=> $this->id,
-            'name'=> $this->name,
-        ];
 
-        // Customize the data array...
-
-        return $array;
-    }
 }
