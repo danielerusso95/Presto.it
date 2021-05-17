@@ -1,3 +1,3 @@
-require('./bootstrap');
+require("./bootstrap");
 
-require('./js_custom');
+require("./js_custom");
