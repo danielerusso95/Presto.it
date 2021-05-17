@@ -1,7 +1,7 @@
 <div class="container-fluid mt-5">
   <div class="row my-5 justify-content-around">
       <div class="col-12 col-md-4 text-center">
-        <h1 class="my-3">Benvenuti su Presto!</h1>
+        <h1 class="my-3">{{__('ui.welcome')}}</h1>
         <h4>Qui puoi mettere in vendita ciò che non usi più e cercare i tuoi acquisti tra migliaia di annunci</h4>
       </div>
       <div class="col-12">
