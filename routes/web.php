@@ -27,6 +27,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //CRUD ARTICLES
 Route::get('/crea/articolo', [ArticleController::class, 'create'])->name('article.create');
+
 Route::post('/articoli/caricamento/immagini', [ArticleController::class, 'uploadImage'])->name('article.uploadImage');
 Route::post('/salva/articolo', [ArticleController::class, 'store'])->name('article.store');
 

@@ -48,14 +48,16 @@ class ArticleController extends Controller
 
     public function uploadImage(Request $request)
     {
-        dd($request->all());
+        
         $uniqueSecret = $request->input('uniqueSecret');
-
+        
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
-
-        session()->push("images.{$uniqueSecret}, $fileName");
-
-        return redirect(route('article.create'));
+        
+        session()->push("images.{$uniqueSecret}", $fileName);
+       
+        return response()->json(
+            session()->get("images.{$uniqueSecret}", $fileName));
+        
 
     }
 
@@ -83,9 +85,11 @@ class ArticleController extends Controller
             'user_id'=>Auth::id()
 
         ]);
-        
+
         $uniqueSecret = $request->input('uniqueSecret');
+
         dd($uniqueSecret);
+        
         return redirect()->back()->with('message','Complimenti, annuncio creato con successo!');
     }
 

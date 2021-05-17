@@ -22,7 +22,7 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 p-3 articlesForm">
-            <form action="{{route('article.store')}}" method="POST">
+            <form action="{{route('article.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input 
                 type="hidden" 
