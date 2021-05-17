@@ -11,5 +11,8 @@ class PublicController extends Controller
         $images = $this->getImages();
         return view('homepage',compact('images'));
     }
-
+    public function locale($locale){
+        session()->put('locale', $locale);
+        return redirect()->back();
+    }
 }

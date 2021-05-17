@@ -47,6 +47,15 @@
 
 
       <ul class="navbar-nav">
+            <li class="nav-item">
+               <x-_locale />
+            </li>
+            <li class="nav-item">
+                <x-_locale />
+             </li>
+             <li class="nav-item">
+                <x-_locale />
+             </li>
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item d-flex justify-content-center">

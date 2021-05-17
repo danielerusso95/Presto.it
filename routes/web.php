@@ -53,3 +53,6 @@ Route::get('/i/tuoi/articoli', [HomeController::class, 'userArticles'])->name('u
 Route::get('/modifica/articolo/{article}', [HomeController::class, 'edit'])->name('user.article_edit');
 Route::put('salva/modifiche/articolo/{article}', [HomeController::class, 'update'])->name('user.update');
 Route::delete('cancella/articolo/{article}', [HomeController::class, 'delete'])->name('user.delete');
+
+//flag icons
+Route::post('/locale/{locale}', [PublicController::class, 'locale'])->name('locale');
