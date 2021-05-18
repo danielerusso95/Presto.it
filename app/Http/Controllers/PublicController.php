@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 class PublicController extends Controller
 {
     public function home() {
-        $images = $this->getImages();
-        return view('homepage',compact('images'));
+        return view('homepage');
     }
+    
     public function locale($locale){
         session()->put('locale', $locale);
         return redirect()->back();
     }
+
+    // vista home
 }

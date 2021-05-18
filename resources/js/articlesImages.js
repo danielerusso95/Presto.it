@@ -29,7 +29,6 @@ $(function () {
                         let file = {
                             serverId: value.id,
                         };
-                        console.log(value.src);
                         myDropzone.options.addedfile.call(myDropzone, file);
                         myDropzone.options.thumbnail.call(
                             myDropzone,

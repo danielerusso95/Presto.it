@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleRequest;
+use App\Jobs\ResizeImage;
 use App\Models\Image;
 use App\Models\Article;
 use App\Models\ArticleImage;
@@ -31,10 +32,9 @@ class ArticleController extends Controller
     public function index(Category $cate)
     {
 
-        $images = $this->getImages();
         $articles_category =Article::where('is_accepted', true)->where('category_id',$cate->id)->orderBy('created_at', 'desc')->paginate(6);
         $category = $cate;
-        return view ('article.index', compact('category','articles_category', 'images'));
+        return view ('article.index', compact('category','articles_category'));
     }
 
     /**
@@ -52,7 +52,15 @@ class ArticleController extends Controller
     {
         $uniqueSecret = $request->input('uniqueSecret');
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
+
+        dispatch(new ResizeImage(
+            $fileName, 
+            80,
+            80
+        ));
+
         session()->push("images.{$uniqueSecret}", $fileName);
+
         return response()->json(
             [
                 'id' => $fileName
@@ -84,7 +92,7 @@ class ArticleController extends Controller
         foreach ($images as $image) {
             $data[]=[
                 'id'=>$image,
-                'src'=>Storage::url($image)
+                'src'=>ArticleImage::getUrlByFilePath($image, 80, 80)
             ];
         }
 
@@ -129,6 +137,12 @@ class ArticleController extends Controller
             $newFileName = "/public/articles/{$article->id}/{$fileName}";
             Storage::move($image,$newFileName);
 
+            dispatch(new ResizeImage(
+                $newFileName, 
+                300,
+                300
+            ));
+
             $i = ArticleImage::create([
                 'file'=> $newFileName,
                 'article_id'=> $article->id,
@@ -148,8 +162,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        $images = $this->getImages();
-        return view('article.show', compact('article', 'images'));
+        return view('article.show', compact('article'));
     }
 
     /**
@@ -180,9 +193,10 @@ class ArticleController extends Controller
         $q = $request->input('q');
         $articles = Article::search($q)->where('is_accepted', true)->paginate(6);
 
-            $images = $this->getImages();
-            return view('search.search_results', compact('q', 'articles', 'images'));
+
+        return view('search.search_results', compact('q', 'articles'));
 
     }
-
+    
+    //vista search, index, show
 }

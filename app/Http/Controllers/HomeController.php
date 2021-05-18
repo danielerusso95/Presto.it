@@ -32,11 +32,10 @@ class HomeController extends Controller
     }
     public function userArticles(){
 
-        $images = $this->getImages();
         $revisedArticles=Article::where('is_accepted', true)->where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(6);
         $articles=Article::where('is_accepted', null)->where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(6);
 
-        return view('user.index', compact('articles', 'images', 'revisedArticles'));
+        return view('user.index', compact('articles', 'revisedArticles'));
     }
 
     public function edit(Article $article)
@@ -59,4 +58,6 @@ class HomeController extends Controller
         $article->delete();
         return redirect(route('user.index'))->with('message', 'Annuncio eliminato!');
     }
+
+    //viste userArticles
 }
