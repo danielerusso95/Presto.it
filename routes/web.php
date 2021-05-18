@@ -32,6 +32,7 @@ Route::get('/crea/articolo', [ArticleController::class, 'create'])->name('articl
 Route::post('/articoli/caricamento/immagini', [ArticleController::class, 'uploadImages'])->name('article.uploadImage');
 Route::delete('/articolo/rimuovi/immagini', [ArticleController::class, 'removeImages'])->name('article.removeImage');
 Route::get('/articolo/vecchie/immagini', [ArticleController::class, 'oldImages'])->name('article.oldImage');
+Route::delete('cancella/immagini/{image}', [HomeController::class, 'deleteImage'])->name('article.deleteImage');
 
 
 Route::post('/salva/articolo', [ArticleController::class, 'store'])->name('article.store');

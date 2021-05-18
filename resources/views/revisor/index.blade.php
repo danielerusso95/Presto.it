@@ -6,16 +6,15 @@
     <div class="container-fluid p-5">
         <h2 class="my-4">Titolo: {{$article->title}}</h2>
         <div class="row justify-content-around">
-          <div class="col-md-8 d-flex justify-content-center mb-5" id="wrapper">
-              @if ($article->images->isNotEmpty())
-                <img src="{{Storage::url($article->images->first()->file)}}" class="img-fluid rounded-2" alt="image random">
-              @endif
+            <div class="col-md-8 d-flex justify-content-center mb-5" id="wrapper">
+                @if ($article->images->isNotEmpty())
+                    <img src="{{$article->images->first()->getUrl(500,500)}}" class="img-fluid rounded-2" alt="image random">
+                @endif
 
-          </div>
-          <div class="col-md-4">
-
-                <h3 class="my-3">Dettagli annuncio</h3>
-                <ul>
+            </div>
+        <div class="col-md-4">
+            <h3 class="my-3">Dettagli annuncio</h3>
+            <ul>
                 <li>Prezzo: {{$article->price}} €</li>
                 @foreach ($categories as $cate)
                     @if ($cate->id == $article->category_id)
@@ -23,12 +22,20 @@
                     @endif
                 @endforeach
                 <li>Autore: {{$article->user->name}}</li>
-                </ul>
-                <p>Descrizione: {{$article->body}}</p>
-            </div>
+            </ul>
+            <p>Descrizione: {{$article->body}}</p>
         </div>
+    </div>
 
-        <div id="staffWrapper" class="row justify-content-around mt-5"></div>
+        <div id="staffWrapper" class="row justify-content-around mt-5">
+            @foreach ($article->images as $image)    
+                <div class="col-md-2 col-sm-6 mb-4 d-flex justify-content-center">
+                    <a>
+                        <img class="member img-fluid" src="{{$image->getUrl(200,200)}}" alt="">
+                    </a>
+                </div>
+            @endforeach
+        </div>
 
         <div class="row mt-5">
             <div class="col-6 d-flex justify-content-center">
@@ -53,43 +60,17 @@
     @endif
 
         <script>
+            let members = document.querySelectorAll(".member");
+            let wrapper = document.querySelector("#wrapper");
 
-        let wrapper = document.querySelector("#staffWrapper");
-        let images = {!!($article->images->toJson())!!};
-
-            console.log(images);
-        images.forEach((member) => {
-        wrapper.innerHTML+=`
-            <div class="col-md-2 col-sm-6 mb-4 d-flex justify-content-center">
-                <a>
-                    <img class="member img-fluid" src="${member}200" alt="">
-                </a>
-            </div>
-            `;
-        });
-        let members = document.querySelectorAll(".member");
-        let placeholder;
-        let splitholder;
-        for (let i = 0; i < members.length; i++) {
-        members[i].addEventListener("click",()=>{
-            img = members[i];
-            placeholder = img.getAttribute('src');
-            splitholder=placeholder.split('/');
-
-
-
-          splitholder[3] = '';
-          placeholder = splitholder.join('/');
-          console.log(placeholder);
-
-          let wra = document.querySelector("#wrapper");
-
-          wra.innerHTML= `<img class="member" class="img-fluid" src="${placeholder}500" alt="">`;
-
-      });
-    };
-
-
+            members.forEach(member => {
+                member.addEventListener("click",()=>{
+                    let str = member.outerHTML;
+                    str = str.split("200x200");
+                    str = str[0]+"500x500"+str[1];
+                    wrapper.innerHTML = str;
+                });
+            });
         </script>
 
 </x-layout>

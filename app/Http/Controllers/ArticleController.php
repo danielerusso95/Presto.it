@@ -55,8 +55,8 @@ class ArticleController extends Controller
 
         dispatch(new ResizeImage(
             $fileName,
-            80,
-            80
+            120,
+            120
         ));
 
         session()->push("images.{$uniqueSecret}", $fileName);
@@ -80,24 +80,21 @@ class ArticleController extends Controller
     public function oldImages(Request $request){
 
         $uniqueSecret = $request->input('uniqueSecret');
-
         $images = session()->get("images.{$uniqueSecret}", []);
-
         $removedImages = session()->get("removedimages.{$uniqueSecret}", []);
-
         $images = array_diff($images,$removedImages);
-
         $data = [];
-
         foreach ($images as $image) {
             $data[]=[
                 'id'=>$image,
-                'src'=>ArticleImage::getUrlByFilePath($image, 80, 80)
+                'src'=>ArticleImage::getUrlByFilePath($image, 120, 120)
             ];
         }
 
         return response()->json($data);
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -134,13 +131,18 @@ class ArticleController extends Controller
 
         foreach ($images as $image) {
             $fileName = basename($image);
-            $newFileName = "/public/articles/{$article->id}/{$fileName}";
+            $newFileName = "public/articles/{$article->id}/{$fileName}";
             Storage::move($image,$newFileName);
-
+            
             dispatch(new ResizeImage(
                 $newFileName,
                 200,
                 200
+            ));
+            dispatch(new ResizeImage(
+                $newFileName,
+                500,
+                500
             ));
 
             $i = ArticleImage::create([

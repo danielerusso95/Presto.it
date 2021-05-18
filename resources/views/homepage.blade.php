@@ -20,7 +20,7 @@
                         </div>
                         <div class="col-12 col-md-4 ps-5">
                             @if ($article->images->isNotEmpty())
-                                <img src="{{Storage::url($article->images->first()->file)}}" class="img-fluid rounded-2" alt="image random">
+                                <img src="{{$article->images->first()->getUrl(200,200)}}" class="img-fluid rounded-2" alt="image random">
                             @endif
 
                         </div>

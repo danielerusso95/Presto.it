@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,10 +39,13 @@ class HomeController extends Controller
         return view('user.index', compact('articles', 'revisedArticles'));
     }
 
-    public function edit(Article $article)
+    public function edit(Article $article, Request $request)
     {
-        return view('user.article_edit', compact('article'));
+        $uniqueSecret = $request->old('uniqueSecret',base_convert(sha1(uniqid(mt_rand())), 16, 36));
+        return view('user.article_edit', compact('article','uniqueSecret'));
+        
     }
+    
 
     public function update(Request $request, Article $article)
     {
@@ -57,6 +61,13 @@ class HomeController extends Controller
     {
         $article->delete();
         return redirect(route('user.index'))->with('message', 'Annuncio eliminato!');
+    }
+
+    public function deleteImage($image)
+    {
+        $deleteImage = ArticleImage::where('id',$image)->get();
+        $deleteImage->all()[0]->delete();
+        return redirect()->back()->with('message', 'Immagine eliminata!');
     }
 
     //viste userArticles

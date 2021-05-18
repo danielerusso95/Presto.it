@@ -38,8 +38,30 @@
                     <label for="body" class="form-label">Descrizione:</label>
                     <textarea name="body" id="body" cols="30" rows="10" class="form-control">{{$article->body}}</textarea>
                 </div>
+                <div class="form-group row">
+                    <label for="images" class="col-md-12 col-form-label text-md-right">Immagini</label>
+                    <div class="col-md-12">
+
+                        <div class="dropzone" id="dropedit"></div>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-primary">Conferma modifiche</button>
             </form>
+            <div class="row mt-5">
+                @if ($article->images->count()>1)  
+                    @foreach ($article->images as $image)    
+                        <div class="col-md-2 col-sm-6 mb-4 d-flex justify-content-center">
+                            
+                            <form action="{{route('article.deleteImage',compact('image'))}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <img class="member img-fluid" src="{{$image->getUrl(200,200)}}" alt="">
+                                <button type="submit" class="btn btn-danger">Cancella</button>
+                            </form>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
         </div>
     </div>
 </div>
