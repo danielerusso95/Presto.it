@@ -20,6 +20,10 @@
             <form action="{{route('user.update',compact('article'))}}" method="POST">
                 @csrf
                 @method('PUT')
+                <input 
+                type="hidden" 
+                name="uniqueSecret" 
+                value="{{$uniqueSecret}}">
                 <label for="category" class="form-label">Seleziona la categoria:</label>
                 <select class="form-select" name="category" id="category" aria-label="Default select example">
                     @foreach ($categories as $category)
@@ -42,7 +46,7 @@
                     <label for="images" class="col-md-12 col-form-label text-md-right">Immagini</label>
                     <div class="col-md-12">
 
-                        <div class="dropzone" id="dropedit"></div>
+                        <div class="dropzone" id="drophere"></div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Conferma modifiche</button>

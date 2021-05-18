@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ResizeImage;
 use App\Models\Article;
 use App\Models\ArticleImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -54,7 +56,39 @@ class HomeController extends Controller
             'body'=> $request->body,
             'price'=> $request->price
         ]);
-        return redirect()->back()->with('message', 'Annuncio modificato!');
+        $uniqueSecret = $request->input('uniqueSecret');
+
+        $images = session()->get("images.{$uniqueSecret}", []);
+
+        $removedImages = session()->get("removedimages.{$uniqueSecret}", []);
+
+        $images = array_diff($images,$removedImages);
+
+        foreach ($images as $image) {
+            $fileName = basename($image);
+            $newFileName = "public/articles/{$article->id}/{$fileName}";
+            Storage::move($image,$newFileName);
+            
+            dispatch(new ResizeImage(
+                $newFileName,
+                200,
+                200
+            ));
+            dispatch(new ResizeImage(
+                $newFileName,
+                500,
+                500
+            ));
+
+            $i = ArticleImage::create([
+                'file'=> $newFileName,
+                'article_id'=> $article->id,
+            ]);
+        }
+
+        Storage::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
+
+        return redirect(route('user.index'))->with('message', 'Annuncio modificato!');
     }
 
     public function delete(Article $article)
@@ -72,3 +106,4 @@ class HomeController extends Controller
 
     //viste userArticles
 }
+

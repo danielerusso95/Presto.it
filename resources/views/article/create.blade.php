@@ -15,10 +15,6 @@
     @endif
     <h3 class="mt-5 text-center">Compila il form e crea il tuo annuncio</h3>
 
-    <div class="card-body">
-        <h3>DEBUG:: SECRET {{$uniqueSecret}}</h3>
-    </div>
-
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 p-3 articlesForm">
