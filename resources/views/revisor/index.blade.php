@@ -4,7 +4,7 @@
 
 
     <div class="container-fluid p-5">
-        <h2 class="my-4">Titolo: {{$article->title}}</h2>
+        <h2 class="my-4">{{__('ui.title')}}: {{$article->title}}</h2>
         <div class="row justify-content-around">
             <div class="col-md-8 d-flex justify-content-center mb-5" id="wrapper">
                 @if ($article->images->isNotEmpty())
@@ -13,22 +13,22 @@
 
             </div>
         <div class="col-md-4">
-            <h3 class="my-3">Dettagli annuncio</h3>
+            <h3 class="my-3">{{__('ui.details').' '.__('ui.announcement')}}:</h3>
             <ul>
-                <li>Prezzo: {{$article->price}} €</li>
+                <li>{{__('ui.price')}}: {{$article->price}} €</li>
                 @foreach ($categories as $cate)
                     @if ($cate->id == $article->category_id)
-                        <li class="card-text">Categoria: <a href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></li>
+                        <li class="card-text">{{__('ui.details')}}: <a href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></li>
                     @endif
                 @endforeach
-                <li>Autore: {{$article->user->name}}</li>
+                <li>{{__('ui.author')}}: {{$article->user->name}}</li>
             </ul>
-            <p>Descrizione: {{$article->body}}</p>
+            <p>{{__('ui.details')}}: {{$article->body}}</p>
         </div>
     </div>
 
         <div id="staffWrapper" class="row justify-content-around mt-5">
-            @foreach ($article->images as $image)    
+            @foreach ($article->images as $image)
                 <div class="col-md-2 col-sm-6 mb-4 d-flex justify-content-center">
                     <a>
                         <img class="member img-fluid" src="{{$image->getUrl(200,200)}}" alt="">
@@ -41,14 +41,14 @@
             <div class="col-6 d-flex justify-content-center">
                 <form action="{{route('revisor.rejected', compact('article'))}}" method="POST">
                 @csrf
-                    <button class="btn btn-danger border-dark border-3" type="submit">Elimina</button>
+                    <button class="btn btn-danger border-dark border-3" type="submit">{{__('ui.delete')}}</button>
                 </form>
             </div>
 
             <div class="col-6 d-flex justify-content-center">
             <form action="{{route('revisor.accepted', compact('article'))}}" method="POST">
                 @csrf
-                    <button class="btn btn-success border-dark border-3" type="submit">Accetta</button>
+                    <button class="btn btn-success border-dark border-3" type="submit">{{__('ui.accept')}}</button>
                 </form>
             </div>
 
@@ -56,7 +56,7 @@
 
     </div>
     @else
-    <h1 class="bg-success text-center">Nessun annuncio da revisionare</h1>
+    <h1 class="bg-success text-center">{{__('ui.revisorNotWorking')}}</h1>
     @endif
 
         <script>
