@@ -13,7 +13,7 @@
                 </ul>
               </div>
         @endif
-    <h3 class="mt-5 text-center">Modifica il tuo annuncio</h3>
+    <h3 class="mt-5 text-center">{{__('ui.delete')." ".__('ui.yourMS')." ".__('ui.announcements')}}</h3>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 p-3 articlesForm">

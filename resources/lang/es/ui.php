@@ -14,6 +14,7 @@ return[
     'revisorAnnouncementsNav'=>'Para ser revisado',
     'binNav'=>'Bote de basura',
     'announcementsNavDrop'=>'Anuncios',
+    'announcements'=>'anuncios',
     'profileNav'=>'Perfil',
     'login'=>'Iniciar sesión',
     'register'=>'Registrarse',
@@ -29,6 +30,10 @@ return[
     'config'=>'configuración',
     'edit'=>'Modificación',
     'delete'=>'Eliminar',
+    'close'=>'Cerca',
     'yourFS'=>'tuya',
-    'yourMP'=>'Tuya'
+    'yourMS'=>'tu',
+    'yourMP'=>'Tuya',
+    'approved'=>'Anuncios aprobados',
+    'modalDelete'=>'¿Está seguro de que desea eliminar este artículo de forma permanente?'
 ];

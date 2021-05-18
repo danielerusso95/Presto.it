@@ -14,6 +14,7 @@ return[
     'revisorAnnouncementsNav'=>'To be reviewed',
     'binNav'=>'Bin',
     'announcementsNavDrop'=>'Annuncements',
+    'announcements'=>'annuncements',
     'profileNav'=>'Profile',
     'login'=>'Login',
     'register'=>'Register',
@@ -29,6 +30,10 @@ return[
     'config'=>'config',
     'edit'=>'Edit',
     'delete'=>'Delete',
+    'close'=>'Close',
     'yourFS'=>'your',
-    'yourMP'=>'Yours'
+    'yourMS'=>'your',
+    'yourMP'=>'Yours',
+    'approved'=>'Approved announcements',
+    'modalDelete'=>'Are you sure you want to permanently delete this article?'
 ];
