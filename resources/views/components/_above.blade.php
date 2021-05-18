@@ -2,20 +2,20 @@
   <div class="row my-5 justify-content-around">
       <div class="col-12 col-md-4 text-center">
         <h1 class="my-3">{{__('ui.welcome')}}</h1>
-        <h4>Qui puoi mettere in vendita ciò che non usi più e cercare i tuoi acquisti tra migliaia di annunci</h4>
+        <h4>{{__('ui.subWelcome')}}</h4>
       </div>
       <div class="col-12">
           <div class="row h-100 justify-content-center align-items-center">
             <div class="col-12 col-md-4 mx-5">
               <div class="card card-signin my-5">
                 <div class="card-body">
-                  <h5 class="card-title text-center">Cerca l'annuncio che fa per te</h5>
+                  <h5 class="card-title text-center">{{__('ui.searchTitle')}}</h5>
                   <form class="form-signin" action="{{route('search_results')}}" method="GET">
                     <div class="form-label-group">
                       <input type="search" id="search" class="form-control" name="q" placeholder="Search" required autofocus>
-                      <label for="search">Cerca</label>
+                      <label for="search">{{__('ui.searchButton')}}</label>
                       <div class="d-flex justify-content-center justify-content-md-end">
-                        <button class="btn btn-primary mt-5 px-md-5" type="submit">Cerca</button>
+                        <button class="btn btn-primary mt-5 px-md-5" type="submit">{{__('ui.searchButton')}}</button>
                       </div>
                     </div>
                   </form>

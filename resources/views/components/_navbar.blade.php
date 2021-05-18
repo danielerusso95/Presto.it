@@ -13,31 +13,31 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Annunci
+            {{__('ui.announcementsNavDrop')}}
           </a>
           <ul class="dropdown-menu bg-custom border-0" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{route('article.index')}}">Tutti gli annunci</a></li>
-            <li><a class="dropdown-item" href="{{route('article.create')}}">Crea Annuncio</a></li>
+            <li><a class="dropdown-item" href="{{route('article.index')}}">{{__('ui.announcementsNav')}}</a></li>
+            <li><a class="dropdown-item" href="{{route('article.create')}}">{{__('ui.announcementsNavCreate')}}</a></li>
           </ul>
         </li>
         @if (Auth::user() && !Auth::user()->revisor_flag)
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{route('contact.index')}}">Lavora con noi</a>
+          <a class="nav-link active" aria-current="page" href="{{route('contact.index')}}">{{__('ui.workWithUs')}}</a>
         </li>
         @elseif (Auth::user() && Auth::user()->revisor_flag)
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Revisor
+            {{__('ui.revisorNav')}}
             @if(App\Models\Article::notifyArticlesForRevisor() > 0)
             <button class="rounded-circle bg-danger p-1 ms-2 border-0"></button>
             @endif
           </a>
           <ul class="dropdown-menu bg-custom border-0" aria-labelledby="navbarDropdown">
             <li>
-             <a class="dropdown-item" aria-current="page" href="{{route('revisor.index')}}">Da Revisionare <button class="bg-danger p-1 border-0">{{App\Models\Article::notifyArticlesForRevisor()}}</button></a>
+             <a class="dropdown-item" aria-current="page" href="{{route('revisor.index')}}">{{__('ui.revisorAnnouncementsNav')}} <button class="bg-danger p-1 border-0">{{App\Models\Article::notifyArticlesForRevisor()}}</button></a>
             </li>
             <li>
-              <a class="dropdown-item" href="{{route('revisor.bin')}}">Cestino</a>
+              <a class="dropdown-item" href="{{route('revisor.bin')}}">{{__('ui.binNav')}}</a>
             </li>
           </ul>
         </li>
@@ -59,13 +59,13 @@
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item d-flex justify-content-center">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('ui.login') }}</a>
                     </li>
                 @endif
 
                 @if (Route::has('register'))
                     <li class="nav-item d-flex justify-content-center">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('ui.register') }}</a>
                     </li>
                 @endif
             @else
@@ -79,7 +79,7 @@
                     <a class="text-center p-0 ps-2 text-decoration-none text-dark" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">
-                      {{ __('Logout') }}
+                      {{ __('ui.logout') }}
                     </a>
 
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -87,7 +87,7 @@
                   </form>
                   </li>
                   <li class="dropdown-item">
-                      <a class="text-center p-0 ps-2 text-decoration-none text-dark" href="{{route('user.panel')}}">Profilo</a>
+                      <a class="text-center p-0 ps-2 text-decoration-none text-dark" href="{{route('user.panel')}}">{{__('ui.profileNav')}}</a>
                   </li>
 
 
