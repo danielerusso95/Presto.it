@@ -31,7 +31,7 @@
                     @endforeach
                 </select>
                 <div class="mb-3 mt-3">
-                    <label for="title" class="form-label">Titolo:</label>
+                    <label for="title" class="form-label">{{__('ui.title')}}:</label>
                     <input type="text" name="title" class="form-control" value="{{$article->title}}" id="title" aria-describedby="title">
                 </div>
                 <div class="mb-3">

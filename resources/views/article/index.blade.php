@@ -19,7 +19,7 @@
             <div class="col-12"><h3 class="text-center mb-5">Ecco gli articoli della categoria {{$category->name}}</h3></div>
         @foreach($articles_category as $article)
         <div class="col-12 col-lg-4 mb-5 ">
-            <div class="card mx-auto" style="width: 100%;">
+            <div class="card mx-auto" style="width: 18rem;">
                 <img src="{{$article->images->first()->getUrl(200,200)}}" class="card-img-top" alt="image random">
                 <div class="card-body">
                     <h5 class="card-title">{{$article->customTitle($article,20)}}</h5>
