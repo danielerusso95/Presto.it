@@ -7,19 +7,22 @@
     @endif
 
     <x-_above />
-        
-    
+
+
     <div class="container mt-5">
         <h3 class="fs-2 mt-5 text-center mb-5">Ecco gli ultimi 5 articoli inseriti</h3>
         <div class="row">
             @foreach($articles_home as $article)
                 <div class="col-12 mx-auto mx-md-0 mb-4">
                     <div class="rounded-2 pb-5 articlesForm justify-content-around align-items-center row mb-5">
-                        <div class="col-12 text-center my-3"> 
+                        <div class="col-12 text-center my-3">
                             <h3 class="mb-2">{{$article->customTitle($article,50)}}</h5>
                         </div>
                         <div class="col-12 col-md-4 ps-5">
-                            <img src="{{$images[0]}}/200" class="img-fluid rounded-2" alt="image random">
+                            @if ($article->images->isNotEmpty())
+                                <img src="{{Storage::url($article->images->first()->file)}}" class="img-fluid rounded-2" alt="image random">
+                            @endif
+
                         </div>
                         <div class="col-12 col-md-6">
                            <div class="ms-3 ms-md-0 card-body">

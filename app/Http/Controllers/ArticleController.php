@@ -54,7 +54,7 @@ class ArticleController extends Controller
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
 
         dispatch(new ResizeImage(
-            $fileName, 
+            $fileName,
             80,
             80
         ));
@@ -69,22 +69,22 @@ class ArticleController extends Controller
     }
 
     public function removeImages(Request $request){
-        
+
         $uniqueSecret = $request->input('uniqueSecret');
-        $fileName = $request->input('id'); 
+        $fileName = $request->input('id');
         session()->push("removedimages.{$uniqueSecret}",$fileName);
         Storage::delete($fileName);
         return response()->json('ok');
     }
 
     public function oldImages(Request $request){
-        
+
         $uniqueSecret = $request->input('uniqueSecret');
-        
+
         $images = session()->get("images.{$uniqueSecret}", []);
-        
+
         $removedImages = session()->get("removedimages.{$uniqueSecret}", []);
-          
+
         $images = array_diff($images,$removedImages);
 
         $data = [];
@@ -127,9 +127,9 @@ class ArticleController extends Controller
         $uniqueSecret = $request->input('uniqueSecret');
 
         $images = session()->get("images.{$uniqueSecret}", []);
-        
+
         $removedImages = session()->get("removedimages.{$uniqueSecret}", []);
-          
+
         $images = array_diff($images,$removedImages);
 
         foreach ($images as $image) {
@@ -138,17 +138,17 @@ class ArticleController extends Controller
             Storage::move($image,$newFileName);
 
             dispatch(new ResizeImage(
-                $newFileName, 
-                300,
-                300
+                $newFileName,
+                200,
+                200
             ));
 
             $i = ArticleImage::create([
                 'file'=> $newFileName,
                 'article_id'=> $article->id,
-            ]); 
+            ]);
         }
-        
+
         Storage::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
 
         return redirect()->back()->with('message','Complimenti, annuncio creato con successo!');
@@ -171,7 +171,7 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-  
+
 
     /**
      * Update the specified resource in storage.
@@ -180,7 +180,7 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    
+
 
     /**
      * Remove the specified resource from storage.
@@ -188,7 +188,7 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-   
+
     public function search(Request $request){
         $q = $request->input('q');
         $articles = Article::search($q)->where('is_accepted', true)->paginate(6);
@@ -197,6 +197,6 @@ class ArticleController extends Controller
         return view('search.search_results', compact('q', 'articles'));
 
     }
-    
+
     //vista search, index, show
 }

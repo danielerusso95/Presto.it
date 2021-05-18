@@ -7,7 +7,10 @@
         <h2 class="my-4">Titolo: {{$article->title}}</h2>
         <div class="row justify-content-around">
           <div class="col-md-8 d-flex justify-content-center mb-5" id="wrapper">
-            <img class="img-fluid" src="{{$images[0]}}id/237/500" alt="">
+              @if ($article->images->isNotEmpty())
+                <img src="{{Storage::url($article->images->first()->file)}}" class="img-fluid rounded-2" alt="image random">
+              @endif
+
           </div>
           <div class="col-md-4">
 
@@ -49,12 +52,12 @@
     <h1 class="bg-success text-center">Nessun annuncio da revisionare</h1>
     @endif
 
-
         <script>
 
         let wrapper = document.querySelector("#staffWrapper");
-        let images = {!!json_encode($images)!!};
+        let images = {!!($article->images->toJson())!!};
 
+            console.log(images);
         images.forEach((member) => {
         wrapper.innerHTML+=`
             <div class="col-md-2 col-sm-6 mb-4 d-flex justify-content-center">
@@ -85,6 +88,8 @@
 
       });
     };
+
+
         </script>
 
 </x-layout>
