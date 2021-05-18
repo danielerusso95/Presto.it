@@ -53,15 +53,6 @@
                     <div class="col-md-12">
 
                         <div class="dropzone" id="drophere"></div>
-
-                        @if ($errors->any())
-                            <div class="alert alert-danger col-12 mt-2">
-                                <ul>
-                                    <li>{{ $error }}</li>
-                                </ul>
-                            </div>
-                        @endif
-
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Posta Annuncio</button>

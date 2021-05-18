@@ -28,7 +28,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //CRUD ARTICLES
 Route::get('/crea/articolo', [ArticleController::class, 'create'])->name('article.create');
 
-Route::post('/articoli/caricamento/immagini', [ArticleController::class, 'uploadImage'])->name('article.uploadImage');
+//images
+Route::post('/articoli/caricamento/immagini', [ArticleController::class, 'uploadImages'])->name('article.uploadImage');
+Route::delete('/articolo/rimuovi/immagini', [ArticleController::class, 'removeImages'])->name('article.removeImage');
+Route::get('/articolo/vecchie/immagini', [ArticleController::class, 'oldImages'])->name('article.oldImage');
+
+
 Route::post('/salva/articolo', [ArticleController::class, 'store'])->name('article.store');
 
 Route::get('/tutti/gli/articoli/{cate?}/{articles_category?}', [ArticleController::class, 'index'])->name('article.index');

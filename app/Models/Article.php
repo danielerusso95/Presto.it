@@ -32,6 +32,10 @@ class Article extends Model
         return $article->title;
         
     }
+
+    public function images(){
+        return $this->hasMany(ArticleImage::class);       
+    }
     
     public function toSearchableArray()
     {

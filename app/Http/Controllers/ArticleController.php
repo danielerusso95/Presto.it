@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Image;
 use App\Models\Article;
+use App\Models\ArticleImage;
 use App\Models\Category;
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 
 class ArticleController extends Controller
@@ -39,26 +42,53 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $uniqueSecret = base_convert(sha1(uniqid(mt_rand())), 16, 36);
-       
+        $uniqueSecret = $request->old('uniqueSecret',base_convert(sha1(uniqid(mt_rand())), 16, 36));
         return view ('article.create',compact('uniqueSecret'));
     }
 
-    public function uploadImage(Request $request)
+    public function uploadImages(Request $request)
     {
+        $uniqueSecret = $request->input('uniqueSecret');
+        $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
+        session()->push("images.{$uniqueSecret}", $fileName);
+        return response()->json(
+            [
+                'id' => $fileName
+            ]
+        );
+    }
+
+    public function removeImages(Request $request){
+        
+        $uniqueSecret = $request->input('uniqueSecret');
+        $fileName = $request->input('id'); 
+        session()->push("removedimages.{$uniqueSecret}",$fileName);
+        Storage::delete($fileName);
+        return response()->json('ok');
+    }
+
+    public function oldImages(Request $request){
         
         $uniqueSecret = $request->input('uniqueSecret');
         
-        $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
+        $images = session()->get("images.{$uniqueSecret}", []);
         
-        session()->push("images.{$uniqueSecret}", $fileName);
-       
-        return response()->json(
-            session()->get("images.{$uniqueSecret}", $fileName));
-        
+        $removedImages = session()->get("removedimages.{$uniqueSecret}", []);
+          
+        $images = array_diff($images,$removedImages);
 
+        $data = [];
+
+        foreach ($images as $image) {
+            $data[]=[
+                'id'=>$image,
+                'src'=>Storage::url($image)
+            ];
+        }
+
+        return response()->json($data);
     }
 
     /**
@@ -88,8 +118,25 @@ class ArticleController extends Controller
 
         $uniqueSecret = $request->input('uniqueSecret');
 
-        dd($uniqueSecret);
+        $images = session()->get("images.{$uniqueSecret}", []);
         
+        $removedImages = session()->get("removedimages.{$uniqueSecret}", []);
+          
+        $images = array_diff($images,$removedImages);
+
+        foreach ($images as $image) {
+            $fileName = basename($image);
+            $newFileName = "/public/articles/{$article->id}/{$fileName}";
+            Storage::move($image,$newFileName);
+
+            $i = ArticleImage::create([
+                'file'=> $newFileName,
+                'article_id'=> $article->id,
+            ]); 
+        }
+        
+        Storage::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
+
         return redirect()->back()->with('message','Complimenti, annuncio creato con successo!');
     }
 
