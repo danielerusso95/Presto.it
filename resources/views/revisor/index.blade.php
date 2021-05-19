@@ -88,7 +88,6 @@
                                 @foreach ($image->labels as $label)
                                 <li>{{$label}},</li>
                                 @endforeach
-
                                 @endif
 
                             </ul>
