@@ -23,11 +23,11 @@
                     <li>{{__('ui.author')}}: {{$article->user->name}}</li>
                 </ul>
                 <p>{{__('ui.details')}}: {{$article->body}}</p>
-           
+
                 <ul id="wrapperDetails">
                     @foreach($article->images as $key => $image)
                         @if($key==0)
-                        <label for="spoof">Spoof</label>    
+                        <label for="spoof">Spoof</label>
                         <div style="background-color: rgba(255,255,255,0.5)" class="progress">
                             <div class="progress-bar" id="spoof" role="progressbar" style="width: {{$image->spoof}};" aria-valuenow="{{$image->spoof}}" aria-valuemin="0" aria-valuemax="100">{{$image->spoof}}</div>
                         </div>
@@ -56,12 +56,12 @@
                             </ul>
                         </div>
                         @endif
-                    @endforeach   
+                    @endforeach
                 </ul>
-           
+
                     @foreach ($article->images as $key => $image)
                     <div id="details{{$key}}" class="d-none">
-                        <label for="spoof">Spoof</label>    
+                        <label for="spoof">Spoof</label>
                         <div style="background-color: rgba(255,255,255,0.5)" class="progress">
                             <div class="progress-bar" id="spoof" role="progressbar" style="width: {{$image->spoof}};" aria-valuenow="{{$image->spoof}}" aria-valuemin="0" aria-valuemax="100">{{$image->spoof}}</div>
                         </div>
@@ -84,13 +84,17 @@
                         <label for="racy">Labels</label>
                         <div style="background-color: rgba(255,255,255,0.5)">
                             <ul>
+                                @if ($image->labels)
                                 @foreach ($image->labels as $label)
-                                    <li>{{$label}},</li>
+                                <li>{{$label}},</li>
                                 @endforeach
+
+                                @endif
+
                             </ul>
                         </div>
                     </div>
-                    @endforeach   
+                    @endforeach
                 </ul>
             </div>
         </div>
