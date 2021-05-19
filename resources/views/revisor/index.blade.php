@@ -10,23 +10,90 @@
                 @if ($article->images->isNotEmpty())
                     <img src="{{$article->images->first()->getUrl(500,500)}}" class="img-fluid rounded-2" alt="image random">
                 @endif
-
             </div>
-        <div class="col-md-4">
-            <h3 class="my-3">{{__('ui.details').' '.__('ui.announcement')}}:</h3>
-            <ul>
-                <li>{{__('ui.price')}}: {{$article->price}} €</li>
-                @foreach ($categories as $cate)
-                    @if ($cate->id == $article->category_id)
-                        <li class="card-text">{{__('ui.details')}}: <a href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></li>
-                    @endif
-                @endforeach
-                <li>{{__('ui.author')}}: {{$article->user->name}}</li>
-            </ul>
-            <p>{{__('ui.details')}}: {{$article->body}}</p>
+            <div class="col-md-4">
+                <h3 class="my-3">{{__('ui.details').' '.__('ui.announcement')}}:</h3>
+                <ul>
+                    <li>{{__('ui.price')}}: {{$article->price}} €</li>
+                    @foreach ($categories as $cate)
+                        @if ($cate->id == $article->category_id)
+                            <li class="card-text">{{__('ui.details')}}: <a href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></li>
+                        @endif
+                    @endforeach
+                    <li>{{__('ui.author')}}: {{$article->user->name}}</li>
+                </ul>
+                <p>{{__('ui.details')}}: {{$article->body}}</p>
+           
+                <ul id="wrapperDetails">
+                    @foreach($article->images as $key => $image)
+                        @if($key==0)
+                        <label for="spoof">Spoof</label>    
+                        <div style="background-color: rgba(255,255,255,0.5)" class="progress">
+                            <div class="progress-bar" id="spoof" role="progressbar" style="width: {{$image->spoof}};" aria-valuenow="{{$image->spoof}}" aria-valuemin="0" aria-valuemax="100">{{$image->spoof}}</div>
+                        </div>
+                        <label for="medical">Medical</label>
+                        <div style="background-color: rgba(255,255,255,0.5)" class="progress">
+                            <div class="progress-bar" id="medical" role="progressbar" style="width: {{$image->medical}};" aria-valuenow="{{$image->medical}}" aria-valuemin="0" aria-valuemax="100">{{$image->medical}}</div>
+                        </div>
+                        <label for="violence">Violence</label>
+                        <div style="background-color: rgba(255,255,255,0.5)" class="progress">
+                            <div class="progress-bar" id="violence" role="progressbar" style="width: {{$image->violence}};" aria-valuenow="{{$image->violence}}" aria-valuemin="0" aria-valuemax="100">{{$image->violence}}</div>
+                        </div>
+                        <label for="adult">Adult</label>
+                        <div style="background-color: rgba(255,255,255,0.5)" class="progress">
+                            <div class="progress-bar" id="adult" role="progressbar" style="width: {{$image->adult}};" aria-valuenow="{{$image->adult}}" aria-valuemin="0" aria-valuemax="100">{{$image->adult}}</div>
+                        </div>
+                        <label for="racy">Racy</label>
+                        <div style="background-color: rgba(255,255,255,0.5)" class="progress">
+                            <div class="progress-bar" id="racy" role="progressbar" style="width: {{$image->racy}};" aria-valuenow="{{$image->racy}}" aria-valuemin="0" aria-valuemax="100">{{$image->racy}}</div>
+                        </div>
+                        <label for="racy">Labels</label>
+                        <div style="background-color: rgba(255,255,255,0.5)">
+                            <ul>
+                                @foreach ($image->labels as $label)
+                                    <li>{{$label}},</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+                    @endforeach   
+                </ul>
+           
+                    @foreach ($article->images as $key => $image)
+                    <div id="details{{$key}}" class="d-none">
+                        <label for="spoof">Spoof</label>    
+                        <div style="background-color: rgba(255,255,255,0.5)" class="progress">
+                            <div class="progress-bar" id="spoof" role="progressbar" style="width: {{$image->spoof}};" aria-valuenow="{{$image->spoof}}" aria-valuemin="0" aria-valuemax="100">{{$image->spoof}}</div>
+                        </div>
+                        <label for="medical">Medical</label>
+                        <div style="background-color: rgba(255,255,255,0.5)" class="progress">
+                            <div class="progress-bar" id="medical" role="progressbar" style="width: {{$image->medical}};" aria-valuenow="{{$image->medical}}" aria-valuemin="0" aria-valuemax="100">{{$image->medical}}</div>
+                        </div>
+                        <label for="violence">Violence</label>
+                        <div style="background-color: rgba(255,255,255,0.5)" class="progress">
+                            <div class="progress-bar" id="violence" role="progressbar" style="width: {{$image->violence}};" aria-valuenow="{{$image->violence}}" aria-valuemin="0" aria-valuemax="100">{{$image->violence}}</div>
+                        </div>
+                        <label for="adult">Adult</label>
+                        <div style="background-color: rgba(255,255,255,0.5)" class="progress">
+                            <div class="progress-bar" id="adult" role="progressbar" style="width: {{$image->adult}};" aria-valuenow="{{$image->adult}}" aria-valuemin="0" aria-valuemax="100">{{$image->adult}}</div>
+                        </div>
+                        <label for="racy">Racy</label>
+                        <div style="background-color: rgba(255,255,255,0.5)" class="progress">
+                            <div class="progress-bar" id="racy" role="progressbar" style="width: {{$image->racy}};" aria-valuenow="{{$image->racy}}" aria-valuemin="0" aria-valuemax="100">{{$image->racy}}</div>
+                        </div>
+                        <label for="racy">Labels</label>
+                        <div style="background-color: rgba(255,255,255,0.5)">
+                            <ul>
+                                @foreach ($image->labels as $label)
+                                    <li>{{$label}},</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    @endforeach   
+                </ul>
+            </div>
         </div>
-    </div>
-
         <div id="staffWrapper" class="row justify-content-around mt-5">
             @foreach ($article->images as $image)
                 <div class="col-md-2 col-sm-6 mb-4 d-flex justify-content-center">
@@ -62,9 +129,14 @@
         <script>
             let members = document.querySelectorAll(".member");
             let wrapper = document.querySelector("#wrapper");
+            let wrapperDetails = document.querySelector("#wrapperDetails");
 
-            members.forEach(member => {
+            members.forEach((member, key) => {
                 member.addEventListener("click",()=>{
+                    let targetDetails = document.querySelector(`#details${key}`);
+                    targetDetails.classList.remove('d-none');
+                    wrapperDetails.innerHTML = targetDetails.outerHTML;
+                    targetDetails.classList.add('d-none');
                     let str = member.outerHTML;
                     str = str.split("200x200");
                     str = str[0]+"500x500"+str[1];

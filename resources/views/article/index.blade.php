@@ -1,4 +1,7 @@
 <x-layout>
+    
+        
+    
 <div class="container  p-5">
     <div class="row">
         <div class="col-12 text-center">
@@ -20,7 +23,11 @@
         @foreach($articles_category as $article)
         <div class="col-12 col-lg-4 mb-5 ">
             <div class="card mx-auto" style="width: 18rem;">
-                <img src="{{$article->images->first()->getUrl(200,200)}}" class="card-img-top" alt="image random">
+                @if ($article->images->count()>0)
+                    <img src="{{$article->images->first()->getUrl(200,200)}}" class="card-img-top" alt="image random">
+                @else
+                    <img src="https://picsum.photos/200" class="card-img-top" alt="image random">
+                @endif
                 <div class="card-body">
                     <h5 class="card-title">{{$article->customTitle($article,20)}}</h5>
                     <h5 class="card-subtitle my-3">{{__('ui.price')}}: {{$article->price}} €</h5>
@@ -52,7 +59,11 @@
             @foreach($articles as $article)
             <div class="col-12 col-lg-4 mb-5 ">
                 <div class="card mx-auto" style="width: 18rem;">
-                    <img src="{{$article->images->first()->getUrl(200,200)}}" class="card-img-top" alt="image random">
+                    @if ($article->images->count()>0)
+                        <img src="{{$article->images->first()->getUrl(200,200)}}" class="card-img-top" alt="image random">
+                    @else
+                        <img src="https://picsum.photos/200" class="card-img-top" alt="image random">
+                    @endif
                     <div class="card-body">
                         <h5 class="card-title">{{$article->customTitle($article,20)}}</h5>
                         <h5 class="card-subtitle my-3">{{__('ui.price')}}: {{$article->price}} €</h5>

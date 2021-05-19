@@ -7,12 +7,14 @@ use App\Models\Category;
 use App\Jobs\ResizeImage;
 use App\Models\ArticleImage;
 use Illuminate\Http\Request;
+use App\Jobs\GoogleVisionLabelImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Http\Requests\ArticleRequest;
 use Intervention\Image\Facades\Image;
 use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Support\Facades\Storage;
+use App\Jobs\GoogleVisionSafeSearchImage;
 
 class ArticleController extends Controller
 {
@@ -144,10 +146,14 @@ class ArticleController extends Controller
                 500
             ));
 
+
             $i = ArticleImage::create([
                 'file'=> $newFileName,
                 'article_id'=> $article->id,
             ]);
+
+            dispatch(new GoogleVisionSafeSearchImage($i->id));
+            dispatch(new GoogleVisionLabelImage($i->id));
         }
 
         Storage::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));

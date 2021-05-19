@@ -10,7 +10,11 @@ class ArticleImage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['file','article_id'];
+    protected $fillable = ['file','article_id','labels','adult','spoof','medical','violence','racy'];
+
+    protected $casts = [
+        'labels'=>'array'
+    ];
 
     public function article(){
         return $this->belongsTo(Article::class);

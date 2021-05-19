@@ -8,7 +8,11 @@
                 @foreach($articles as $article)
                 <div class="col-12 col-md-4 mb-5 ">
                     <div class="card mx-auto" style="width: 18rem;">
-                        <img src="{{$article->images->first()->getUrl(200,200)}}" class="card-img-top" alt="image random">
+                        @if ($article->images->count()>0)
+                            <img src="{{$article->images->first()->getUrl(200,200)}}" class="card-img-top" alt="image random">
+                        @else
+                            <img src="https://picsum.photos/200" class="card-img-top" alt="image random">
+                        @endif
                         <div class="card-body">
                             <h5 class="card-title">@if(strlen($article->title)>15){{Str::substr($article->title, 0, -(strlen($article->title)-15))."..."}}@else{{$article->title}}@endif</h5>
                             <p class="card-subtitle">{{__('ui.price')}}: {{$article->price}} €</p>
