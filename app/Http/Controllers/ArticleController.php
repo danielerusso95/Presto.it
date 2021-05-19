@@ -132,11 +132,7 @@ class ArticleController extends Controller
         foreach ($images as $image) {
             $fileName = basename($image);
             $newFileName = "public/articles/{$article->id}/{$fileName}";
-         
             Storage::move($image,$newFileName);
-            $watermark = Image::make(storage_path("/app/public/articles/{$article->id}/{$fileName}"));
-            $watermark = $watermark->watermark("/img/logo.png");
-            Storage::move($watermark,$newFileName);
             dispatch(new ResizeImage(
                 $newFileName,
                 200,
