@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ArticleRequest;
-use App\Jobs\ResizeImage;
-use App\Models\Image;
 use App\Models\Article;
-use App\Models\ArticleImage;
 use App\Models\Category;
-use Facade\FlareClient\Stacktrace\File;
+use App\Jobs\ResizeImage;
+use App\Models\ArticleImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
+use App\Http\Requests\ArticleRequest;
+use Intervention\Image\Facades\Image;
+use Facade\FlareClient\Stacktrace\File;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -133,7 +133,6 @@ class ArticleController extends Controller
             $fileName = basename($image);
             $newFileName = "public/articles/{$article->id}/{$fileName}";
             Storage::move($image,$newFileName);
-
             dispatch(new ResizeImage(
                 $newFileName,
                 200,
