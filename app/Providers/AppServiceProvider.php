@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
             $categories = Category::all();
             View::share('categories',$categories);
             Paginator::useBootstrap();
-            $articles_home = Article::orderByDesc('created_at')->paginate(5);
+            $articles_home = Article::where('is_accepted', true)->orderByDesc('created_at')->paginate(5);
             View::share('articles_home',$articles_home);
         }
     }

@@ -50,9 +50,11 @@
                         <label for="racy">Labels</label>
                         <div style="background-color: rgba(255,255,255,0.5)">
                             <ul>
-                                @foreach ($image->labels as $label)
-                                    <li>{{$label}},</li>
-                                @endforeach
+                                @if($image->labels)
+                                    @foreach ($image->labels as $label)
+                                        <li>{{$label}},</li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </div>
                         @endif
@@ -85,9 +87,9 @@
                         <div style="background-color: rgba(255,255,255,0.5)">
                             <ul>
                                 @if ($image->labels)
-                                @foreach ($image->labels as $label)
-                                <li>{{$label}},</li>
-                                @endforeach
+                                    @foreach ($image->labels as $label)
+                                        <li>{{$label}},</li>
+                                    @endforeach
                                 @endif
 
                             </ul>
@@ -126,7 +128,7 @@
 
     </div>
     @else
-    <h1 class="bg-success text-center">{{__('ui.revisorNotWorking')}}</h1>
+    <h2 class="bg-success text-center">{{__('ui.revisorNotWorking')}}</h2>
     @endif
 
         <script>
