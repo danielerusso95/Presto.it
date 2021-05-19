@@ -42,7 +42,7 @@ class GoogleVisionRemoveFaces implements ShouldQueue
         }
 
         $srcPath = storage_path('/app/' . $i->file);
-        $image = file_get_contents($srcPath);
+        $image = file_get_contents(storage_path('/app/' . $i->file));
 
         putenv('GOOGLE_APPLICATION_CREDENTIALS=' . base_path('google_credential.json'));
 
