@@ -133,7 +133,7 @@ class ArticleController extends Controller
             $fileName = basename($image);
             $newFileName = "public/articles/{$article->id}/{$fileName}";
             Storage::move($image,$newFileName);
-            
+
             dispatch(new ResizeImage(
                 $newFileName,
                 200,
