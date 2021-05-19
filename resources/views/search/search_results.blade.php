@@ -4,7 +4,7 @@
             <h3 class="my-5">{{__('ui.searchResults')}}: {{$q}}</h3>
         </div>
         <div class="row">
-            @if ($articles)
+            @if ($articles->count()>0)
                 @foreach($articles as $article)
                 <div class="col-12 col-md-4 mb-5 ">
                     <div class="card mx-auto" style="width: 18rem;">
