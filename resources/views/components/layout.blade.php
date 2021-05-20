@@ -16,13 +16,13 @@
         <x-_navbar />
 
             {{$slot}}
-           
+
         <div style="height: 70vh;"></div>
 
     <x-_footer />
 
     </header>
-    
+
 
     <script src="/js/app.js"></script>
 
