@@ -10,11 +10,11 @@
 
 
         <x-_history />
-  
+
 
     <div class="container h-100 mt-5">
         <h3 class="fs-2 mt-5 text-center text-white mb-5">{{__('ui.fiveAnnouncements')}}</h3>
-        <div class="row justify-content-center justify-content-lg-none">
+        <div class="row w-75 mx-auto justify-content-center justify-content-lg-none">
             @foreach($articles_home as $article)
                 <div class="col-12 mx-auto mx-md-0 mb-4">
                     <div class="rounded-2 pb-5 articlesForm justify-content-around align-items-center row mb-5">

@@ -26,8 +26,9 @@
                 <h6>{{Auth::user()->email}}</h6>
                 <a class="text-decoration-none text-custom" href="{{ route('password.request') }}"><h6>{{__('ui.edit')." ".__('ui.yourFS')}} Password</h6></a>
                 <div class="border-bottom border-dark border-3 mb-3"></div>
-                
+
                 <a href="{{route('user.index')}}"><button class="btn btn-custom">{{__('ui.yourMP')." ".__('ui.announcementsNavDrop')}}</button></a>
+                <a href="{{route('article.preferite_index')}}"><button class="btn btn-custom">I tuoi preferiti</button></a>
 
 
             </div>

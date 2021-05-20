@@ -139,7 +139,7 @@ class ArticleController extends Controller
                     500,
                     500
                 )
-                ])->dispatch($i->id);  
+                ])->dispatch($i->id);
         }
 
         Storage::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
@@ -152,8 +152,29 @@ class ArticleController extends Controller
         return view('article.show', compact('article'));
     }
 
+    public function preferite(Request $request, Article $article){
+        $message="Complimenti, hai aggiunto il prodotto ai preferiti";
+        $button="Unsave";
+        if ($article->preferite->isEmpty()) {
+            $article->preferite()->attach(Auth::id());
+        }
+        foreach ($article->preferite as $preferite) {
+            if($preferite->pivot->article_id==$article->id){
+                $article->preferite()->detach(Auth::id());
+                $message="Complimenti, hai eliminato il prodotto dai preferiti";
+                $button="Save";
+                break;
+            }else{
+                $article->preferite()->attach(Auth::id());
+                break;
+            }
+        }
+        return redirect()->back()->with('message',$message)->with('button',$button);
+    }
 
+    public function preferiteShow(Article $article){
+        $articles= Auth::user()->articlesPreferite;
+        return view('user.preferite',compact('articles'));
+    }
 
-
-  
 }

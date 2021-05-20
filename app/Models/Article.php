@@ -28,15 +28,15 @@ class Article extends Model
         if(strlen($article->title)>$num){
             $article->title = substr($article->title, 0, -(strlen($article->title)-$num))."...";
         }
-         
+
         return $article->title;
-        
+
     }
 
     public function images(){
-        return $this->hasMany(ArticleImage::class);       
+        return $this->hasMany(ArticleImage::class);
     }
-    
+
     public function toSearchableArray()
     {
         $array = [
@@ -50,5 +50,8 @@ class Article extends Model
         // Customize the data array...
 
         return $array;
+    }
+    public function preferite(){
+        return $this->belongsToMany(User::class);
     }
 }

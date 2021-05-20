@@ -12,9 +12,9 @@
     {{$style ?? ''}}
 </head>
 <body>
-    <section class="head" style="margin-bottom:-200px">
+    <section class="head">
         <x-_navbar />
-            <div style="height: 100vh">
+            <div style="height: 100%;">
                 {{$slot}}
             </div>
     </section>

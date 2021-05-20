@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light articlesForm fixed-top">
   <div class="container-fluid">
 
       <a href="{{route('homepage')}}"><img src="/img/logo.png" class="w-50 img-fluid" alt="logo"></a>
@@ -44,10 +44,10 @@
                           <a class="dropdown-item text-custom" href="{{route('revisor.bin')}}">{{__('ui.binNav')}}</a>
                       </li>
                   </ul>
-              </li> 
+              </li>
           @endif
         </ul>
-      
+
         <ul class="navbar-nav mx-auto d-flex align-items-center">
             <li class="nav-item  dropdown">
                 <a class="nav-link fs-5 active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -111,7 +111,7 @@
                             @csrf
                         </form>
                     </li>
-                   
+
                 </ul>
             </li>
             @endguest

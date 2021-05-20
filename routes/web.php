@@ -65,3 +65,7 @@ Route::delete('cancella/articolo/{article}', [HomeController::class, 'delete'])-
 //flag icons
 Route::post('/locale/{locale}', [PublicController::class, 'locale'])->name('locale');
 
+//preferiti
+Route::post('/preferito/{article}', [ArticleController::class, 'preferite'])->name('article.preferite');
+Route::get('/articoli/preferiti',[ArticleController::class,'preferiteShow'])->name('article.preferite_index');
+
