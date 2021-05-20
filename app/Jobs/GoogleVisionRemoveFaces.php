@@ -63,7 +63,7 @@ class GoogleVisionRemoveFaces implements ShouldQueue
             $h = $bounds[2][1] - $bounds[0][1];
 
             $image = Image::load(storage_path() . '/app/' . $i->file)
-                ->watermark(public_path('img\watermark.png'))
+                ->watermark(public_path('img/watermark.png'))
                 ->watermarkPosition('top-left')
                 ->watermarkPadding($bounds[0][0], $bounds[0][1])
                 ->watermarkWidth($w, Manipulations::UNIT_PIXELS)
@@ -74,7 +74,7 @@ class GoogleVisionRemoveFaces implements ShouldQueue
 
         $imageAnnotator->close();
 
-        $image = Image::load(storage_path() . '/app/' . $i->file)->watermark(public_path('img\logo.png'))
+        $image = Image::load(storage_path() . '/app/' . $i->file)->watermark(public_path('img/logo.png'))
                 ->watermarkPosition(Manipulations::POSITION_BOTTOM)
                 ->watermarkPadding(5, 5, Manipulations::UNIT_PERCENT)
                 ->watermarkWidth(100, Manipulations::UNIT_PIXELS)
@@ -83,4 +83,3 @@ class GoogleVisionRemoveFaces implements ShouldQueue
                 ->save($srcPath);   
     }
 }
-
