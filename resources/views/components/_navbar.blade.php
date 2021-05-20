@@ -17,10 +17,10 @@
                 </a>
                 <ul class="dropdown-menu bg-custom border-0" aria-labelledby="navbarDropdown">
                     <li>
-                        <a class="dropdown-item" href="{{route('article.index')}}">{{__('ui.announcementsNav')}}</a>
+                        <a class="dropdown-item text-custom" href="{{route('article.index')}}">{{__('ui.announcementsNav')}}</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{route('article.create')}}">{{__('ui.announcementsNavCreate')}}</a>
+                        <a class="dropdown-item text-custom" href="{{route('article.create')}}">{{__('ui.announcementsNavCreate')}}</a>
                     </li>
                 </ul>
             </li>
@@ -38,21 +38,35 @@
                   </a>
                   <ul class="dropdown-menu bg-custom border-0" aria-labelledby="navbarDropdown">
                       <li>
-                          <a class="dropdown-item" aria-current="page" href="{{route('revisor.index')}}">{{__('ui.revisorAnnouncementsNav')}} <button class="bg-danger p-1 border-0">{{App\Models\Article::notifyArticlesForRevisor()}}</button></a>
+                          <a class="dropdown-item text-custom" aria-current="page" href="{{route('revisor.index')}}">{{__('ui.revisorAnnouncementsNav')}} <button class="bg-danger p-1 border-0">{{App\Models\Article::notifyArticlesForRevisor()}}</button></a>
                       </li>
                       <li>
-                          <a class="dropdown-item" href="{{route('revisor.bin')}}">{{__('ui.binNav')}}</a>
+                          <a class="dropdown-item text-custom" href="{{route('revisor.bin')}}">{{__('ui.binNav')}}</a>
                       </li>
                   </ul>
               </li> 
           @endif
         </ul>
       
-        <ul class="navbar-nav mx-auto">
-            <form action="{{route('search_results')}}" class="input-group h-75" method="GET">
-                <input type="search" id="search" name="q" class="form-control">
-                <button class="btn btn-custom text-center" type="submit">{{__('ui.searchButton')}}</button>
-            </form>
+        <ul class="navbar-nav mx-auto d-flex align-items-center">
+            <li class="nav-item  dropdown">
+                <a class="nav-link fs-5 active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categories
+                </a>
+                <ul class="dropdown-menu border-0" aria-labelledby="navbarDropdown">
+                    @foreach ($categories as $cate)
+                    <li>
+                        <a href="{{route('article.index', compact('cate'))}}" class="dropdown-item text-custom my-1 fs-6 btn text-center text-decoration-none">{{$cate->name}}</a>
+                    </li>
+                    @endforeach
+                </ul>
+            </li>
+            <li>
+                <form action="{{route('search_results')}}" class="input-group h-75" method="GET">
+                    <input type="search" id="search" name="q" class="form-control">
+                    <button class="btn btn-custom text-center" type="submit">{{__('ui.searchButton')}}</button>
+                </form>
+            </li>
         </ul>
 
         <ul class="navbar-nav me-3">
@@ -78,16 +92,16 @@
                 @endif
             @else
             <li class="nav-item dropdown dropstart">
-                <a id="navbarDropdown" class="btn pt-0 fs-5 dropdown-lg-toggle nav-link d-flex justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a id="navbarDropdown" class="btn active pt-0 fs-5 dropdown-lg-toggle nav-link d-flex justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }}
                     <i class="fas fa-user ms-2"></i>
                 </a>
                 <ul class="dropdown-menu me-lg-3 bg-custom border-0">
                     <li class="dropdown-item">
-                        <a class="text-center p-0 ps-2 text-decoration-none text-dark" href="{{route('user.panel')}}">{{__('ui.profileNav')}}</a>
+                        <a class="text-center p-0 ps-2 text-decoration-none text-custom" href="{{route('user.panel')}}">{{__('ui.profileNav')}}</a>
                     </li>
                     <li class="dropdown-item">
-                        <a class="text-center p-0 ps-2 text-decoration-none text-dark" href="{{ route('logout') }}"
+                        <a class="text-center p-0 ps-2 text-decoration-none text-custom" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">
                             {{ __('ui.logout') }}

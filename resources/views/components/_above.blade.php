@@ -25,7 +25,7 @@
   </div>
 </header>
 
-<div class="container-fluid articlesForm p-5 rounded-3" id="searchBar">
+<div class="container-fluid articlesForm p-5 rounded-3 animate__animated animate__fadeInDownBig" id="searchBar">
   <div class="row">
     <div class="col-12 p-0">
       <h2 class="display-4 text-black">{{__('ui.welcome')}}</h2>

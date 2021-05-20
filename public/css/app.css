@@ -10835,16 +10835,24 @@ textarea.form-control-lg {
 }
 html {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: "Signika", sans-serif;
   background-color: #222222;
   min-height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .head {
-  height: 100% !important;
+  width: 100;
+  margin: 0 auto;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
 }
 
 .gradientSlide1 {
@@ -10869,8 +10877,8 @@ body {
 #searchBar {
   position: absolute;
   top: 30%;
-  left: 25%;
-  width: 50%;
+  left: 10%;
+  width: 80%;
 }
 
 .articlesForm {
@@ -10882,9 +10890,8 @@ body {
 }
 
 .footerCustom {
-  position: fixed;
-  bottom: 0;
-  height: 50px;
+  position: absolute;
+  bottom: -350%;
 }
 
 .btn-custom {

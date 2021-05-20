@@ -1,4 +1,5 @@
 <x-layout>
+    <div style="height:10vh"></div>
     <div class="mt-5 pt-3">
         @if (session('message'))
             <div class="alert alert-success mt-3 py-3 text-center">
@@ -29,7 +30,7 @@
                 <label for="category" class="form-label mb-4 fs-5">Seleziona la categoria:</label>
                 <select class="form-select" name="category" id="category" aria-label="Default select example">
                     @foreach ($categories as $category)
-                    <option value="{{$category->id}}">{{$category->name}}</option>
+                        <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
                 <div class="mb-4 mt-3">
@@ -57,5 +58,4 @@
         </div>
     </div>
 </div>
-<div style="height: 20vh"></div>
 </x-layout>
