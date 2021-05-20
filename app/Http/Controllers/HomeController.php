@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Jobs\ResizeImage;
 use App\Models\ArticleImage;
@@ -52,7 +53,7 @@ class HomeController extends Controller
     }
     
 
-    public function update(Request $request, Article $article)
+    public function update(ArticleRequest $request, Article $article)
     {
         $article->update([
             'title'=> $request->title,

@@ -24,8 +24,9 @@
                     @endforeach
                     <li>{{__('ui.author')}}: {{$article->user->name}}</li>
                 </ul>
-                <p>{{__('ui.details')}}: {{$article->body}}</p>
-
+                <div class="detailsBox">
+                    <p>{{__('ui.details')}}: {{$article->body}}</p>
+                </div>
                 <ul id="wrapperDetails">
                     @foreach($article->images as $key => $image)
                         @if($key==0)

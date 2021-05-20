@@ -18,7 +18,7 @@
                         <dd class="fs-5">{{__('ui.author')}}: {{$article->user->name}}</dd>
                     </ul>
                     <h5 class="mt-5 text-center mb-3">{{__('ui.detail')}}</h5>
-                    <div class="articlesForm rounded-3 p-3" style="min-height: 150px">
+                    <div class="articlesForm rounded-3 p-3 detailsBox">
                         <p>{{$article->body}}</p>
                     </div>
                 </div>

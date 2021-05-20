@@ -1,14 +1,14 @@
-<div style="height: 15vh"></div>
 <x-layout>
+    <div style="height: 15vh"></div>
     @if (session('message'))
         <div class="alert mx-auto w-50 alert-danger">
             {{session('message')}}
         </div>
     @endif
-       
-<div class="container">
-    <div class="row">
+
     @if($articles->count()>0)
+    <div class="container">
+        <div class="row">
         @foreach($articles as $article)
         <div class="col-12 mx-auto mx-md-0 mb-4">
             <div class="rounded-2 pb-5 articlesForm justify-content-around align-items-center row mb-5">
@@ -78,13 +78,12 @@
                 </div>
             </div>
         @endforeach
+    </div>
+</div>
     @else
-    <div class="row justify-content-center">
-        <div class="col-6 rounded-3 py-2">
-            <h2 class="bg-success text-center">No articles in the bin</h2>
-        </div>
+    <div class="alert mx-auto w-50 alert-success">
+        No article in the bin
     </div>
     @endif
-</div>
-</div>
+
 </x-layout>

@@ -1,4 +1,3 @@
-
 <!-- Footer -->
 <footer class="bg-transparent footerCustom w-100 text-center text-white">
     <!-- Grid container -->

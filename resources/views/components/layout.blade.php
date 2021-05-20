@@ -14,7 +14,7 @@
 <body>
     <section class="head" style="margin-bottom:-200px">
         <x-_navbar />
-            <div style="height: 100vh ">
+            <div style="height: 100vh">
                 {{$slot}}
             </div>
     </section>

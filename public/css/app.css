@@ -10902,6 +10902,12 @@ body {
   color: #f1bf0f;
 }
 
+.detailsBox {
+  min-height: 150px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
 @media (min-width: 991px) {
   .bg-custom {
     background-color: white;
@@ -10921,6 +10927,26 @@ body {
     width: 30%;
   }
 }
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(13deg, #858585 14%, #858585 64%);
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(13deg, #f1bf0f 14%, #f1bf0f 64%);
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: inset 7px 10px 12px #f0f0f0;
+}
+
 /*!
  * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
