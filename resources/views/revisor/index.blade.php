@@ -50,9 +50,11 @@
                         <label for="racy">Labels</label>
                         <div style="background-color: rgba(255,255,255,0.5)">
                             <ul>
+                                @if ($image->lables)
                                 @foreach ($image->labels as $label)
                                     <li>{{$label}},</li>
                                 @endforeach
+                                @endif
                             </ul>
                         </div>
                         @endif
@@ -84,9 +86,11 @@
                         <label for="racy">Labels</label>
                         <div style="background-color: rgba(255,255,255,0.5)">
                             <ul>
+                                @if ($image->lables)
                                 @foreach ($image->labels as $label)
                                     <li>{{$label}},</li>
                                 @endforeach
+                                @endif
                             </ul>
                         </div>
                     </div>
