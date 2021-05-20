@@ -1,22 +1,42 @@
-.masthead {
+html {
     height: 100%;
-    min-height: 100vh;
-    background-image: url("/img/bg_bggenerator_com.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
-* {
-    font-family: "Open Sans", sans-serif;
-    font-family: "Roboto", sans-serif;
+body {
+    font-family: "Signika", sans-serif;
+    background-color: black;
+    min-height: 100%;
+}
+.head {
+    height: 100% !important;
+}
+
+.carousel-item {
+    height: 95vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#searchBar {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    width: 50%;
 }
 
 .articlesForm {
     background-color: rgba(255, 255, 255, 0.5);
-
 }
 .bg-custom {
     background-color: transparent;
+}
+
+.footerCustom {
+    position: relative;
+    bottom: 0;
 }
 
 @media (min-width: 991px) {

@@ -1,8 +1,5 @@
-<x-layout>
-    
-        
-    
-<div class="container  p-5">
+<x-layout>  
+<div class="container p-5">
     <div class="row">
         <div class="col-12 text-center">
             <h3 class="text-center mb-3">{{__('ui.chooseCategory')}}</h3>
@@ -16,7 +13,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5" style="height: 80vh">
     <div class="row">
         @if($category->id)
             <div class="col-12"><h3 class="text-center mb-5">{{__('ui.hereThereAre')}} {{__('ui.announcements')}} {{__('ui.ofFS')}} {{__('ui.category')}} {{$category->name}}</h3></div>

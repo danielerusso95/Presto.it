@@ -7,19 +7,19 @@
     <title>Presto.it</title>
     <link rel="stylesheet" href="/css/app.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
 
     {{$style ?? ''}}
 </head>
 <body>
-    <header class="masthead">
+    <header class="head" >
         <x-_navbar />
 
             {{$slot}}
-        <div style="height: 20vh"></div>
-        <x-_footer />
+           
+        
     </header>
-
+    <x-_footer />
 
     <script src="/js/app.js"></script>
 

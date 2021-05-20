@@ -1,32 +1,43 @@
-<div class="container-fluid mt-5">
-  <div class="row my-5 justify-content-around">
-      <div class="col-12 col-md-4 text-center">
-        <h1 class="my-3">{{__('ui.welcome')}}</h1>
-        <h4>{{__('ui.subWelcome')}}</h4>
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: url('/img/slide1.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">First Slide</h2>
+          <p class="lead">This is a description for the first slide.</p>
+        </div>
       </div>
-      <div class="col-12">
-          <div class="row h-100 justify-content-center align-items-center">
-            <div class="col-12 col-md-4 mx-5">
-              <div class="card card-signin my-5">
-                <div class="card-body">
-                  <h5 class="card-title text-center">{{__('ui.searchTitle')}}</h5>
-                  <form class="form-signin" action="{{route('search_results')}}" method="GET">
-                    <div class="form-label-group">
-                      <input type="search" id="search" class="form-control" name="q" placeholder="Search" required autofocus>
-                      <label for="search">{{__('ui.searchButton')}}</label>
-                      <div class="d-flex justify-content-center justify-content-md-end">
-                        <button class="btn btn-primary mt-5 px-md-5" type="submit">{{__('ui.searchButton')}}</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <div class="col-10 col-md-6 d-flex justify-content-center">
-              <img class="img-fluid mx-auto" src="/img/205-2057055_compras-por-internet-icono-png-e-commerce-development-removebg-preview.png" alt="">
-          </div>
-          </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/bF2vsubyHcQ/1920x1080')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">Second Slide</h2>
+          <p class="lead">This is a description for the second slide.</p>
+        </div>
       </div>
-    
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/szFUQoyvrxM/1920x1080')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">Third Slide</h2>
+          <p class="lead">This is a description for the third slide.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container-flui" id="searchBar">
+  <div class="row">
+    <div class="col-12 p-0">
+      <form action="{{route('search_results')}}" class="input-group" method="GET">
+          <input type="search" id="search" name="q" class="form-control">
+          <button class="btn btn-primary px-md-5" type="submit">{{__('ui.searchButton')}}</button>
+      </form>
+    </div>
   </div>
 </div>
