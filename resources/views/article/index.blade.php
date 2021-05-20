@@ -6,7 +6,7 @@
             <div class="justify-content-center row">
                 @foreach ($categories as $cate)
                     <div class="col-lg-4 p-0 col-md-4 col-6 d-flex justify-content-around">
-                        <a href="{{route('article.index', compact('cate'))}}" style="width: 120px" class="articlesForm my-1 fs-6 btn text-dark text-center text-decoration-none">{{$cate->name}}</a>
+                        <a href="{{route('article.index', compact('cate'))}}" style="width: 120px" class="text-custom articlesForm my-1 fs-6 btn text-center text-decoration-none">{{$cate->name}}</a>
                     </div>
                 @endforeach
             </div>
@@ -83,14 +83,14 @@
                             <p class="card-text">{{__('ui.author')}}: {{$article->user->name}}</p>
                             @foreach ($categories as $cate)
                                 @if ($cate->id == $article->category_id)
-                                    <p class="card-text">{{__('ui.category')}}: <a href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></p>
+                                    <p class="card-text">{{__('ui.category')}}: <a class="text-custom text-decoration-none" href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></p>
                                 @endif
                             @endforeach
                             <p class="card-text">{{__('ui.createdAt')}}: {{$article->created_at}}</p>
                         </div>
                     </div>
                     <div class="col-12 col-md-2 d-flex justify-content-center d-md-block">
-                        <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">{{__('ui.show')}}</a>
+                        <a href="{{route('article.show', compact('article'))}}" class="btn btn-custom">{{__('ui.show')}}</a>
                     </div>
                 </div>
             </div>

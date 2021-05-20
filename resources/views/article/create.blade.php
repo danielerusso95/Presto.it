@@ -52,7 +52,7 @@
                         <div class="dropzone" id="drophere"></div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Posta Annuncio</button>
+                <button type="submit" class="btn btn-custom mt-3">Posta Annuncio</button>
             </form>
         </div>
     </div>

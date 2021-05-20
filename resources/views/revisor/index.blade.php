@@ -5,7 +5,7 @@
 <div style="height: 5vh"></div>
     <div class="container-fluid p-5">
         <h2 class="mt-5 text-white">{{__('ui.title')}}: {{$article->title}}</h2>
-        <div class="row justify-content-center p-5">
+        <div class="row justify-content-center align-items-center p-5">
             <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start mb-5" id="wrapper">
                 @if ($article->images->isNotEmpty())
                     <img src="{{$article->images->first()->getUrl(500,500)}}" class="img-fluid rounded-2" alt="image random">

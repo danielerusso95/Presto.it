@@ -8,7 +8,7 @@
        
 <div class="container">
     <div class="row">
-    @if($articles)
+    @if($articles->count()>0)
         @foreach($articles as $article)
         <div class="col-12 mx-auto mx-md-0 mb-4">
             <div class="rounded-2 pb-5 articlesForm justify-content-around align-items-center row mb-5">
@@ -29,7 +29,7 @@
                         <p class="card-text">{{__('ui.author')}}: {{$article->user->name}}</p>
                         @foreach ($categories as $cate)
                             @if ($cate->id == $article->category_id)
-                                <p class="card-text">{{__('ui.category')}}: <a href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></p>
+                                <p class="card-text">{{__('ui.category')}}: <a class="text-decoration-none text-custom" href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></p>
                             @endif
                         @endforeach
                         <p class="card-text">{{__('ui.createdAt')}}: {{$article->created_at}}</p>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-12 col-md-2 d-flex justify-content-center d-md-block">
                     <div class="d-flex justify-content-center">
-                        <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">{{__('ui.show')}}</a>
+                        <a href="{{route('article.show', compact('article'))}}" class="btn btn-custom">{{__('ui.show')}}</a>
                     </div>
                     <div class="d-flex justify-content-center">
                         <form action="{{route('revisor.undo', compact('article'))}}" class="m-0" method="POST">
@@ -78,6 +78,12 @@
                 </div>
             </div>
         @endforeach
+    @else
+    <div class="row justify-content-center">
+        <div class="col-6 rounded-3 py-2">
+            <h2 class="bg-success text-center">No articles in the bin</h2>
+        </div>
+    </div>
     @endif
 </div>
 </div>

@@ -12,7 +12,7 @@
                         <dd class="fs-5">{{__('ui.price')}}: {{$article->price}} €</dd>
                         @foreach ($categories as $cate)
                             @if ($cate->id == $article->category_id)
-                                <dd class="card-text fs-5">Categoria: <a href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></dd>
+                                <dd class="card-text fs-5">Categoria: <a class="text-decoration-none text-custom" href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></dd>
                             @endif
                         @endforeach
                         <dd class="fs-5">{{__('ui.author')}}: {{$article->user->name}}</dd>

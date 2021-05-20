@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container-fluid">
 
-      <img src="/img/logo.png" class="logo-custom" alt="logo">
+      <a href="{{route('homepage')}}"><img src="/img/logo.png" class="w-50 img-fluid" alt="logo"></a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,7 @@
         <ul class="navbar-nav mx-auto">
             <form action="{{route('search_results')}}" class="input-group h-75" method="GET">
                 <input type="search" id="search" name="q" class="form-control">
-                <button class="btn btn-primary text-center" type="submit">{{__('ui.searchButton')}}</button>
+                <button class="btn btn-custom text-center" type="submit">{{__('ui.searchButton')}}</button>
             </form>
         </ul>
 
@@ -78,7 +78,7 @@
                 @endif
             @else
             <li class="nav-item dropdown dropstart">
-                <a id="navbarDropdown" class="btn pt-1 fs-5 dropdown-lg-toggle nav-link d-flex justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a id="navbarDropdown" class="btn pt-0 fs-5 dropdown-lg-toggle nav-link d-flex justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }}
                     <i class="fas fa-user ms-2"></i>
                 </a>
