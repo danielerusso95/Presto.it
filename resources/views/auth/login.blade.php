@@ -1,8 +1,8 @@
 <x-layout>
-<div class="container-fluid mt-5 card-signin">
-    <div class="row no-gutter">
-        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">
 
+<div class="container h-100 mt-5 d-flex align-items-center">
+    <div class="row card-signin">
+        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">
         </div>
             <div class="col-md-8 col-lg-6">
                 <div class="login d-flex align-items-center py-5">
@@ -10,8 +10,6 @@
                         <div class="row">
                             <div class="col-md-9 col-lg-8 mx-auto">
                                 <h3 class="login-heading mb-4">{{ __('Login') }}</h3>
-
-
                                     <form method="POST" action="{{ route('login') }}">
                                         @csrf
 
@@ -57,16 +55,16 @@
 
                                         <div class="form-group d-flex ms-0 mb-0">
                                             <div class="col-md-8">
-                                                <button type="submit" class="btn btn-primary">
-                                                    {{ __('Login') }}
+                                                <button type="submit" class="fs-5 btn btn-custom">
+                                                        {{ __('Login') }}
                                                 </button>
 
                                                 @if (Route::has('password.request'))
-                                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                    <a class="btn btn-link text-custom text-decoration-none" href="{{ route('password.request') }}">
                                                         {{ __('Forgot Your Password?') }}
                                                     </a>
                                                 @endif
-                                                <a class="btn btn-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                <a class="btn btn-link text-custom text-decoration-none" href="{{ route('register') }}">{{ __('Register') }}</a>
                                             </div>
                                         </div>
                                     </form>
@@ -82,4 +80,5 @@
 
     </div>
 </div>
+
 </x-layout>

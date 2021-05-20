@@ -8,27 +8,18 @@
     <link rel="stylesheet" href="/css/app.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     {{$style ?? ''}}
 </head>
 <body>
-    <header class="head" >
+    <section class="head" style="margin-bottom:-200px">
         <x-_navbar />
-
-            {{$slot}}
-
-        <div style="height: 70vh;"></div>
-
+            <div style="height: 100vh">
+                {{$slot}}
+            </div>
+    </section>
     <x-_footer />
-
-    </header>
-
-
     <script src="/js/app.js"></script>
-
-
-
     @stack('scripts')
-
 </body>
 </html>

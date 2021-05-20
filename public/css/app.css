@@ -10835,12 +10835,16 @@ textarea.form-control-lg {
 }
 html {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: "Signika", sans-serif;
-  background-color: #d9d9d9;
+  background-color: #222222;
   min-height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -10866,7 +10870,23 @@ body {
 }
 
 .head {
-  height: 100% !important;
+  width: 100;
+  margin: 0 auto;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+
+.gradientSlide1 {
+  background-image: linear-gradient(180deg, #222222 10%, rgba(0, 0, 0, 0) 60%, #222222 100%), url("/img/slide1.jpg") !important;
+}
+
+.gradientSlide2 {
+  background-image: linear-gradient(180deg, #222222 10%, rgba(0, 0, 0, 0) 60%, #222222 100%), url("/img/slide2.jpg") !important;
+}
+
+.gradientSlide3 {
+  background-image: linear-gradient(180deg, #222222 10%, rgba(0, 0, 0, 0) 60%, #222222 100%), url("/img/slide3.jpg") !important;
 }
 
 .carousel-item {
@@ -10878,9 +10898,9 @@ body {
 
 #searchBar {
   position: absolute;
-  top: 40%;
-  left: 25%;
-  width: 50%;
+  top: 30%;
+  left: 10%;
+  width: 80%;
 }
 
 .articlesForm {
@@ -10892,8 +10912,22 @@ body {
 }
 
 .footerCustom {
-  position: relative;
-  bottom: 0;
+  position: absolute;
+  bottom: -350%;
+}
+
+.btn-custom {
+  background-color: #f1bf0f;
+}
+
+.text-custom {
+  color: #f1bf0f;
+}
+
+.detailsBox {
+  min-height: 150px;
+  max-height: 300px;
+  overflow-y: scroll;
 }
 
 @media (min-width: 991px) {
@@ -10915,6 +10949,26 @@ body {
     width: 30%;
   }
 }
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(13deg, #858585 14%, #858585 64%);
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(13deg, #f1bf0f 14%, #f1bf0f 64%);
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: inset 7px 10px 12px #f0f0f0;
+}
+
 /*!
  * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -17201,7 +17255,7 @@ readers do not read off random characters that represent icons */
 .card-signin .card-img-left {
   width: 45%;
   /* Link to your background image using in the property below! */
-  background: scroll center url("https://freepikpsd.com/wp-content/uploads/2019/10/registration-icon-png-1-Transparent-Images.png");
+  background: scroll center url("/img/register.png");
   background-size: cover;
 }
 
@@ -17215,7 +17269,6 @@ readers do not read off random characters that represent icons */
 
 .form-signin .btn {
   font-size: 80%;
-  border-radius: 5rem;
   letter-spacing: 0.1rem;
   font-weight: bold;
   padding: 1rem;
@@ -17229,7 +17282,7 @@ readers do not read off random characters that represent icons */
 
 .form-label-group input {
   height: auto;
-  border-radius: 2rem;
+  border-radius: 0.25rem !important;
 }
 
 .form-label-group > input,
@@ -17322,7 +17375,7 @@ readers do not read off random characters that represent icons */
 }
 
 .bg-image {
-  background-image: url("https://www.wozur.com/wozur/public/user_files/images/Login.png");
+  background-image: url("/img/login.png");
   background-size: cover;
   background-position: center;
 }
@@ -17335,7 +17388,6 @@ readers do not read off random characters that represent icons */
   font-size: 0.9rem;
   letter-spacing: 0.05rem;
   padding: 0.75rem 1rem;
-  border-radius: 2rem;
 }
 
 .form-label-group {
@@ -17347,7 +17399,6 @@ readers do not read off random characters that represent icons */
 .form-label-group > label {
   padding: var(--input-padding-y) var(--input-padding-x);
   height: auto;
-  border-radius: 2rem;
 }
 
 .form-label-group > label {

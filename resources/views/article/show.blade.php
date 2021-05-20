@@ -1,6 +1,7 @@
 <x-layout>
-    <div class="container-fluid p-5">
-        <div class="row justify-content-around align-items-center mb-5">
+    <div style="height: 10vh"></div>
+    <div class="container-fluid" style="padding: 10rem">
+        <div class="row justify-content-center align-items-center mb-5">
             <div class="col-12 mt-1 d-flex justify-content-center d-lg-block col-lg-6 mb-5" id="wrapper">
                 <img class="img-fluid" src="{{$article->images->first()->getUrl(500,500)}}" alt="image random">
             </div>
@@ -11,13 +12,13 @@
                         <dd class="fs-5">{{__('ui.price')}}: {{$article->price}} €</dd>
                         @foreach ($categories as $cate)
                             @if ($cate->id == $article->category_id)
-                                <dd class="card-text fs-5">Categoria: <a href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></dd>
+                                <dd class="card-text fs-5">Categoria: <a class="text-decoration-none text-custom" href="{{route('article.index',compact('cate'))}}">{{$article->category->name}}</a></dd>
                             @endif
                         @endforeach
                         <dd class="fs-5">{{__('ui.author')}}: {{$article->user->name}}</dd>
                     </ul>
                     <h5 class="mt-5 text-center mb-3">{{__('ui.detail')}}</h5>
-                    <div class="articlesForm rounded-3 p-3" style="min-height: 150px">
+                    <div class="articlesForm rounded-3 p-3 detailsBox">
                         <p>{{$article->body}}</p>
                     </div>
                 </div>
