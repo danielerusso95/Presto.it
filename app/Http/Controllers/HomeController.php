@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\ResizeImage;
 use App\Models\Article;
+use App\Jobs\ResizeImage;
 use App\Models\ArticleImage;
 use Illuminate\Http\Request;
+use App\Jobs\GoogleVisionLabelImage;
 use Illuminate\Support\Facades\Auth;
+use App\Jobs\GoogleVisionRemoveFaces;
 use Illuminate\Support\Facades\Storage;
+use App\Jobs\GoogleVisionSafeSearchImage;
 
 class HomeController extends Controller
 {
@@ -68,22 +71,25 @@ class HomeController extends Controller
             $fileName = basename($image);
             $newFileName = "public/articles/{$article->id}/{$fileName}";
             Storage::move($image,$newFileName);
-            
-            dispatch(new ResizeImage(
-                $newFileName,
-                200,
-                200
-            ));
-            dispatch(new ResizeImage(
-                $newFileName,
-                500,
-                500
-            ));
 
             $i = ArticleImage::create([
                 'file'=> $newFileName,
                 'article_id'=> $article->id,
             ]);
+            GoogleVisionSafeSearchImage::withChain(
+                [new GoogleVisionLabelImage($i->id),
+                 new GoogleVisionRemoveFaces($i->id),
+                new ResizeImage(
+                    $newFileName,
+                    200,
+                    200
+                ),
+                new ResizeImage(
+                    $newFileName,
+                    500,
+                    500
+                )
+                ])->dispatch($i->id); 
         }
 
         Storage::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
