@@ -10847,6 +10847,28 @@ body {
   padding: 0;
 }
 
+:root {
+  --main-color: #4484ce;
+  --accent-color: #f9cf00;
+  --secondary-color: #f19f4d;
+}
+
+.bg-main {
+  color: var(--main-color);
+}
+
+.bg-accent {
+  color: var(--accent-color);
+}
+
+.bg-secondary {
+  color: var(--secondary-color);
+}
+
+.button {
+  background-color: var(--accent-color);
+}
+
 .head {
   width: 100;
   margin: 0 auto;
