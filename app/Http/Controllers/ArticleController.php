@@ -7,10 +7,12 @@ use App\Models\Category;
 use App\Jobs\ResizeImage;
 use App\Models\ArticleImage;
 use Illuminate\Http\Request;
+use App\Jobs\GoogleVisionWaterMark;
 use App\Jobs\GoogleVisionLabelImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Http\Requests\ArticleRequest;
+use App\Jobs\GoogleVisionRemoveFaces;
 use Intervention\Image\Facades\Image;
 use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Support\Facades\Storage;
@@ -135,25 +137,26 @@ class ArticleController extends Controller
             $fileName = basename($image);
             $newFileName = "public/articles/{$article->id}/{$fileName}";
             Storage::move($image,$newFileName);
-            dispatch(new ResizeImage(
-                $newFileName,
-                200,
-                200
-            ));
-            dispatch(new ResizeImage(
-                $newFileName,
-                500,
-                500
-            ));
-
 
             $i = ArticleImage::create([
                 'file'=> $newFileName,
                 'article_id'=> $article->id,
             ]);
 
-            dispatch(new GoogleVisionSafeSearchImage($i->id));
-            dispatch(new GoogleVisionLabelImage($i->id));
+            GoogleVisionSafeSearchImage::withChain(
+                [new GoogleVisionLabelImage($i->id),
+                 new GoogleVisionRemoveFaces($i->id),
+                new ResizeImage(
+                    $newFileName,
+                    200,
+                    200
+                ),
+                new ResizeImage(
+                    $newFileName,
+                    500,
+                    500
+                )
+                ])->dispatch($i->id);  
         }
 
         Storage::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
