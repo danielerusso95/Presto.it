@@ -22,7 +22,6 @@
                             @if ($article->images->isNotEmpty())
                                 <img src="{{$article->images->first()->getUrl(200,200)}}" class="img-fluid rounded-2" alt="image random">
                             @endif
-
                         </div>
                         <div class="col-12 col-md-6">
                            <div class="ms-3 ms-md-0 card-body">
@@ -38,7 +37,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-2 d-flex justify-content-center d-md-block">
-                            <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary">{{__('ui.show')}}</a>
+                            <a href="{{route('article.show', compact('article'))}}" class="btn button">{{__('ui.show')}}</a>
                         </div>
                     </div>
                 </div>

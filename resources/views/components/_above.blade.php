@@ -36,7 +36,7 @@
     <div class="col-12 p-0">
       <form action="{{route('search_results')}}" class="input-group" method="GET">
           <input type="search" id="search" name="q" class="form-control">
-          <button class="btn btn-primary px-md-5" type="submit">{{__('ui.searchButton')}}</button>
+          <button class="btn button px-md-5" type="submit">{{__('ui.searchButton')}}</button>
       </form>
     </div>
   </div>

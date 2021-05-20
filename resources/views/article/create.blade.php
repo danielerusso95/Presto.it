@@ -1,6 +1,6 @@
 <x-layout>
     @if (session('message'))
-        <div class="bg-primary py-3 text-center">
+        <div class="bg-success py-3 text-center">
             {{session('message')}}
         </div>
     @endif
@@ -51,7 +51,9 @@
                         <div class="dropzone" id="drophere"></div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Posta Annuncio</button>
+                <div class="p-2">
+                    <button type="submit" class="btn button">Posta Annuncio</button>
+                </div>
             </form>
         </div>
     </div>

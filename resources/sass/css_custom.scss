@@ -3,9 +3,32 @@ html {
 }
 body {
     font-family: "Signika", sans-serif;
-    background-color: black;
+    background-color: #d9d9d9;
     min-height: 100%;
 }
+
+:root{
+    --main-color: #4484ce;
+    --accent-color: #f9cf00;
+    --secondary-color: #f19f4d;
+}
+
+.bg-main{
+    color: var(--main-color);
+}
+
+.bg-accent{
+    color: var(--accent-color);
+}
+
+.bg-secondary{
+    color: var(--secondary-color);
+}
+
+.button{
+    background-color: var(--accent-color);
+}
+
 .head {
     height: 100% !important;
 }
