@@ -53,7 +53,7 @@ Route::get('/articoli/rifiutati', [RevisorController::class, 'bin'])->name('revi
 Route::delete('/articolo/eliminato/{article}', [RevisorController::class, 'delete'])->name('revisor.delete');
 
 //search
-Route::get('/search', [ArticleController::class, 'search'])->name('search_results');
+Route::get('/search', [PublicController::class, 'search'])->name('search_results');
 
 //user
 Route::get('/pagina/utente', [HomeController::class, 'panel'])->name('user.panel');

@@ -28,11 +28,7 @@ class ArticleController extends Controller
         $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->paginate(6);
         View::share('articles',$articles);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Category $cate)
     {
 
@@ -41,11 +37,6 @@ class ArticleController extends Controller
         return view ('article.index', compact('category','articles_category'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Request $request)
     {
         $uniqueSecret = $request->old('uniqueSecret',base_convert(sha1(uniqid(mt_rand())), 16, 36));
@@ -98,14 +89,6 @@ class ArticleController extends Controller
         return response()->json($data);
     }
 
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(ArticleRequest $request)
     {
         $categories = Category::all();
@@ -164,49 +147,13 @@ class ArticleController extends Controller
         return redirect()->back()->with('message','Complimenti, annuncio creato con successo!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
-     */
     public function show(Article $article)
     {
         return view('article.show', compact('article'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
-     */
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
-     */
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
-     */
-
-    public function search(Request $request){
-        $q = $request->input('q');
-        $articles = Article::search($q)->where('is_accepted', true)->paginate(6);
-
-
-        return view('search.search_results', compact('q', 'articles'));
-
-    }
-
-    //vista search, index, show
+  
 }

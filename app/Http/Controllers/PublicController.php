@@ -15,6 +15,11 @@ class PublicController extends Controller
         session()->put('locale', $locale);
         return redirect()->back();
     }
+    public function search(Request $request){
+        $q = $request->input('q');
+        $articles = Article::search($q)->where('is_accepted', true)->paginate(6);
+        return view('search.search_results', compact('q', 'articles'));
+    }
 
     // vista home
 }
