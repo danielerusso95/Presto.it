@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Jobs\ResizeImage;
 use App\Models\ArticleImage;
 use Illuminate\Http\Request;
+use App\Jobs\GoogleVisionWaterMark;
 use App\Jobs\GoogleVisionLabelImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
@@ -143,7 +144,7 @@ class ArticleController extends Controller
             ]);
 
             GoogleVisionSafeSearchImage::withChain(
-                [new GoogleVisionLabelImage($i->id), 
+                [new GoogleVisionLabelImage($i->id),
                 new GoogleVisionRemoveFaces($i->id),
                 new ResizeImage(
                     $newFileName,

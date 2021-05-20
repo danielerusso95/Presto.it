@@ -17,6 +17,7 @@ class GoogleVisionRemoveFaces implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    private $article_image_id;
     /**
      * Create a new job instance.
      *
@@ -41,8 +42,8 @@ class GoogleVisionRemoveFaces implements ShouldQueue
             return;
         }
 
-        $srcPath = storage_path('/app/' . $i->file);
-        $image = file_get_contents(storage_path('/app/' . $i->file));
+        $srcPath = storage_path() . '/app/' . $i->file;
+        $image = file_get_contents($srcPath);
 
         putenv('GOOGLE_APPLICATION_CREDENTIALS=' . base_path('google_credential.json'));
 
@@ -55,25 +56,34 @@ class GoogleVisionRemoveFaces implements ShouldQueue
 
             $bounds = [];
             foreach($vertices as $vertex){
-                $bounds[] = [$vertex->getX() . ", " . $vertex->getY()];
+                $bounds[] = [$vertex->getX(),$vertex->getY()];
             }
-            
+
             $w = $bounds[2][0] - $bounds[0][0];
             $h = $bounds[2][1] - $bounds[0][1];
 
-            $image = Image::load($srcPath);
-
-            $image->watermark(base_path('resources/img/watermark.png'))
-                ->watermarkOpacity(50)
+            $image = Image::load(storage_path() . '/app/' . $i->file)
+                ->watermark(public_path('img\watermark.jpg'))
                 ->watermarkPosition('top-left')
-                ->watermarkPadding($bounds[0][0], $bounds[0][0])
+                ->watermarkPadding($bounds[0][0], $bounds[0][1])
                 ->watermarkWidth($w, Manipulations::UNIT_PIXELS)
-                ->watermarkHeigth($h, Manipulations::UNIT_PIXELS)
-                ->watermarkFit(Manipulations::FIT_STRETCH);
+                ->watermarkHeight($h, Manipulations::UNIT_PIXELS)
+                ->watermarkFit(Manipulations::FIT_STRETCH)
+                ->apply();
 
-            
-            $image->save($srcPath);
+           /*  Image::load(storage_path() . '/app/' . $i->file)
+                ->watermark(public_path('img\logo.png'))
+                ->watermarkPosition('bottom-right')
+                ->save($srcPath); */
+
         }
+        $image->watermark(public_path('img\logo.png'))
+                ->watermarkPosition('top-left')
+                ->watermarkPadding(5, 5, Manipulations::UNIT_PERCENT)
+                ->watermarkWidth(100, Manipulations::UNIT_PIXELS)
+                ->watermarkHeight(100, Manipulations::UNIT_PIXELS)
+                ->watermarkFit(Manipulations::FIT_STRETCH)
+                ->save($srcPath);
 
         $imageAnnotator->close();
     }
