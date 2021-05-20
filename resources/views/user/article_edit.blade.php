@@ -1,18 +1,19 @@
 <x-layout>
+    <div style="height: 10vh"></div>
     @if (session('message'))
         <div class="bg-primary py-3 text-center">
             {{session('message')}}
         </div>
     @endif
     @if ($errors->any())
-              <div class="alert alert-danger col-12 mt-2">
-                <ul>
-                  @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                  @endforeach
-                </ul>
-              </div>
-        @endif
+        <div class="alert alert-danger col-12 mt-2">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        </div>
+    @endif
     <h3 class="mt-5 text-center">{{__('ui.delete')." ".__('ui.yourMS')." ".__('ui.announcements')}}</h3>
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -49,7 +50,7 @@
                         <div class="dropzone" id="drophere"></div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Conferma modifiche</button>
+                <button type="submit" class="mt-3 btn btn-custom">Conferma modifiche</button>
             </form>
             <div class="row mt-5">
                 @if ($article->images->count()>1)  

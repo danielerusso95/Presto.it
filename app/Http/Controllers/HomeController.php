@@ -57,8 +57,13 @@ class HomeController extends Controller
         $article->update([
             'title'=> $request->title,
             'body'=> $request->body,
-            'price'=> $request->price
+            'price'=> $request->price,
         ]);
+
+        $article->is_accepted = null;
+
+        $article->save();
+
         $uniqueSecret = $request->input('uniqueSecret');
 
         $images = session()->get("images.{$uniqueSecret}", []);
