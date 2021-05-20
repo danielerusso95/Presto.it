@@ -8,24 +8,19 @@
     <link rel="stylesheet" href="/css/app.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
-
     {{$style ?? ''}}
 </head>
 <body>
-    <header class="head" >
+    <header class="head">
         <x-_navbar />
-
-            {{$slot}}
-           
-        
+            <div style="height: 100vh">
+                
+                {{$slot}}
+            </div>
     </header>
+    
     <x-_footer />
-
     <script src="/js/app.js"></script>
-
-
-
     @stack('scripts')
-
 </body>
 </html>

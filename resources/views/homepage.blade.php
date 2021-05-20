@@ -9,8 +9,8 @@
     <x-_above />
 
 
-    <div class="container mt-5">
-        <h3 class="fs-2 mt-5 text-center mb-5">{{__('ui.fiveAnnouncements')}}</h3>
+    <div class="container h-100 mt-5">
+        <h3 class="fs-2 mt-5 text-center text-white mb-5">{{__('ui.fiveAnnouncements')}}</h3>
         <div class="row">
             @foreach($articles_home as $article)
                 <div class="col-12 mx-auto mx-md-0 mb-4">
@@ -22,7 +22,6 @@
                             @if ($article->images->isNotEmpty())
                                 <img src="{{$article->images->first()->getUrl(200,200)}}" class="img-fluid rounded-2" alt="image random">
                             @endif
-
                         </div>
                         <div class="col-12 col-md-6">
                            <div class="ms-3 ms-md-0 card-body">

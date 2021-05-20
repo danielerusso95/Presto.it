@@ -10839,12 +10839,24 @@ html {
 
 body {
   font-family: "Signika", sans-serif;
-  background-color: black;
+  background-color: #222222;
   min-height: 100%;
 }
 
 .head {
   height: 100% !important;
+}
+
+.gradientSlide1 {
+  background-image: linear-gradient(180deg, #222222 0%, rgba(0, 0, 0, 0) 50%, #222222 100%), url("/img/slide1.jpg") !important;
+}
+
+.gradientSlide2 {
+  background-image: linear-gradient(180deg, #222222 0%, rgba(0, 0, 0, 0) 50%, #222222 100%), url("/img/slide2.jpg") !important;
+}
+
+.gradientSlide3 {
+  background-image: linear-gradient(180deg, #222222 0%, rgba(0, 0, 0, 0) 50%, #222222 100%), url("/img/slide3.jpg") !important;
 }
 
 .carousel-item {
@@ -10856,7 +10868,7 @@ body {
 
 #searchBar {
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 25%;
   width: 50%;
 }
@@ -10870,8 +10882,9 @@ body {
 }
 
 .footerCustom {
-  position: relative;
+  position: fixed;
   bottom: 0;
+  height: 50px;
 }
 
 @media (min-width: 991px) {

@@ -1,22 +1,16 @@
-
 <x-layout>
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-10 col-xl-9 mx-auto">
-            <div class="card card-signin flex-row my-5">
+<div class="container h-100 mt-5 d-flex align-items-center">
+    <div class="row card-signin">
+        <div class="col-12 mx-auto">
+            <div class="card bg-transparent flex-row">
                 <div class="card-img-left d-none d-md-flex">
-
                 </div>
-
-
                  <div class="card-body">
                     <div class="card-title d-flex justify-content-center">
                         <h5>{{ __('Register') }}</h5>
                     </div>
                     <form class="form-signin" method="POST" action="{{ route('register') }}">
                         @csrf
-
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Name')}}</label>
 
@@ -30,7 +24,6 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -44,7 +37,6 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -58,7 +50,6 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
@@ -66,7 +57,6 @@
                                 <input id="password-confirm" placeholder="Conferma password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary me-5">
@@ -77,7 +67,6 @@
                         </div>
                     </form>
                  </div>
-
             </div>
         </div>
     </div>

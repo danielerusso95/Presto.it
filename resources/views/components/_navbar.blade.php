@@ -48,7 +48,12 @@
           @endif
         </ul>
       
-
+        <ul class="navbar-nav mx-auto">
+            <form action="{{route('search_results')}}" class="input-group h-75" method="GET">
+                <input type="search" id="search" name="q" class="form-control">
+                <button class="btn btn-primary text-center" type="submit">{{__('ui.searchButton')}}</button>
+            </form>
+        </ul>
 
         <ul class="navbar-nav me-3">
             <li class="nav-item">

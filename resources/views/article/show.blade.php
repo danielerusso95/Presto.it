@@ -1,6 +1,7 @@
 <x-layout>
-    <div class="container-fluid p-5">
-        <div class="row justify-content-around align-items-center mb-5">
+    <div style="height: 10vh"></div>
+    <div class="container-fluid" style="padding: 10rem">
+        <div class="row justify-content-center align-items-center mb-5">
             <div class="col-12 mt-1 d-flex justify-content-center d-lg-block col-lg-6 mb-5" id="wrapper">
                 <img class="img-fluid" src="{{$article->images->first()->getUrl(500,500)}}" alt="">
             </div>

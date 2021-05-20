@@ -2,16 +2,16 @@
 
     @if ($article)
 
-
+<div style="height: 5vh"></div>
     <div class="container-fluid p-5">
-        <h2 class="my-4">{{__('ui.title')}}: {{$article->title}}</h2>
-        <div class="row justify-content-around">
-            <div class="col-md-8 d-flex justify-content-center mb-5" id="wrapper">
+        <h2 class="mt-5 text-white">{{__('ui.title')}}: {{$article->title}}</h2>
+        <div class="row justify-content-center p-5">
+            <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start mb-5" id="wrapper">
                 @if ($article->images->isNotEmpty())
                     <img src="{{$article->images->first()->getUrl(500,500)}}" class="img-fluid rounded-2" alt="image random">
                 @endif
             </div>
-            <div class="col-md-4">
+            <div class="col-12 col-md-6 p-5 articlesForm">
                 <h3 class="my-3">{{__('ui.details').' '.__('ui.announcement')}}:</h3>
                 <ul>
                     <li>{{__('ui.price')}}: {{$article->price}} €</li>
@@ -128,7 +128,11 @@
 
     </div>
     @else
-    <h2 class="bg-success text-center">{{__('ui.revisorNotWorking')}}</h2>
+    <div class="row mt-5 justify-content-center">
+        <div class="col-6 rounded-3 py-2 mt-5">
+            <h2 class="bg-success text-center mt-5">{{__('ui.revisorNotWorking')}}</h2>
+        </div>
+    </div>
     @endif
 
         <script>
