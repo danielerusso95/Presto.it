@@ -55,16 +55,16 @@
 
                                         <div class="form-group d-flex ms-0 mb-0">
                                             <div class="col-md-8">
-                                                <button type="submit" class="btn btn-primary">
-                                                    {{ __('Login') }}
+                                                <button type="submit" class="fs-5 btn btn-custom">
+                                                        {{ __('Login') }}
                                                 </button>
 
                                                 @if (Route::has('password.request'))
-                                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                    <a class="btn btn-link text-custom text-decoration-none" href="{{ route('password.request') }}">
                                                         {{ __('Forgot Your Password?') }}
                                                     </a>
                                                 @endif
-                                                <a class="btn btn-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                <a class="btn btn-link text-custom text-decoration-none" href="{{ route('register') }}">{{ __('Register') }}</a>
                                             </div>
                                         </div>
                                     </form>

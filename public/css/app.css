@@ -17200,7 +17200,7 @@ readers do not read off random characters that represent icons */
 .card-signin .card-img-left {
   width: 45%;
   /* Link to your background image using in the property below! */
-  background: scroll center url("https://freepikpsd.com/wp-content/uploads/2019/10/registration-icon-png-1-Transparent-Images.png");
+  background: scroll center url("/img/register.png");
   background-size: cover;
 }
 
@@ -17214,7 +17214,6 @@ readers do not read off random characters that represent icons */
 
 .form-signin .btn {
   font-size: 80%;
-  border-radius: 5rem;
   letter-spacing: 0.1rem;
   font-weight: bold;
   padding: 1rem;
@@ -17228,7 +17227,7 @@ readers do not read off random characters that represent icons */
 
 .form-label-group input {
   height: auto;
-  border-radius: 2rem;
+  border-radius: 0.25rem !important;
 }
 
 .form-label-group > input,
@@ -17321,7 +17320,7 @@ readers do not read off random characters that represent icons */
 }
 
 .bg-image {
-  background-image: url("https://www.wozur.com/wozur/public/user_files/images/Login.png");
+  background-image: url("/img/login.png");
   background-size: cover;
   background-position: center;
 }
@@ -17334,7 +17333,6 @@ readers do not read off random characters that represent icons */
   font-size: 0.9rem;
   letter-spacing: 0.05rem;
   padding: 0.75rem 1rem;
-  border-radius: 2rem;
 }
 
 .form-label-group {
@@ -17346,7 +17344,6 @@ readers do not read off random characters that represent icons */
 .form-label-group > label {
   padding: var(--input-padding-y) var(--input-padding-x);
   height: auto;
-  border-radius: 2rem;
 }
 
 .form-label-group > label {

@@ -59,10 +59,10 @@
                         </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary me-5">
+                                <button type="submit" class="btn btn-custom fs-5 p-2 me-5">
                                     {{ __('Register') }}
                                 </button>
-                                <a href="{{route('login')}}">Sign In</a>
+                                <a class="text-decoration-none text-custom fs-6" href="{{route('login')}}">Sign In</a>
                             </div>
                         </div>
                     </form>
