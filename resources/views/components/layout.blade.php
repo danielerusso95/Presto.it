@@ -15,6 +15,7 @@
     <section class="head">
         <x-_navbar />
             <div style="height: 100%;">
+            
                 {{$slot}}
             </div>
     </section>

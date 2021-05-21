@@ -1,5 +1,5 @@
 <x-layout>
-
+<div class="mt-5" style="height: 10vh"></div>
 <div class="container h-100 mt-5 d-flex align-items-center">
     <div class="row card-signin">
         <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">

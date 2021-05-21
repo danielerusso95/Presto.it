@@ -1,4 +1,5 @@
 <x-layout>
+    <div class="mt-5" style="height: 10vh"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

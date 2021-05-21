@@ -1,4 +1,5 @@
 <x-layout>
+    <div class="mt-5" style="height: 10vh"></div>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -31,7 +32,7 @@
 
                         <div class="form-group row mb-0 mt-3">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-custom">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>

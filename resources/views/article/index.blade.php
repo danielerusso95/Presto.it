@@ -45,6 +45,22 @@
                 </div>
                 <div class="col-12 col-md-2 d-flex justify-content-center d-md-block">
                     <a href="{{route('article.show', compact('article'))}}" class="btn btn-custom">{{__('ui.show')}}</a>
+                    <form action="{{route('article.preferite', compact('article'))}}" method="POST">
+                        @csrf
+                       <input type="hidden" name="preferite" value=true>
+                       @if ($article->preferite->isNotEmpty())
+
+                       @foreach ($article->preferite as $preferite)
+                            @if($preferite->pivot->article_id==$article->id)
+                            <button type="submit" class="btn fs-3"><i class="fas fa-heart ms-3"></i></button>
+                            @else
+                            <button type="submit" class="btn fs-3"><i class="far fa-heart ms-3"></i></button>
+                            @endif
+                       @endforeach
+                       @else
+                       <button type="submit" class="btn fs-3"><i class="far fa-heart ms-3"></i></button>
+                       @endif
+                    </form>
                 </div>
             </div>
         </div>

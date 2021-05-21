@@ -7,7 +7,29 @@
             </div>
             <div class="col-12 col-lg-4 articlesForm rounded-3 mb-5">
                 <div class="p-5">
-                    <h3 class="mb-5">{{$article->title}}</h3>
+                    <div class="row">
+                        <div class="col-10">
+                            <h3 class="mb-5">{{$article->title}}</h3>
+                        </div>
+                        <div class="col-2">
+                            <form action="{{route('article.preferite', compact('article'))}}" method="POST">
+                                @csrf
+                            <input type="hidden" name="preferite" value=true>
+                            @if ($article->preferite->isNotEmpty())
+
+                            @foreach ($article->preferite as $preferite)
+                                    @if($preferite->pivot->article_id==$article->id)
+                                    <button type="submit" class="btn fs-3"><i class="fas fa-heart ms-3"></i></button>
+                                    @else
+                                    <button type="submit" class="btn fs-3"><i class="far fa-heart ms-3"></i></button>
+                                    @endif
+                            @endforeach
+                            @else
+                            <button type="submit" class="btn fs-3"><i class="far fa-heart ms-3"></i></button>
+                            @endif
+                            </form>
+                        </div>
+                    </div>
                     <ul>
                         <dd class="fs-5">{{__('ui.price')}}: {{$article->price}} €</dd>
                         @foreach ($categories as $cate)

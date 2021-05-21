@@ -1,4 +1,5 @@
 <x-layout>
+<div class="mt-5" style="height: 10vh"></div>
 <div class="container h-100 mt-5 d-flex align-items-center">
     <div class="row card-signin">
         <div class="col-12 mx-auto">
