@@ -30,6 +30,7 @@ return[
     'detail'=>'Detalle',
     'author'=>'Autor',
     'category'=>'Categoría',
+    'categories'=>'Categorie',
     'createdAt'=>'Creado en',
     'show'=>'Vista',
     'and'=>'es',

@@ -137,6 +137,7 @@
                 </div>
             </div>
             {{ $articles->links() }}
+            <div class="mt-5" style="height: 10vh"></div>
         @endif
     </div>
 

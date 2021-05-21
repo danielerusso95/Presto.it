@@ -1,4 +1,5 @@
 <x-layout>
+    <div class="mt-5" style="height: 10vh"></div>
     @if (session('message'))
         <div class="bg-primary py-3 text-center">
             {{session('message')}}
@@ -13,7 +14,7 @@
                 </ul>
               </div>
         @endif
-    <h3 class="mt-5 text-center">{{__('ui.workForm')}}</h3>
+    <h3 class="mt-5 text-center text-light">{{__('ui.workForm')}}</h3>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 p-3 articlesForm">
@@ -40,4 +41,5 @@
         </div>
     </div>
 </div>
+<div class="mt-5" style="height: 10vh"></div>
 </x-layout>

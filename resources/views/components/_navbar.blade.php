@@ -51,7 +51,7 @@
         <ul class="navbar-nav mx-auto d-flex align-items-center">
             <li class="nav-item  dropdown">
                 <a class="nav-link fs-5 active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categories
+                    {{__('ui.categories')}}
                 </a>
                 <ul class="dropdown-menu border-0" aria-labelledby="navbarDropdown">
                     @foreach ($categories as $cate)
