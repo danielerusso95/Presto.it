@@ -10907,6 +10907,10 @@ body {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.navbarBg {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .bg-custom {
   background-color: transparent;
 }
@@ -10938,10 +10942,18 @@ body {
   .logo-custom {
     width: 7%;
   }
+
+  .navbarBg {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
 }
 @media (max-width: 990px) {
   .logo-custom {
     width: 15%;
+  }
+
+  .navbarBg {
+    background-color: white;
   }
 }
 @media (max-width: 450px) {

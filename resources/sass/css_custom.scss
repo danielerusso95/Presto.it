@@ -92,6 +92,10 @@ body {
 .articlesForm {
     background-color: rgba(255, 255, 255, 0.5);
 }
+.navbarBg {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 .bg-custom {
     background-color: transparent;
 }
@@ -99,7 +103,6 @@ body {
 .footerCustom {
     position: absolute;
     bottom: 0%;
-
 }
 
 .btn-custom {
@@ -121,11 +124,17 @@ body {
     .logo-custom {
         width: 7%;
     }
+    .navbarBg {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
 }
 
 @media (max-width: 990px) {
     .logo-custom {
         width: 15%;
+    }
+    .navbarBg {
+        background-color: white;
     }
 }
 
