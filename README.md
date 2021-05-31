@@ -39,15 +39,14 @@ We are developing an ad portal
 
 ## F.A.Q.
 
-What I need?
+**What I need?
+
 Laravel, PHP & Google Vision API Credentials.
 
-## GitLab
-
-Click [here](https://gitlab.com/hackademy-26/presto_hackvengers)
-
 **Where can I read about Laravel?**
+
 Click [Here](https://aqicn.org/data-platform/token/#/)
+
 
 Thanks!
 D.Russo
