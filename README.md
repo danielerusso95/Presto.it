@@ -28,13 +28,13 @@ We are developing an ad portal
 
 ### Framework, tool and libraries
 
--   [Bootstrap] (https://getbootstrap.com/)
+-   [Bootstrap](https://getbootstrap.com/)
 -   [Google Font](https://fonts.google.com/)
--   [Laravel] (https://laravel.com/)
--   [Google Vision API] (https://cloud.google.com/vision/?hl=it&utm_source=google&utm_medium=cpc&utm_campaign=emea-it-all-it-dr-bkws-all-all-trial-e-gcp-1010042&utm_content=text-ad-none-any-DEV_c-CRE_170511603496-ADGP_Hybrid%20%7C%20BKWS%20-%20EXA%20%7C%20Txt%20~%20AI%20%26%20ML%20~%20Vision%20AI%23v1-KWID_43700053287028099-kwd-203288731687-userloc_20574&utm_term=KW_google%20vision%20api-NET_g-PLAC_&gclid=Cj0KCQjwktKFBhCkARIsAJeDT0g_fdtOQ6LOkeIuDvvtZIG_l7i3DpaLkmKX61KwPiICo7TkSGyHziUaAtEkEALw_wcB&gclsrc=aw.ds)
--   [Laravel Scout] (https://laravel.com/docs/8.x/scout)
--   [Dropzone.js] (https://www.dropzonejs.com/)
--   [Spatie] (https://spatie.be/docs/image/v1/introduction)
+-   [Laravel](https://laravel.com/)
+-   [Google Vision API](https://cloud.google.com/vision/?hl=it&utm_source=google&utm_medium=cpc&utm_campaign=emea-it-all-it-dr-bkws-all-all-trial-e-gcp-1010042&utm_content=text-ad-none-any-DEV_c-CRE_170511603496-ADGP_Hybrid%20%7C%20BKWS%20-%20EXA%20%7C%20Txt%20~%20AI%20%26%20ML%20~%20Vision%20AI%23v1-KWID_43700053287028099-kwd-203288731687-userloc_20574&utm_term=KW_google%20vision%20api-NET_g-PLAC_&gclid=Cj0KCQjwktKFBhCkARIsAJeDT0g_fdtOQ6LOkeIuDvvtZIG_l7i3DpaLkmKX61KwPiICo7TkSGyHziUaAtEkEALw_wcB&gclsrc=aw.ds)
+-   [Laravel Scout](https://laravel.com/docs/8.x/scout)
+-   [Dropzone.js](https://www.dropzonejs.com/)
+-   [Spatie](https://spatie.be/docs/image/v1/introduction)
 
 
 ## F.A.Q.
