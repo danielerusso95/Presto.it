@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light navbarBg fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light p-0 navbarBg fixed-top">
   <div class="container-fluid">
 
       <a href="{{route('homepage')}}"><img src="/img/logo.png" class="w-50 img-fluid" alt="logo"></a>
