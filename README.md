@@ -11,7 +11,7 @@ Aulab final project.
 ## General Info
 
 A project maked up to final project aulab Hackademy.
-We are developing an ad portal
+We are developing an ads portal
 
 ### Screenshot
 
