@@ -15,7 +15,7 @@ We are developing an ad portal
 
 ### Screenshot
 
-![APP]("https://i.ibb.co/Snj2dVD/Schermata-da-2021-05-31-15-33-48.png")
+![APP](https://i.ibb.co/Snj2dVD/Schermata-da-2021-05-31-15-33-48.png)
 
 ## Technologies
 
